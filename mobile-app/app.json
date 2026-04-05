@@ -1,0 +1,38 @@
+{
+  "expo": {
+    "name": "Mohab Portfolio",
+    "slug": "mohab-portfolio",
+    "version": "1.0.0",
+    "scheme": "mohabportfolio",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "automatic",
+    "newArchEnabled": true,
+    "splash": {
+      "image": "./assets/splash-icon.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.mohabx116.portfolio"
+    },
+    "android": {
+      "package": "com.mohabx116.portfolio",
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#ffffff"
+      },
+      "edgeToEdgeEnabled": true
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "55d4b113-123b-4249-8326-7551a9afab52"
+      }
+    },
+    "owner": "mohabx_116"
+  }
+}
