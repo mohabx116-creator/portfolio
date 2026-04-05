@@ -4,7 +4,7 @@ const contactData = {
   email: 'mohabx116@gmail.com',
   whatsapp: '+201027613133',
   khamsat: 'https://khamsat.com/user/mohabx_116',
-  fiverr: 'https://www.fiverr.com/sellers/mohabx116',
+  fiverr: 'https://www.fiverr.com/s/7YzX11x',
   github: 'https://github.com/mohabx116-creator',
 }
 
