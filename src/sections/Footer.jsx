@@ -26,6 +26,7 @@ function Footer() {
               <a href="https://wa.me/201027613133" target="_blank" rel="noreferrer" className="font-semibold text-primary transition-colors duration-300 hover:text-on-surface">WhatsApp</a>
               <a href={`mailto:${content.contactData.email}`}>{content.contactData.email}</a>
               <a href={content.contactData.khamsat} target="_blank" rel="noreferrer">Khamsat</a>
+              <a href={content.contactData.fiverr} target="_blank" rel="noreferrer">Fiverr</a>
               <a href={content.contactData.github} target="_blank" rel="noreferrer">GitHub</a>
             </div>
           </div>
