@@ -74,9 +74,9 @@ function Navbar() {
   )
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50">
+    <header className="fixed inset-x-0 top-0 z-50 px-3 pt-3 sm:px-0 sm:pt-0">
       <Container>
-        <div ref={menuRef} className={`glass-panel mt-4 px-4 py-3 shadow-ambient transition-all duration-300 ${isOpen ? 'rounded-[2rem]' : 'rounded-full'}`}>
+        <div ref={menuRef} className={`glass-panel px-4 py-3 shadow-ambient transition-all duration-300 sm:mt-4 ${isOpen ? 'rounded-[2rem]' : 'rounded-[1.6rem] sm:rounded-full'}`}>
           <div className="flex items-center justify-between gap-4">
             <Link to="/" className="font-headline text-lg font-bold text-on-surface">
               <span className="bg-berry-text bg-clip-text text-transparent">{content?.brandName}</span>
@@ -106,7 +106,7 @@ function Navbar() {
 
             <button
               type="button"
-              className="flex h-10 w-10 items-center justify-center rounded-full bg-surface-high text-on-surface md:hidden"
+              className="flex h-11 w-11 items-center justify-center rounded-2xl border border-outline-variant/15 bg-surface-high text-on-surface md:hidden"
               onClick={() => setIsOpen((value) => !value)}
               aria-label={controlsContent.menu || 'Open menu'}
             >
