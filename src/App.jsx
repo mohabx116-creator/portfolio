@@ -11,13 +11,12 @@ import Footer from './sections/Footer'
 import ProjectExperiencePage from './pages/ProjectExperiencePage'
 import useAppSettings from './context/useAppSettings'
 import ScrollToTop from './components/ScrollToTop'
-import MobileBottomNav from './components/MobileBottomNav'
 
 function HomePage() {
   return (
     <>
       <Navbar />
-      <main className="mobile-app-shell pb-32 md:pb-0">
+      <main>
         <HeroSection />
         <ServicesSection />
         <ProjectsSection />
@@ -26,7 +25,6 @@ function HomePage() {
         <CtaSection />
         <ContactSection />
       </main>
-      <MobileBottomNav />
       <Footer />
     </>
   )

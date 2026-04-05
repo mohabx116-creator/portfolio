@@ -14,17 +14,17 @@ function ContactSection() {
   })
 
   return (
-    <section id="contact" className="bg-surface-low px-4 py-32 sm:px-6 lg:px-8">
+    <section id="contact" className="bg-surface-low px-4 py-20 sm:px-6 sm:py-24 lg:px-8 lg:py-28">
       <Container>
-        <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
+        <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start lg:gap-12">
           <Reveal className="text-start">
             <SectionHeading
               eyebrow={contactSection.eyebrow}
               title={contactSection.title}
               description={contactSection.description}
               className="max-w-2xl"
-              titleClassName="text-[2.2rem] leading-[1.16] sm:text-[2.55rem] lg:text-[2.95rem]"
-              descriptionClassName="max-w-2xl text-lg leading-9"
+              titleClassName="text-[1.95rem] leading-[1.16] sm:text-[2.35rem] lg:text-[2.95rem]"
+              descriptionClassName="max-w-2xl text-base leading-7 sm:text-lg sm:leading-9"
             />
             <div className="mt-8 rounded-[1.5rem] border border-primary/20 bg-primary/10 p-5 text-sm leading-7 text-on-surface backdrop-blur-sm">
               <p className="font-headline text-base font-bold text-primary">{contactSection.highlightTitle}</p>
@@ -42,7 +42,7 @@ function ContactSection() {
                     href={item.href}
                     target="_blank"
                     rel="noreferrer"
-                    className={`dashboard-card flex h-full flex-col justify-between gap-6 p-6 text-start transition-all duration-300 hover:-translate-y-1 ${
+                    className={`dashboard-card flex h-full min-w-0 flex-col justify-between gap-5 p-5 text-start transition-all duration-300 hover:-translate-y-1 sm:gap-6 sm:p-6 ${
                       isWhatsApp
                         ? 'border border-primary/30 bg-gradient-to-br from-primary/12 to-secondary/10 shadow-[0_18px_42px_rgba(128,131,255,0.16)] hover:border-primary/45 hover:shadow-[0_22px_50px_rgba(128,131,255,0.22)] sm:col-span-2'
                         : 'ghost-border hover:border-primary/25 hover:bg-surface-card/90 hover:shadow-[0_18px_42px_rgba(0,0,0,0.18)]'
@@ -57,7 +57,7 @@ function ContactSection() {
                           </span>
                         ) : null}
                       </div>
-                      <p className="mt-4 break-words font-headline text-xl font-bold text-on-surface transition-colors duration-300 hover:text-primary">{item.value}</p>
+                      <p className="mt-4 break-words font-headline text-lg font-bold text-on-surface transition-colors duration-300 hover:text-primary sm:text-xl">{item.value}</p>
                     </div>
                     <span className="text-sm text-on-muted">{contactSection.action}</span>
                   </a>

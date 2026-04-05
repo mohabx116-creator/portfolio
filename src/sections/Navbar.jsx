@@ -15,6 +15,10 @@ function Navbar() {
   const ctaSection = content?.sections?.cta || {}
 
   useEffect(() => {
+    setIsOpen(false)
+  }, [location.pathname, language])
+
+  useEffect(() => {
     if (!isOpen) {
       return undefined
     }
@@ -58,7 +62,7 @@ function Navbar() {
         type="button"
         onClick={toggleTheme}
         aria-label={controlsContent.theme || 'Toggle theme'}
-        className="flex h-10 min-w-10 items-center justify-center rounded-full border border-outline-variant/15 bg-surface-high px-3 text-xs font-bold text-on-surface transition-all duration-300 hover:border-primary/30 hover:text-primary"
+        className="flex h-11 min-w-11 items-center justify-center rounded-full border border-outline-variant/15 bg-surface-high px-3 text-xs font-bold text-on-surface transition-all duration-300 hover:border-primary/30 hover:text-primary"
       >
         {theme === 'dark' ? controlsContent.light : controlsContent.dark}
       </button>
@@ -66,7 +70,7 @@ function Navbar() {
         type="button"
         onClick={toggleLanguage}
         aria-label={controlsContent.language || 'Toggle language'}
-        className="flex h-10 min-w-10 items-center justify-center rounded-full border border-outline-variant/15 bg-surface-high px-3 text-xs font-bold text-on-surface transition-all duration-300 hover:border-primary/30 hover:text-primary"
+        className="flex h-11 min-w-11 items-center justify-center rounded-full border border-outline-variant/15 bg-surface-high px-3 text-xs font-bold text-on-surface transition-all duration-300 hover:border-primary/30 hover:text-primary"
       >
         {language === 'ar' ? controlsContent.en : controlsContent.ar}
       </button>
@@ -74,86 +78,112 @@ function Navbar() {
   )
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 px-3 pt-3 sm:px-0 sm:pt-0">
-      <Container>
-        <div ref={menuRef} className={`glass-panel px-4 py-3 shadow-ambient transition-all duration-300 sm:mt-4 ${isOpen ? 'rounded-[2rem]' : 'rounded-[1.6rem] sm:rounded-full'}`}>
-          <div className="flex items-center justify-between gap-4">
-            <Link to="/" className="font-headline text-lg font-bold text-on-surface">
-              <span className="bg-berry-text bg-clip-text text-transparent">{content?.brandName}</span>
+    <header className="fixed inset-x-0 top-0 z-50">
+      <Container className="pt-3 sm:pt-4">
+        <div
+          ref={menuRef}
+          className={`glass-panel shadow-ambient transition-all duration-300 ${
+            isOpen ? 'rounded-[1.75rem]' : 'rounded-[1.35rem] sm:rounded-full'
+          }`}
+        >
+          <div className="flex items-center gap-3 px-3 py-3 sm:px-4">
+            <Link to="/" className="min-w-0 flex-1 font-headline text-base font-bold text-on-surface sm:text-lg">
+              <span className="block truncate bg-berry-text bg-clip-text text-transparent">{content?.brandName}</span>
             </Link>
 
-            <div className="hidden items-center gap-3 md:flex">
+            <div className="hidden items-center gap-2 lg:flex xl:gap-3">
+              {navLinks.map((link) => (
+                isProjectPage ? (
+                  <Link
+                    key={link.href}
+                    to={link.href}
+                    className="rounded-full px-3 py-2 text-sm font-semibold text-on-muted transition-colors duration-300 hover:text-primary"
+                  >
+                    {link.label}
+                  </Link>
+                ) : (
+                  <a
+                    key={link.href}
+                    href={link.href}
+                    className="rounded-full px-3 py-2 text-sm font-semibold text-on-muted transition-colors duration-300 hover:text-primary"
+                  >
+                    {link.label}
+                  </a>
+                )
+              ))}
+            </div>
+
+            <div className="hidden items-center gap-2 md:flex">
               {controls}
               {isProjectPage ? (
-                <ButtonLink href="https://wa.me/201027613133" target="_blank" rel="noreferrer" variant="primary" className="cta-attention rounded-full bg-gradient-to-r from-primary-container via-[#5f75ff] to-secondary-container px-7 py-3.5 text-base shadow-[0_18px_44px_rgba(var(--color-primary-container),0.34)]">
+                <ButtonLink
+                  href="https://wa.me/201027613133"
+                  target="_blank"
+                  rel="noreferrer"
+                  variant="primary"
+                  className="cta-attention whitespace-nowrap rounded-full bg-gradient-to-r from-primary-container via-[#5f75ff] to-secondary-container px-5 py-3 text-sm shadow-[0_18px_44px_rgba(var(--color-primary-container),0.34)] lg:px-6"
+                >
                   {ctaSection.action || 'Contact'}
                 </ButtonLink>
               ) : (
-                <ButtonLink href="#contact" variant="primary" className="cta-attention rounded-full bg-gradient-to-r from-primary-container via-[#5f75ff] to-secondary-container px-7 py-3.5 text-base shadow-[0_18px_44px_rgba(var(--color-primary-container),0.34)]">
+                <ButtonLink
+                  href="#contact"
+                  variant="primary"
+                  className="cta-attention whitespace-nowrap rounded-full bg-gradient-to-r from-primary-container via-[#5f75ff] to-secondary-container px-5 py-3 text-sm shadow-[0_18px_44px_rgba(var(--color-primary-container),0.34)] lg:px-6"
+                >
                   {nav.contactCta || 'Contact Me'}
                 </ButtonLink>
               )}
-
-              <button
-                type="button"
-                className="flex h-12 w-12 items-center justify-center rounded-full border border-outline-variant/15 bg-surface-high text-on-surface transition-all duration-300 hover:border-primary/30 hover:text-primary"
-                onClick={() => setIsOpen((value) => !value)}
-                aria-label={controlsContent.menu || 'Open menu'}
-              >
-                <span className="text-xl leading-none">?</span>
-              </button>
             </div>
 
             <button
               type="button"
-              className="flex h-11 w-11 items-center justify-center rounded-2xl border border-outline-variant/15 bg-surface-high text-on-surface md:hidden"
+              className="flex h-11 w-11 items-center justify-center rounded-full border border-outline-variant/15 bg-surface-high text-on-surface transition-all duration-300 hover:border-primary/30 hover:text-primary md:h-12 md:w-12"
               onClick={() => setIsOpen((value) => !value)}
               aria-label={controlsContent.menu || 'Open menu'}
             >
-              <span className="text-lg">?</span>
+              <span className="text-lg leading-none">{isOpen ? '×' : '☰'}</span>
             </button>
           </div>
 
-          <div className={`overflow-hidden transition-all duration-300 ${isOpen ? 'max-h-[36rem] pt-5 opacity-100' : 'max-h-0 opacity-0'}`}>
-            <div className="flex flex-col gap-4 border-t border-outline-variant/15 pt-5">
-              <div className="grid gap-3">
-                {navLinks.map((link, index) => (
+          <div className={`overflow-hidden transition-all duration-300 ${isOpen ? 'max-h-[38rem] opacity-100' : 'max-h-0 opacity-0'}`}>
+            <div className="border-t border-outline-variant/15 px-3 pb-4 pt-4 sm:px-4">
+              <div className="grid gap-2">
+                {navLinks.map((link) => (
                   isProjectPage ? (
                     <Link
                       key={link.href}
                       to={link.href}
-                      className="group flex items-center justify-between rounded-2xl border border-outline-variant/15 bg-surface-card/70 px-4 py-3 text-sm font-semibold text-on-surface transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/30 hover:bg-surface-high/80"
+                      className="group flex items-center justify-between rounded-2xl border border-outline-variant/15 bg-surface-card/70 px-4 py-3 text-sm font-semibold text-on-surface transition-all duration-300 hover:border-primary/30 hover:bg-surface-high/80"
                       onClick={() => setIsOpen(false)}
-                      style={{ transitionDelay: `${index * 30}ms` }}
                     >
                       <span>{link.label}</span>
-                      <span className="text-primary transition-transform duration-300 group-hover:translate-x-1">{isRTL ? '?' : '?'}</span>
+                      <span className="text-primary transition-transform duration-300 group-hover:translate-x-1">{isRTL ? '←' : '→'}</span>
                     </Link>
                   ) : (
                     <a
                       key={link.href}
                       href={link.href}
-                      className="group flex items-center justify-between rounded-2xl border border-outline-variant/15 bg-surface-card/70 px-4 py-3 text-sm font-semibold text-on-surface transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/30 hover:bg-surface-high/80"
+                      className="group flex items-center justify-between rounded-2xl border border-outline-variant/15 bg-surface-card/70 px-4 py-3 text-sm font-semibold text-on-surface transition-all duration-300 hover:border-primary/30 hover:bg-surface-high/80"
                       onClick={() => setIsOpen(false)}
-                      style={{ transitionDelay: `${index * 30}ms` }}
                     >
                       <span>{link.label}</span>
-                      <span className="text-primary transition-transform duration-300 group-hover:translate-x-1">{isRTL ? '?' : '?'}</span>
+                      <span className="text-primary transition-transform duration-300 group-hover:translate-x-1">{isRTL ? '←' : '→'}</span>
                     </a>
                   )
                 ))}
               </div>
 
-              <div className={`flex gap-3 pt-1 md:hidden ${isRTL ? 'justify-end' : 'justify-start'}`}>
+              <div className={`mt-4 flex flex-wrap gap-2 ${isRTL ? 'justify-end' : 'justify-start'}`}>
                 {controls}
               </div>
 
               {isProjectPage ? (
-                <ButtonLink href="https://wa.me/201027613133" className="mt-1 w-full" target="_blank" rel="noreferrer" onClick={() => setIsOpen(false)}>
+                <ButtonLink href="https://wa.me/201027613133" className="mt-4 w-full" target="_blank" rel="noreferrer" onClick={() => setIsOpen(false)}>
                   {ctaSection.action || 'Contact'}
                 </ButtonLink>
               ) : (
-                <ButtonLink href="#contact" className="mt-1 w-full" onClick={() => setIsOpen(false)}>
+                <ButtonLink href="#contact" className="mt-4 w-full" onClick={() => setIsOpen(false)}>
                   {nav.contactCta || 'Contact Me'}
                 </ButtonLink>
               )}

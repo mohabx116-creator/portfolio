@@ -12,7 +12,7 @@
       target={target}
       rel={rel}
       onClick={onClick}
-      className={`inline-flex items-center justify-center rounded-xl px-6 py-3 font-headline text-sm font-bold transition-all duration-300 hover:-translate-y-0.5 ${variants[variant]} ${className}`.trim()}
+      className={`inline-flex min-h-12 items-center justify-center rounded-xl px-5 py-3 text-center font-headline text-sm font-bold leading-5 transition-all duration-300 hover:-translate-y-0.5 sm:px-6 ${variants[variant]} ${className}`.trim()}
     >
       {children}
     </a>

@@ -9,14 +9,14 @@
 
 function ServiceCard({ title, description, icon }) {
   return (
-    <article className="dashboard-card ghost-border group h-full p-7 transition-all duration-300 hover:-translate-y-1 hover:border-primary/30 hover:bg-surface-high/80 hover:shadow-[0_18px_42px_rgba(0,0,0,0.18)]">
+    <article className="dashboard-card ghost-border group h-full p-5 transition-all duration-300 hover:-translate-y-1 hover:border-primary/30 hover:bg-surface-high/80 hover:shadow-[0_18px_42px_rgba(0,0,0,0.18)] sm:p-6 lg:p-7">
       <div className="absolute inset-x-6 top-0 h-px bg-gradient-to-r from-transparent via-primary/45 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-      <div className="relative mb-6 flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary transition-all duration-300 group-hover:scale-110 group-hover:bg-primary/15">
+      <div className="relative mb-5 flex h-11 w-11 items-center justify-center rounded-xl bg-primary/10 text-primary transition-all duration-300 group-hover:scale-110 group-hover:bg-primary/15 sm:mb-6 sm:h-12 sm:w-12">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" className="h-5 w-5">
           {icons[icon]}
         </svg>
       </div>
-      <h3 className="relative font-headline text-xl font-bold text-on-surface transition-colors duration-300 group-hover:text-primary">{title}</h3>
+      <h3 className="relative font-headline text-lg font-bold leading-7 text-on-surface transition-colors duration-300 group-hover:text-primary sm:text-xl">{title}</h3>
       <p className="relative mt-3 text-sm leading-7 text-on-muted">{description}</p>
     </article>
   )

@@ -10,7 +10,7 @@ function ServicesSection() {
   const services = Array.isArray(content?.services) ? content.services : []
 
   return (
-    <section id="services" className="bg-surface-low px-4 py-28 sm:px-6 lg:px-8">
+    <section id="services" className="bg-surface-low px-4 py-20 sm:px-6 sm:py-24 lg:px-8 lg:py-28">
       <Container>
         <Reveal>
           <SectionHeading
@@ -20,7 +20,7 @@ function ServicesSection() {
             align="center"
           />
         </Reveal>
-        <div className="mt-16 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-10 grid gap-4 sm:mt-12 sm:gap-5 md:grid-cols-2 lg:mt-16 lg:grid-cols-3 lg:gap-6">
           {services.map((service, index) => (
             <Reveal key={service.title || index} delay={index * 0.08}>
               <ServiceCard {...service} />
