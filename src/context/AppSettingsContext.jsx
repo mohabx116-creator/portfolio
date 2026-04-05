@@ -37,6 +37,8 @@ function normalizeContent(rawContent) {
   const sourceReasons = sourceSections.reasons || {}
   const fallbackProjects = fallbackSections.projects || {}
   const sourceProjects = sourceSections.projects || {}
+  const fallbackFashionGallery = fallback.fashionGallery || {}
+  const sourceFashionGallery = source.fashionGallery || {}
 
   return {
     ...fallback,
@@ -107,6 +109,23 @@ function normalizeContent(rawContent) {
     projectPages: {
       ...(fallback.projectPages || {}),
       ...(source.projectPages || {}),
+    },
+    fashionGallery: {
+      ...fallbackFashionGallery,
+      ...sourceFashionGallery,
+      highlights: asArray(sourceFashionGallery.highlights, asArray(fallbackFashionGallery.highlights)),
+      featurePoints: asArray(sourceFashionGallery.featurePoints, asArray(fallbackFashionGallery.featurePoints)),
+      metrics: asArray(sourceFashionGallery.metrics, asArray(fallbackFashionGallery.metrics)),
+      screens: asArray(sourceFashionGallery.screens, asArray(fallbackFashionGallery.screens)),
+      listingShowcase: {
+        ...(fallbackFashionGallery.listingShowcase || {}),
+        ...(sourceFashionGallery.listingShowcase || {}),
+      },
+      productSpotlight: {
+        ...(fallbackFashionGallery.productSpotlight || {}),
+        ...(sourceFashionGallery.productSpotlight || {}),
+        sizes: asArray(sourceFashionGallery.productSpotlight?.sizes, asArray(fallbackFashionGallery.productSpotlight?.sizes)),
+      },
     },
     contactData: {
       ...(fallback.contactData || {}),

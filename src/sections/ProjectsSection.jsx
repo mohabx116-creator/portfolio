@@ -1,16 +1,30 @@
-import { useState } from 'react'
+import { useMemo, useState } from 'react'
 import Container from '../components/Container'
 import ProjectCard from '../components/ProjectCard'
 import ProjectModal from '../components/ProjectModal'
 import Reveal from '../components/Reveal'
 import SectionHeading from '../components/SectionHeading'
+import FashionGalleryPanel from '../components/FashionGalleryPanel'
 import useAppSettings from '../context/useAppSettings'
 
 function ProjectsSection() {
   const { content } = useAppSettings()
   const [selectedProject, setSelectedProject] = useState(null)
+  const [activeTab, setActiveTab] = useState('all')
   const projectsSection = content?.sections?.projects || {}
   const projects = Array.isArray(content?.projects) ? content.projects : []
+
+  const generalProjects = useMemo(
+    () => projects.filter((project) => project.route !== '/projects/fashion-gallery'),
+    [projects],
+  )
+
+  const tabs = [
+    { id: 'all', label: projectsSection.allTab || 'All Work' },
+    { id: 'fashion-gallery', label: projectsSection.fashionTab || 'Fashion Gallery' },
+  ]
+
+  const visibleProjects = activeTab === 'all' ? projects : generalProjects.filter((project) => project.route.includes('fashion'))
 
   return (
     <>
@@ -32,13 +46,40 @@ function ProjectsSection() {
             </Reveal>
           </div>
 
-          <div className="grid gap-5 sm:gap-6 md:grid-cols-2 xl:grid-cols-3 xl:gap-8">
-            {projects.map((project, index) => (
-              <Reveal key={project.title || index} delay={index * 0.08}>
-                <ProjectCard {...project} onOpen={() => setSelectedProject(project)} />
-              </Reveal>
-            ))}
-          </div>
+          <Reveal>
+            <div className="mb-8 flex flex-wrap gap-3 sm:mb-10">
+              {tabs.map((tab) => {
+                const isActive = activeTab === tab.id
+
+                return (
+                  <button
+                    key={tab.id}
+                    type="button"
+                    onClick={() => setActiveTab(tab.id)}
+                    className={`inline-flex min-h-11 items-center rounded-full px-4 py-2.5 text-sm font-bold transition-all duration-300 ${
+                      isActive
+                        ? 'bg-primary text-surface shadow-[0_14px_32px_rgba(var(--color-primary-container),0.26)]'
+                        : 'ghost-border bg-surface-card text-on-muted hover:border-primary/25 hover:text-primary'
+                    }`}
+                  >
+                    {tab.label}
+                  </button>
+                )
+              })}
+            </div>
+          </Reveal>
+
+          {activeTab === 'fashion-gallery' ? (
+            <FashionGalleryPanel />
+          ) : (
+            <div className="grid gap-5 sm:gap-6 md:grid-cols-2 xl:grid-cols-3 xl:gap-8">
+              {visibleProjects.map((project, index) => (
+                <Reveal key={project.title || index} delay={index * 0.08}>
+                  <ProjectCard {...project} onOpen={() => setSelectedProject(project)} />
+                </Reveal>
+              ))}
+            </div>
+          )}
         </Container>
       </section>
 

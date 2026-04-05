@@ -13,4 +13,13 @@ export const projectAssets = {
     cover: fashionHome,
     gallery: [fashionHome, fashionListing, fashionProduct],
   },
+  fashionGallery: {
+    cover: fashionHome,
+    screens: {
+      home: fashionHome,
+      listing: fashionListing,
+      details: fashionProduct,
+    },
+    gallery: [fashionHome, fashionListing, fashionProduct],
+  },
 }
