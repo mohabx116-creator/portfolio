@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Menu Management | Culinary Editorial</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-secondary": "#ffffff",
+                    "primary-fixed-dim": "#ffb59d",
+                    "outline-variant": "#e1bfb5",
+                    "error-container": "#ffdad6",
+                    "primary-container": "#ff6b35",
+                    "tertiary-container": "#00a7cb",
+                    "on-primary": "#ffffff",
+                    "secondary-fixed-dim": "#ffb3b2",
+                    "surface-container": "#f0eded",
+                    "on-surface": "#1c1b1b",
+                    "primary-fixed": "#ffdbd0",
+                    "secondary-container": "#de2b41",
+                    "surface-variant": "#e5e2e1",
+                    "on-error": "#ffffff",
+                    "on-tertiary-fixed-variant": "#004e60",
+                    "primary": "#ab3500",
+                    "on-secondary-fixed": "#410008",
+                    "on-primary-fixed": "#390c00",
+                    "on-tertiary": "#ffffff",
+                    "inverse-on-surface": "#f3f0ef",
+                    "on-primary-fixed-variant": "#832600",
+                    "on-tertiary-container": "#003744",
+                    "outline": "#8d7168",
+                    "surface-dim": "#dcd9d9",
+                    "tertiary-fixed-dim": "#59d5fb",
+                    "surface": "#fcf9f8",
+                    "tertiary-fixed": "#b5ebff",
+                    "error": "#ba1a1a",
+                    "surface-bright": "#fcf9f8",
+                    "background": "#fcf9f8",
+                    "secondary": "#b9052c",
+                    "on-background": "#1c1b1b",
+                    "inverse-primary": "#ffb59d",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-tint": "#ab3500",
+                    "secondary-fixed": "#ffdad9",
+                    "surface-container-highest": "#e5e2e1",
+                    "on-tertiary-fixed": "#001f28",
+                    "on-surface-variant": "#594139",
+                    "on-secondary-fixed-variant": "#92001f",
+                    "on-secondary-container": "#fffbff",
+                    "surface-container-high": "#eae7e7",
+                    "surface-container-low": "#f6f3f2",
+                    "inverse-surface": "#313030",
+                    "on-error-container": "#93000a",
+                    "on-primary-container": "#5f1900",
+                    "tertiary": "#00677e"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Plus Jakarta Sans"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, h4 { font-family: 'Plus Jakarta Sans', sans-serif; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface antialiased">
+<!-- SideNavBar (Shared Component JSON) -->
+<aside class="h-screen w-64 fixed left-0 top-0 bg-[#F6F3F2] dark:bg-stone-900/50 backdrop-blur-xl flex flex-col py-6 font-['Inter'] font-medium text-sm transition-all duration-300">
+<div class="px-6 mb-10">
+<h1 class="text-[#1C1B1B] font-bold text-xl tracking-tight">Editorial Admin</h1>
+<p class="text-[10px] text-primary uppercase tracking-widest mt-1">The Modern Maître D’</p>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center px-6 py-3 text-[#1C1B1B] dark:text-[#F0EDED] opacity-70 hover:bg-[#F0EDED] dark:hover:bg-stone-800 transition-all" href="#">
+<span class="material-symbols-outlined mr-3">dashboard</span>
+                Overview
+            </a>
+<a class="flex items-center px-6 py-3 border-l-4 border-[#AB3500] bg-gradient-to-r from-[#AB3500]/10 to-transparent text-[#AB3500] font-semibold transition-all" href="#">
+<span class="material-symbols-outlined mr-3">restaurant_menu</span>
+                Menu
+            </a>
+<a class="flex items-center px-6 py-3 text-[#1C1B1B] dark:text-[#F0EDED] opacity-70 hover:bg-[#F0EDED] dark:hover:bg-stone-800 transition-all" href="#">
+<span class="material-symbols-outlined mr-3">receipt_long</span>
+                Orders
+            </a>
+<a class="flex items-center px-6 py-3 text-[#1C1B1B] dark:text-[#F0EDED] opacity-70 hover:bg-[#F0EDED] dark:hover:bg-stone-800 transition-all" href="#">
+<span class="material-symbols-outlined mr-3">category</span>
+                Categories
+            </a>
+<a class="flex items-center px-6 py-3 text-[#1C1B1B] dark:text-[#F0EDED] opacity-70 hover:bg-[#F0EDED] dark:hover:bg-stone-800 transition-all" href="#">
+<span class="material-symbols-outlined mr-3">group</span>
+                Users
+            </a>
+<a class="flex items-center px-6 py-3 text-[#1C1B1B] dark:text-[#F0EDED] opacity-70 hover:bg-[#F0EDED] dark:hover:bg-stone-800 transition-all" href="#">
+<span class="material-symbols-outlined mr-3">rate_review</span>
+                Reviews
+            </a>
+</nav>
+<div class="mt-auto space-y-1">
+<div class="px-6 mb-4 flex items-center gap-3">
+<img alt="Restaurant Admin" class="w-10 h-10 rounded-full border-2 border-primary/20" data-alt="professional portrait of a high-end restaurant manager in a sharp suit with warm lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDtAS7UUgdWU3rYf5xe6vi0lV8GaBzpHt1al0GfL3cnVt2JxEiskYajnjPz-pYGE5I_prdjVOEdmQmAhw8Q0-ow2z_LfNeDOh1o7kUirhkqYVu6x3v3emvM5dOzL_zYl-uhchUs53_dX6mI0wdOeMQ6fIHXb0UY1tEAT2_e51_Z6WHNM9jxqM51uuofBt8i7nvKWIBiOZEVDUjVbSeifWzgayMQXmTy1D8sMUa-8i0Hg6_n3yoGL6toNRzcWgDxfKr3aOEp5uEYbNU"/>
+<div>
+<p class="text-xs font-bold text-on-surface leading-none">Admin User</p>
+<p class="text-[10px] text-on-surface-variant">Super Admin</p>
+</div>
+</div>
+<a class="flex items-center px-6 py-3 text-[#1C1B1B] dark:text-[#F0EDED] opacity-70 hover:bg-[#F0EDED] dark:hover:bg-stone-800 transition-all" href="#">
+<span class="material-symbols-outlined mr-3">settings</span>
+                Settings
+            </a>
+<a class="flex items-center px-6 py-3 text-[#1C1B1B] dark:text-[#F0EDED] opacity-70 hover:bg-[#F0EDED] dark:hover:bg-stone-800 transition-all" href="#">
+<span class="material-symbols-outlined mr-3">logout</span>
+                Logout
+            </a>
+</div>
+</aside>
+<!-- Main Content Wrapper -->
+<main class="pl-64 min-h-screen">
+<!-- TopAppBar (Shared Component JSON) -->
+<header class="fixed top-0 right-0 left-64 z-10 bg-white/80 dark:bg-stone-950/80 backdrop-blur-md flex justify-between items-center px-6 h-16 shadow-sm">
+<div class="flex-1 max-w-md">
+<div class="relative group">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant group-focus-within:text-primary transition-colors">search</span>
+<input class="w-full bg-surface-container-low border-none rounded-full pl-10 pr-4 py-2 text-sm focus:ring-2 focus:ring-primary/20 transition-all" placeholder="Search menu items, ingredients, or tags..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-[#F0EDED] transition-all scale-98 duration-150">
+<span class="material-symbols-outlined text-on-surface">notifications</span>
+</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-[#F0EDED] transition-all scale-98 duration-150">
+<span class="material-symbols-outlined text-on-surface">account_circle</span>
+</button>
+</div>
+</header>
+<div class="pt-24 px-8 pb-12">
+<!-- Content Header -->
+<div class="flex justify-between items-end mb-8">
+<div>
+<h2 class="text-3xl font-extrabold tracking-tight text-on-surface">Menu Management</h2>
+<p class="text-on-surface-variant mt-1">Curate your restaurant's digital offering with precision.</p>
+</div>
+<button class="bg-primary text-on-primary px-6 py-3 rounded-xl font-semibold flex items-center gap-2 hover:bg-primary-container transition-all active:scale-95 shadow-lg shadow-primary/10">
+<span class="material-symbols-outlined" style="font-variation-settings: 'wght' 600;">add</span>
+                    + Add New Meal
+                </button>
+</div>
+<!-- Filters Section -->
+<div class="bg-surface-container-low p-2 rounded-2xl flex flex-wrap items-center gap-4 mb-8">
+<div class="flex items-center gap-2 bg-surface-container-lowest p-1 rounded-xl shadow-sm">
+<button class="px-4 py-1.5 rounded-lg text-sm font-semibold bg-primary text-on-primary">All</button>
+<button class="px-4 py-1.5 rounded-lg text-sm font-medium text-on-surface-variant hover:bg-surface-container transition-colors">Pizza</button>
+<button class="px-4 py-1.5 rounded-lg text-sm font-medium text-on-surface-variant hover:bg-surface-container transition-colors">Burger</button>
+<button class="px-4 py-1.5 rounded-lg text-sm font-medium text-on-surface-variant hover:bg-surface-container transition-colors">Salads</button>
+<button class="px-4 py-1.5 rounded-lg text-sm font-medium text-on-surface-variant hover:bg-surface-container transition-colors">Desserts</button>
+</div>
+<div class="h-8 w-px bg-outline-variant/30 hidden md:block"></div>
+<div class="flex items-center gap-4 flex-1">
+<div class="relative min-w-[160px]">
+<select class="appearance-none w-full bg-surface-container-lowest border-none rounded-xl pl-4 pr-10 py-2.5 text-sm font-medium text-on-surface focus:ring-2 focus:ring-primary/20 shadow-sm">
+<option>Status: All</option>
+<option>Active Only</option>
+<option>Inactive Only</option>
+</select>
+<span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-on-surface-variant">expand_more</span>
+</div>
+<div class="relative min-w-[160px]">
+<select class="appearance-none w-full bg-surface-container-lowest border-none rounded-xl pl-4 pr-10 py-2.5 text-sm font-medium text-on-surface focus:ring-2 focus:ring-primary/20 shadow-sm">
+<option>Sort By: Newest</option>
+<option>Price: Low to High</option>
+<option>Price: High to Low</option>
+<option>A-Z</option>
+</select>
+<span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-on-surface-variant">sort</span>
+</div>
+</div>
+</div>
+<!-- Menu Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-6">
+<!-- Card 1 -->
+<div class="group bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-transparent hover:border-outline-variant/20">
+<div class="relative h-48 overflow-hidden">
+<img alt="Margherita Pizza" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="artisanal wood-fired margherita pizza with fresh basil leaves and melting mozzarella on a dark stone surface" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC4o480pBcvm5E95-3fHC9ZL5EDIV9vkvAGzFtGBtg_-dPpPa8HVG2ytUB6w1_ivKeqvYh6n4Cb0gbI_XcyZIl7iCSCpE-CheobeVsHZ8y6RYQYcEEjyRjHhF8Eh9TNisD2LHVsPkpgRyxo9tVnDZEHZONr3uiXF4TdfKG3Ltk1pLfiS56pdDY8jIZ3PjXRiE4zfouHq82jHCyb3LMA098aA0EvWBjpKYobY_dgko-UOFBL2tOlt9SlfXwozGhVqkGchpoIOx2d6LU"/>
+<div class="absolute top-4 left-4">
+<span class="bg-tertiary/90 backdrop-blur-md text-on-tertiary text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full">Pizza</span>
+</div>
+<div class="absolute top-4 right-4 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+<button class="bg-white/90 backdrop-blur-md p-2 rounded-full text-on-surface hover:text-primary transition-colors shadow-lg">
+<span class="material-symbols-outlined text-sm">edit</span>
+</button>
+<button class="bg-white/90 backdrop-blur-md p-2 rounded-full text-secondary hover:bg-secondary-fixed transition-colors shadow-lg">
+<span class="material-symbols-outlined text-sm">delete</span>
+</button>
+</div>
+</div>
+<div class="p-5">
+<div class="flex justify-between items-start mb-2">
+<h3 class="text-lg font-bold text-on-surface">Signature Margherita</h3>
+<span class="text-primary font-extrabold text-lg">$18.00</span>
+</div>
+<p class="text-on-surface-variant text-sm line-clamp-2 mb-4">San Marzano tomatoes, fresh buffalo mozzarella, basil, and extra virgin olive oil.</p>
+<div class="flex justify-between items-center">
+<div class="flex items-center gap-1.5">
+<div class="w-2 h-2 rounded-full bg-tertiary"></div>
+<span class="text-xs font-semibold text-on-surface-variant uppercase tracking-wider">Active</span>
+</div>
+<button class="text-primary text-xs font-bold hover:underline">View Details</button>
+</div>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="group bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-transparent hover:border-outline-variant/20">
+<div class="relative h-48 overflow-hidden">
+<img alt="Truffle Burger" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="gourmet wagyu beef burger with truffle aioli dripping and caramelized onions on a brioche bun, studio lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBnZKHHHSE8FwAks3hoSHXmOKhfdZlBtl8QnjZRNZW_yw8MfJEocoKdmRVjEAs8ar7PgMAqaN8uIlNBhEZ083D2CSXtrxn_EjMdBNGV18cPQPBbpoStCgf5b0Z1BV8taWyrnbF9WLVOeAnI6ecQ7SD8ZONkwlRlZJdliMRV0pwDNwGiTxthENq07mWVeBxTqNsljigjBqfJb5c6KLXmmH0Ob5rpwSJOlwIsWKI_JYKP0QO_i3wyB94_yhExUXeFpJKuXVgEcPcMh-w"/>
+<div class="absolute top-4 left-4">
+<span class="bg-tertiary/90 backdrop-blur-md text-on-tertiary text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full">Burger</span>
+</div>
+<div class="absolute top-4 right-4 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+<button class="bg-white/90 backdrop-blur-md p-2 rounded-full text-on-surface hover:text-primary transition-colors shadow-lg">
+<span class="material-symbols-outlined text-sm">edit</span>
+</button>
+<button class="bg-white/90 backdrop-blur-md p-2 rounded-full text-secondary hover:bg-secondary-fixed transition-colors shadow-lg">
+<span class="material-symbols-outlined text-sm">delete</span>
+</button>
+</div>
+</div>
+<div class="p-5">
+<div class="flex justify-between items-start mb-2">
+<h3 class="text-lg font-bold text-on-surface">Black Truffle Wagyu</h3>
+<span class="text-primary font-extrabold text-lg">$24.50</span>
+</div>
+<p class="text-on-surface-variant text-sm line-clamp-2 mb-4">Wagyu beef patty, black truffle carpaccio, aged gruyère, and roasted garlic aioli.</p>
+<div class="flex justify-between items-center">
+<div class="flex items-center gap-1.5">
+<div class="w-2 h-2 rounded-full bg-tertiary"></div>
+<span class="text-xs font-semibold text-on-surface-variant uppercase tracking-wider">Active</span>
+</div>
+<button class="text-primary text-xs font-bold hover:underline">View Details</button>
+</div>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="group bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-transparent hover:border-outline-variant/20 opacity-80 grayscale-[0.3]">
+<div class="relative h-48 overflow-hidden">
+<img alt="Harvest Bowl" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="colorful vibrant salad bowl with quinoa, avocado, radishes, and citrus dressing on a bright wooden table" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBEvjK6pzK5dxQMKMo_o4ktxZc0PI2NN5e04UZpeP4V9gdM_JNmbfyTyziBDGEKxiliTEx8Y7MtX29l-flkxoe0i1RfrROgBlW7PYlh0y8BOxRuEL_9I_RXPBhQsCQCbQr0ihMQJXQEfgKA_JbznBU66QegQkZlN7_8lQMQIlBSUwFa6FvJZ5qrimTX-85qowfDIzmssPEgcXBbJ4GhHSbEnwWAGrPThWfqsLi4GZDyvwyWaWzKOmxJdBN7q716Z8jekY5_8Ut1ZXw"/>
+<div class="absolute top-4 left-4">
+<span class="bg-tertiary/90 backdrop-blur-md text-on-tertiary text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full">Salads</span>
+</div>
+<div class="absolute inset-0 bg-surface-container/60 flex items-center justify-center">
+<span class="bg-on-surface/80 text-surface text-xs font-bold px-4 py-2 rounded-full">INACTIVE</span>
+</div>
+<div class="absolute top-4 right-4 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+<button class="bg-white/90 backdrop-blur-md p-2 rounded-full text-on-surface hover:text-primary transition-colors shadow-lg">
+<span class="material-symbols-outlined text-sm">edit</span>
+</button>
+<button class="bg-white/90 backdrop-blur-md p-2 rounded-full text-secondary hover:bg-secondary-fixed transition-colors shadow-lg">
+<span class="material-symbols-outlined text-sm">delete</span>
+</button>
+</div>
+</div>
+<div class="p-5">
+<div class="flex justify-between items-start mb-2">
+<h3 class="text-lg font-bold text-on-surface">Seasonal Harvest</h3>
+<span class="text-on-surface-variant font-extrabold text-lg">$16.00</span>
+</div>
+<p class="text-on-surface-variant text-sm line-clamp-2 mb-4">Roasted squash, quinoa, kale, toasted pepitas, and maple-tahini dressing.</p>
+<div class="flex justify-between items-center">
+<div class="flex items-center gap-1.5">
+<div class="w-2 h-2 rounded-full bg-on-surface-variant"></div>
+<span class="text-xs font-semibold text-on-surface-variant uppercase tracking-wider">Draft</span>
+</div>
+<button class="text-primary text-xs font-bold hover:underline">Activate</button>
+</div>
+</div>
+</div>
+<!-- Card 4 -->
+<div class="group bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-transparent hover:border-outline-variant/20">
+<div class="relative h-48 overflow-hidden">
+<img alt="Lava Cake" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="molten chocolate lava cake with raspberry coulis and a scoop of vanilla bean gelato, dramatic soft lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCeqzg5siAiKGayvcCf0q6SyxJTDjlN8gNwOAlwiul7vQf2Gt6LXRpaaPpeGZGLgPVLjwD9ADGklbPdneypEfL79qXvbDDT5tdcGpj6tHZmP09wAzjhbfa9BzPT1Dv_CdAuEQ_zgrA2CYbnBXaUqkJX4aYVZBV9CgW3BJQnbZI0ubnDey8D0CgCN9UTpd-VvkUmmIk9yRb1JGh636ex2CYXXP5fL6TKfvV5_y4AXf85nCfWiF4VO7W8pNEnK0UEbuN_pnTzPQ3mxqQ"/>
+<div class="absolute top-4 left-4">
+<span class="bg-tertiary/90 backdrop-blur-md text-on-tertiary text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full">Desserts</span>
+</div>
+<div class="absolute top-4 right-4 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+<button class="bg-white/90 backdrop-blur-md p-2 rounded-full text-on-surface hover:text-primary transition-colors shadow-lg">
+<span class="material-symbols-outlined text-sm">edit</span>
+</button>
+<button class="bg-white/90 backdrop-blur-md p-2 rounded-full text-secondary hover:bg-secondary-fixed transition-colors shadow-lg">
+<span class="material-symbols-outlined text-sm">delete</span>
+</button>
+</div>
+</div>
+<div class="p-5">
+<div class="flex justify-between items-start mb-2">
+<h3 class="text-lg font-bold text-on-surface">Midnight Lava</h3>
+<span class="text-primary font-extrabold text-lg">$12.00</span>
+</div>
+<p class="text-on-surface-variant text-sm line-clamp-2 mb-4">70% Dark chocolate fondant with a liquid center and Madagascar vanilla gelato.</p>
+<div class="flex justify-between items-center">
+<div class="flex items-center gap-1.5">
+<div class="w-2 h-2 rounded-full bg-tertiary"></div>
+<span class="text-xs font-semibold text-on-surface-variant uppercase tracking-wider">Active</span>
+</div>
+<button class="text-primary text-xs font-bold hover:underline">View Details</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Pagination / Footer -->
+<div class="mt-12 flex justify-between items-center pt-8 border-t border-outline-variant/20">
+<p class="text-sm text-on-surface-variant">Showing 1-12 of 48 Menu Items</p>
+<div class="flex items-center gap-2">
+<button class="p-2 rounded-lg hover:bg-surface-container transition-colors disabled:opacity-30" disabled="">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+<div class="flex items-center gap-1">
+<button class="w-8 h-8 rounded-lg bg-primary text-on-primary text-xs font-bold">1</button>
+<button class="w-8 h-8 rounded-lg hover:bg-surface-container text-xs font-medium transition-colors">2</button>
+<button class="w-8 h-8 rounded-lg hover:bg-surface-container text-xs font-medium transition-colors">3</button>
+<span class="px-1">...</span>
+<button class="w-8 h-8 rounded-lg hover:bg-surface-container text-xs font-medium transition-colors">8</button>
+</div>
+<button class="p-2 rounded-lg hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer (Shared Component JSON) -->
+<footer class="pl-64 bg-[#F0EDED] dark:bg-stone-900 border-t border-outline-variant/10">
+<div class="grid grid-cols-4 gap-8 px-8 py-12 max-w-7xl mx-auto font-['Inter'] text-sm">
+<div>
+<h4 class="text-lg font-bold text-[#1C1B1B] mb-4">Culinary Editorial</h4>
+<p class="text-[#1C1B1B] dark:text-[#F0EDED] opacity-70 mb-4 leading-relaxed">
+                    Elevating the art of restaurant management through sophisticated digital solutions.
+                </p>
+<p class="text-xs text-on-surface-variant">© 2024 Culinary Editorial. The Modern Maître D’.</p>
+</div>
+<div class="space-y-3">
+<h5 class="text-[#AB3500] font-bold uppercase tracking-widest text-[10px]">Operations</h5>
+<nav class="flex flex-col gap-2">
+<a class="text-[#1C1B1B] dark:text-[#F0EDED] hover:opacity-80 transition-opacity" href="#">Menu Builder</a>
+<a class="text-[#1C1B1B] dark:text-[#F0EDED] hover:opacity-80 transition-opacity" href="#">Inventory</a>
+<a class="text-[#1C1B1B] dark:text-[#F0EDED] hover:opacity-80 transition-opacity" href="#">Staff Management</a>
+</nav>
+</div>
+<div class="space-y-3">
+<h5 class="text-[#AB3500] font-bold uppercase tracking-widest text-[10px]">Company</h5>
+<nav class="flex flex-col gap-2">
+<a class="text-[#1C1B1B] dark:text-[#F0EDED] hover:opacity-80 transition-opacity" href="#">Privacy Policy</a>
+<a class="text-[#1C1B1B] dark:text-[#F0EDED] hover:opacity-80 transition-opacity" href="#">Terms of Service</a>
+<a class="text-[#1C1B1B] dark:text-[#F0EDED] hover:opacity-80 transition-opacity" href="#">Sustainability</a>
+<a class="text-[#1C1B1B] dark:text-[#F0EDED] hover:opacity-80 transition-opacity" href="#">Careers</a>
+</nav>
+</div>
+<div class="space-y-3">
+<h5 class="text-[#AB3500] font-bold uppercase tracking-widest text-[10px]">Support</h5>
+<nav class="flex flex-col gap-2">
+<a class="text-[#1C1B1B] dark:text-[#F0EDED] hover:opacity-80 transition-opacity" href="#">Help Center</a>
+<a class="text-[#1C1B1B] dark:text-[#F0EDED] hover:opacity-80 transition-opacity" href="#">API Docs</a>
+<a class="text-[#1C1B1B] dark:text-[#F0EDED] hover:opacity-80 transition-opacity" href="#">System Status</a>
+</nav>
+</div>
+</div>
+</footer>
+</body></html>

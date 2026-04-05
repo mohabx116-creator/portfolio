@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>The Ethereal Boutique | Elevate Your Wardrobe</title>
+<!-- Fonts & Icons -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary-fixed": "#5cfd80",
+                    "on-secondary": "#f8f8ff",
+                    "on-background": "#2a3439",
+                    "on-primary-fixed": "#4c1f9f",
+                    "surface-bright": "#f7f9fb",
+                    "inverse-on-surface": "#9a9d9f",
+                    "surface-dim": "#cfdce3",
+                    "outline-variant": "#a9b4b9",
+                    "on-primary": "#fcf5ff",
+                    "primary-fixed": "#eaddff",
+                    "secondary-dim": "#4c5362",
+                    "background": "#f7f9fb",
+                    "on-tertiary-fixed": "#004819",
+                    "secondary-container": "#dce2f5",
+                    "secondary-fixed-dim": "#ced4e7",
+                    "primary-container": "#eaddff",
+                    "inverse-primary": "#a67ffd",
+                    "surface-variant": "#d9e4ea",
+                    "secondary-fixed": "#dce2f5",
+                    "error-container": "#ff8b9a",
+                    "on-surface-variant": "#566166",
+                    "primary-dim": "#6037b3",
+                    "surface": "#f7f9fb",
+                    "surface-container-high": "#e1e9ee",
+                    "tertiary-dim": "#006124",
+                    "surface-container": "#e8eff3",
+                    "tertiary": "#006e2a",
+                    "on-error": "#fff7f7",
+                    "error": "#9e3f4e",
+                    "tertiary-container": "#5cfd80",
+                    "on-primary-container": "#5f36b2",
+                    "surface-container-highest": "#d9e4ea",
+                    "tertiary-fixed-dim": "#4bee74",
+                    "secondary": "#585f6f",
+                    "surface-container-low": "#f0f4f7",
+                    "surface-tint": "#6c45c0",
+                    "on-tertiary-container": "#005d22",
+                    "on-primary-fixed-variant": "#6942bd",
+                    "outline": "#717c82",
+                    "surface-container-lowest": "#ffffff",
+                    "on-secondary-container": "#4b5261",
+                    "on-error-container": "#782232",
+                    "inverse-surface": "#0b0f10",
+                    "error-dim": "#4f0116",
+                    "on-secondary-fixed-variant": "#555c6b",
+                    "on-surface": "#2a3439",
+                    "on-secondary-fixed": "#383f4e",
+                    "on-tertiary-fixed-variant": "#006827",
+                    "primary": "#6c45c0",
+                    "primary-fixed-dim": "#ddccff",
+                    "on-tertiary": "#e9ffe5"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Manrope"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; background-color: #f7f9fb; color: #2a3439; }
+        .font-headline { font-family: 'Manrope', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .ambient-shadow {
+            box-shadow: 0 20px 40px -10px rgba(42, 52, 57, 0.06);
+        }
+        .editorial-spacing { padding-top: clamp(4rem, 10vh, 8rem); padding-bottom: clamp(4rem, 10vh, 8rem); }
+    </style>
+</head>
+<body class="bg-surface text-on-surface selection:bg-primary-container selection:text-on-primary-container">
+<!-- Top Navigation Bar -->
+<nav class="fixed top-0 w-full z-50 bg-white/70 dark:bg-slate-900/70 backdrop-blur-xl border-none shadow-sm dark:shadow-none transition-all duration-300 ease-in-out">
+<div class="flex justify-between items-center w-full px-8 py-4 max-w-full mx-auto">
+<div class="flex items-center gap-8">
+<a class="text-2xl font-bold tracking-widest uppercase text-slate-900 dark:text-slate-100 font-headline" href="#">The Ethereal Boutique</a>
+<div class="hidden md:flex gap-6">
+<a class="text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors font-headline tracking-tight" href="#">Men</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors font-headline tracking-tight" href="#">Women</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors font-headline tracking-tight" href="#">Accessories</a>
+<a class="text-violet-700 dark:text-violet-400 border-b-2 border-violet-700 pb-1 font-headline tracking-tight" href="#">New Arrivals</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 hover:bg-slate-100/50 dark:hover:bg-slate-800/50 rounded-lg transition-all duration-300">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="search">search</span>
+</button>
+<button class="p-2 hover:bg-slate-100/50 dark:hover:bg-slate-800/50 rounded-lg transition-all duration-300">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="shopping_bag">shopping_bag</span>
+</button>
+<button class="p-2 hover:bg-slate-100/50 dark:hover:bg-slate-800/50 rounded-lg transition-all duration-300">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="person">person</span>
+</button>
+</div>
+</div>
+</nav>
+<!-- Hero Section -->
+<header class="relative h-[921px] w-full flex items-center overflow-hidden bg-surface-container">
+<div class="absolute inset-0 z-0">
+<img alt="Autumn/Winter Collection" class="w-full h-full object-cover object-center" data-alt="Stunning fashion model wearing avant-garde silk coat in a minimalist architectural setting with soft afternoon shadows" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAj2MP9gvJtLKiajzVsPbYUmjWhTM90daVOILPkzP_tCx7Ps7uoCqrdDBEUrVR4v0NOSP6uR67AKc3Ru-e6617gonehS3mS4jivpPjd9g64QXywWD2nTA3TFop20IJKuUKvP1x8LgprBWS7nb9Yeyj6CCU5hmW83iddvxjT-YOfkWvznmYN_Co0NjRYkmtPwdnMXyf56VEUPho8W6W15CzDZ8gwluORRxJL8yG5c0sw0TcbCL2fZS9DKBpuyuhKmwsurmv8-3a_ILO2"/>
+<div class="absolute inset-0 bg-gradient-to-r from-surface/80 via-surface/20 to-transparent"></div>
+</div>
+<div class="relative z-10 max-w-7xl mx-auto px-8 w-full">
+<div class="max-w-2xl">
+<span class="text-primary font-bold tracking-[0.2em] uppercase text-sm mb-4 block">New Season 2024</span>
+<h1 class="text-6xl md:text-8xl font-headline font-extrabold text-on-surface tracking-tighter leading-[0.9] mb-6">
+                    Elevate Your <br/>Wardrobe
+                </h1>
+<p class="text-xl text-on-surface-variant mb-10 leading-relaxed font-body max-w-md">
+                    Discover the new Autumn/Winter collection. Curated textures meet architectural silhouettes for the modern minimalist.
+                </p>
+<div class="flex gap-4">
+<button class="bg-primary text-on-primary px-8 py-4 rounded-lg font-semibold hover:bg-primary-dim transition-all duration-300 shadow-lg shadow-primary/20 scale-100 hover:scale-105">
+                        Shop Now
+                    </button>
+<button class="bg-surface-container-lowest/80 backdrop-blur-md text-on-surface px-8 py-4 rounded-lg font-semibold border border-outline-variant/20 hover:bg-surface-container-lowest transition-all duration-300">
+                        View Lookbook
+                    </button>
+</div>
+</div>
+</div>
+</header>
+<!-- Categories Section -->
+<section class="editorial-spacing px-8 max-w-7xl mx-auto">
+<div class="flex flex-col md:flex-row justify-between items-baseline mb-12">
+<h2 class="text-4xl font-headline font-bold text-on-surface">Browse by Category</h2>
+<a class="text-primary font-semibold hover:underline underline-offset-8 transition-all" href="#">View All Collections</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Men -->
+<div class="group relative aspect-[4/5] rounded-xl overflow-hidden ambient-shadow cursor-pointer">
+<img alt="Men's Fashion" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="Editorial shot of a man in a structured neutral blazer against a textured grey background, professional studio lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuASB0_eJt8E-2wyHQYw3hHTpaJC6Ka1Rf9zBo1fMsmqWLptpOqB3CxVD700DCUfzLAkHr6ZPIxUujZ5Wk8Jbro2Ex8kuEa0Ekay3PJLbNZg1FC9nW-lMXzRlx8xbVhiILO4-V6Aapvhnje50mtEoLi4Bfd6V-tvnFVsUOLqV995jEvnGe4Bf7DEuCwZ0JigxIxv1fpY_-119gTmr4Xev7FZSes9H6fZ9AwhOp1AQCfZIs127Mf9Ji33LoIZE3BzFpjrOPA3ePXpUOqp"/>
+<div class="absolute inset-0 bg-gradient-to-t from-on-surface/60 via-transparent to-transparent opacity-60"></div>
+<div class="absolute bottom-0 left-0 p-8 w-full">
+<h3 class="text-white text-3xl font-headline font-bold mb-2">Men</h3>
+<p class="text-white/80 text-sm tracking-widest uppercase">Precision Tailoring</p>
+</div>
+</div>
+<!-- Women -->
+<div class="group relative aspect-[4/5] rounded-xl overflow-hidden ambient-shadow cursor-pointer md:mt-12">
+<img alt="Women's Fashion" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="Fashionable woman walking in a city street wearing a flowing silk dress and oversized sunglasses, warm cinematic lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAFc3Ofc8n0zUA0U-TANuabKWbtD_3T3dZ-fMiT5UenvyYsNSZHDPK0K4IUnf6exWd8rhiBh7LsJXupUY0WOegOdsCtux5LZTJIaFQZErtCQ2fD20XJj9FdXtajRTQEbm_L1pvp1K4ljSAaXsIt3P5TNziZ74l5MsJkwr9n_Xo-ZhOygDJXKvX415VyhUaaLiH2Ae0nx0QrcNZcOQtad9nxCESounGkJp0aE1No4V3BYmzBZYevDDHND6mwB1bG-din2xw_DSjCiO2u"/>
+<div class="absolute inset-0 bg-gradient-to-t from-on-surface/60 via-transparent to-transparent opacity-60"></div>
+<div class="absolute bottom-0 left-0 p-8 w-full">
+<h3 class="text-white text-3xl font-headline font-bold mb-2">Women</h3>
+<p class="text-white/80 text-sm tracking-widest uppercase">Ethereal Grace</p>
+</div>
+</div>
+<!-- Accessories -->
+<div class="group relative aspect-[4/5] rounded-xl overflow-hidden ambient-shadow cursor-pointer">
+<img alt="Accessories" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="Minimalist luxury watch and leather bag on a white marble surface with soft side lighting and clean shadows" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDOC-FtludodEQbg2uQF3jPnDHKvM7b2fnboqz-SqzPI8X50g7O-iglH-grz_uKZNr35l7DXD95JnFoLs69SalSfVXSEy2QGn6y5eYNuU88XaxhRbYH5xnUv92kM_xT1OOy1XgeKzxms-LlwW9gETBKKtACF_pZ3QHqioZkqgr0la3Tw6i7kyXdbiSOOxhhKa6wqSP1Gt0-PmvD8bEEjFoVmaVeo-pSlm7vbgJRR7BtWLsdKqzq5ql_HqyTYyVLzdhQsocH2IF3FV3f"/>
+<div class="absolute inset-0 bg-gradient-to-t from-on-surface/60 via-transparent to-transparent opacity-60"></div>
+<div class="absolute bottom-0 left-0 p-8 w-full">
+<h3 class="text-white text-3xl font-headline font-bold mb-2">Accessories</h3>
+<p class="text-white/80 text-sm tracking-widest uppercase">Essential Details</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Featured Products Grid -->
+<section class="editorial-spacing bg-surface-container-low w-full">
+<div class="max-w-7xl mx-auto px-8">
+<div class="text-center mb-16">
+<h2 class="text-4xl font-headline font-bold text-on-surface mb-4">The Essentials</h2>
+<p class="text-on-surface-variant max-w-lg mx-auto">Selected pieces that define the modern wardrobe. Timeless, sustainable, and meticulously crafted.</p>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+<!-- Product 1 -->
+<div class="group bg-surface-container-lowest rounded-xl overflow-hidden ambient-shadow transition-all duration-300 hover:-translate-y-2">
+<div class="aspect-square bg-surface-variant overflow-hidden relative">
+<img alt="Product" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="High-quality beige wool coat on a minimalist hanger against a neutral off-white wall background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC3H4ufLgPXD4p14EHGNr2rIBjgtmxK47Y5lBqTygjJf3dPu-7GCCwmpcydRtEMzFmd7xJATo8LPfC8Jh2Nrc4mKgUKNkCnPahMJTqaMWM765hPBOr6Vi036aUfarQSp2oEcgZKwOdIlKcoZFE_i2e45Ljbm7ETuDidVDQrakNOt0yj-AAKTzllQFrkJ_SmhGFDuVozWq-d2B3hM20rVJahR0a_ZjHeE5CrrTIKElFh3AZ6ZO5HYbrlfPbG6jQtD7YWApaOdkH7-3Cy"/>
+<button class="absolute top-4 right-4 bg-white/80 backdrop-blur-md p-2 rounded-full text-on-surface hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="favorite">favorite</span>
+</button>
+</div>
+<div class="p-6">
+<h4 class="font-headline font-bold text-lg mb-1">Cashmere Overcoat</h4>
+<div class="flex items-center gap-2 mb-3">
+<div class="flex text-amber-400">
+<span class="material-symbols-outlined text-sm" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<span class="text-xs text-on-surface-variant">(48)</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-xl font-bold text-on-surface">$450.00</span>
+<button class="flex items-center justify-center bg-primary text-on-primary w-10 h-10 rounded-lg hover:bg-primary-dim transition-colors">
+<span class="material-symbols-outlined text-xl" data-icon="add_shopping_cart">add_shopping_cart</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Product 2 -->
+<div class="group bg-surface-container-lowest rounded-xl overflow-hidden ambient-shadow transition-all duration-300 hover:-translate-y-2">
+<div class="aspect-square bg-surface-variant overflow-hidden relative">
+<img alt="Product" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Luxury turquoise high heel shoes on a minimal stone pedestal with soft artistic lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDqDsd0AYdeCh0WfJFMejCJAN6uJOMBOC9RkPouQeuE5ZWjfNKSm8zwLy-YBUDbM7q8V7bZH8m2sk47c3rixLP6Yk4v498q2eOPPZfzpjgBMlpiaa0QXxvCwial2wVDFFuXRqq-whMc24hGp6LM8DWZu7kLShU__cYDDh7CjonWoYTXbWh2jjxwH9IshcZKU_ClRXcvVBB04iYryD5GYAUbHLLJMc0tuTOGpT9EA3NafHHCFNx84D9seI2Tupd8W0Sc_D4Ovyg49MXo"/>
+<button class="absolute top-4 right-4 bg-white/80 backdrop-blur-md p-2 rounded-full text-on-surface hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="favorite">favorite</span>
+</button>
+</div>
+<div class="p-6">
+<h4 class="font-headline font-bold text-lg mb-1">Satin Heeled Pumps</h4>
+<div class="flex items-center gap-2 mb-3">
+<div class="flex text-amber-400">
+<span class="material-symbols-outlined text-sm" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" data-icon="star">star</span>
+</div>
+<span class="text-xs text-on-surface-variant">(32)</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-xl font-bold text-on-surface">$225.00</span>
+<button class="flex items-center justify-center bg-primary text-on-primary w-10 h-10 rounded-lg hover:bg-primary-dim transition-colors">
+<span class="material-symbols-outlined text-xl" data-icon="add_shopping_cart">add_shopping_cart</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Product 3 -->
+<div class="group bg-surface-container-lowest rounded-xl overflow-hidden ambient-shadow transition-all duration-300 hover:-translate-y-2">
+<div class="aspect-square bg-surface-variant overflow-hidden relative">
+<img alt="Product" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Collection of folded premium white t-shirts made of thick organic cotton, soft morning light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDLOdvQZ0yi4FT9dF8Lsn-PL4nVtquQOHh1Q5YJ32DRA_qekUx80eed1W0sBoyEOmUPwHHrXkKsudL5akwqHW2enxSoBTZxBvuTM_fv28S06dqU--e0CxGI3I-DKfbVDf4hJTXCsLvETH-N3DKZrIs-A8w5OCcYIzCiDAXCZo9Q15q28dG4CSKqVBik4m8nQ4OGiwlVjWI2q9li2A_s6ztIj8oTN9cFWxUHtOzXOT0C7z0cYhR4Y2kY1il1uZ90--nw7cw6iA9J3n7X"/>
+<button class="absolute top-4 right-4 bg-white/80 backdrop-blur-md p-2 rounded-full text-on-surface hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="favorite">favorite</span>
+</button>
+</div>
+<div class="p-6">
+<h4 class="font-headline font-bold text-lg mb-1">Organic Cotton Tee</h4>
+<div class="flex items-center gap-2 mb-3">
+<div class="flex text-amber-400">
+<span class="material-symbols-outlined text-sm" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<span class="text-xs text-on-surface-variant">(156)</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-xl font-bold text-on-surface">$45.00</span>
+<button class="flex items-center justify-center bg-primary text-on-primary w-10 h-10 rounded-lg hover:bg-primary-dim transition-colors">
+<span class="material-symbols-outlined text-xl" data-icon="add_shopping_cart">add_shopping_cart</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Product 4 -->
+<div class="group bg-surface-container-lowest rounded-xl overflow-hidden ambient-shadow transition-all duration-300 hover:-translate-y-2">
+<div class="aspect-square bg-surface-variant overflow-hidden relative">
+<img alt="Product" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Minimalist structured leather handbag in deep chocolate brown, isolated on a light beige studio background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBWC69myGN1fXv-GSYHS9mKBKV2P5mS1tdds0rN9J58cHfu0mvIDfAIg8vqd9im0JiK3bEyxgp5YvIaZHS64XG223HWW1fceXaSwwE8igMQiw_jOQJXFb-Gx-m8EMROQ0KZ4AmE9pF4C0KqnBX0bUiLLSyM54djf6jwrTqZdzLoy0jUYlnwayQfyPnmwymw8Ju1ua6mzSJzOwzQQmwL5SASB7jgef2l_UhEJyAWPYiuprXaP9HSn3theUeRkVnO0odEqCsMBNE4RnkJ"/>
+<button class="absolute top-4 right-4 bg-white/80 backdrop-blur-md p-2 rounded-full text-on-surface hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="favorite">favorite</span>
+</button>
+</div>
+<div class="p-6">
+<h4 class="font-headline font-bold text-lg mb-1">Matinée Leather Bag</h4>
+<div class="flex items-center gap-2 mb-3">
+<div class="flex text-amber-400">
+<span class="material-symbols-outlined text-sm" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" data-icon="star-half" style="font-variation-settings: 'FILL' 1;">star_half</span>
+</div>
+<span class="text-xs text-on-surface-variant">(24)</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-xl font-bold text-on-surface">$180.00</span>
+<button class="flex items-center justify-center bg-primary text-on-primary w-10 h-10 rounded-lg hover:bg-primary-dim transition-colors">
+<span class="material-symbols-outlined text-xl" data-icon="add_shopping_cart">add_shopping_cart</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Testimonials Section -->
+<section class="editorial-spacing px-8 max-w-7xl mx-auto">
+<h2 class="text-center text-4xl font-headline font-bold text-on-surface mb-16">The Boutique Experience</h2>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+<!-- Review 1 -->
+<div class="flex flex-col items-center text-center">
+<div class="w-16 h-16 rounded-full overflow-hidden mb-6 border-2 border-primary-container p-1">
+<img alt="User" class="w-full h-full object-cover rounded-full" data-alt="Portrait of a smiling young professional woman with warm light on her face" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBMJSCm_VWNSvbYw5xWM3c24EFIzEt3kuAdA6T0Ww_yZY5hYNVQa-hZjrAN3ecRDb8feKLsSTQpPdduF7g7C54q0oySXSoD94HS7-GqFMpBNsRDy9RMUAhvmNGHXJd9vsFIYeWZzm9pIW8jXygxMGGjMzxAhdkcviSCJPtvypt8DKKbTChvREW71dHODT_D9J0h__5Mwi6f-3pvTRus2pfD7442Ed83ARPbdOO8aLu9QOXggiWyhh1V_YO8PSghwR8tRMjxOlnHwlQg"/>
+</div>
+<div class="flex text-primary mb-4">
+<span class="material-symbols-outlined text-base" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-base" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-base" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-base" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-base" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="text-on-surface-variant italic leading-relaxed mb-4">"The quality of the cashmere overcoat is unparalleled. I've never felt more confident in my winter ensemble. Truly an ethereal experience."</p>
+<span class="font-headline font-bold text-on-surface">Elena S.</span>
+</div>
+<!-- Review 2 -->
+<div class="flex flex-col items-center text-center">
+<div class="w-16 h-16 rounded-full overflow-hidden mb-6 border-2 border-primary-container p-1">
+<img alt="User" class="w-full h-full object-cover rounded-full" data-alt="Close-up portrait of a man with a beard looking thoughtfully into the camera" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCWv1-x5vscCRYST_dyamEpuu2UZbfSkvJQh451l1w0xm0mVM7PPOG8YjHi5LMvUt3u4R4QipKCEwrhDfLdBBxEm1XFLNra148OzCAwsIrshHYl16AVG-dfuFJV_JGdSqycf2yK5Eb3Ve1I9lWtHHzc-ol7lE1Br76lhbYkwNoqOQReIvKyGBg_jUWrtGXjelxCfEyA2jYjhYZ-crrcq92iZey3Xb5gi0Lkplbr1IDBHYwioaHMaCpl0Wtqxw_7QHGQTcyOPZudXfCY"/>
+</div>
+<div class="flex text-primary mb-4">
+<span class="material-symbols-outlined text-base" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-base" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-base" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-base" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-base" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="text-on-surface-variant italic leading-relaxed mb-4">"Fast shipping and the packaging was absolutely beautiful. It felt like receiving a gift from a high-end atelier. 10/10 service."</p>
+<span class="font-headline font-bold text-on-surface">Mark D.</span>
+</div>
+<!-- Review 3 -->
+<div class="flex flex-col items-center text-center">
+<div class="w-16 h-16 rounded-full overflow-hidden mb-6 border-2 border-primary-container p-1">
+<img alt="User" class="w-full h-full object-cover rounded-full" data-alt="Fashionable woman with short hair smiling in a sunlit urban setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBlZ7aeC0E1lQR_H2xMUQMza0Ph9uKfYRDB6aPCj3gsXaSROWQrVE015DPWQljT6LWr5oglgY05K6KtaCoDKa_fN-R13rgWG8u3onShMcBEJ1HC9vQ9PIT123fG1LX4VtW4dKHuVjZU74kcMgorKd8CdMporVdKoQUUaK590AkJXb9YZDdo7k0eg1x1MdxZAShgU6KCVKCU7IIFYVDKZGeAMMUo_L6KvehLeLKvFBiRHfl8aEkoKOVbw6kWpxb9eVFEvzag3pLkvBej"/>
+</div>
+<div class="flex text-primary mb-4">
+<span class="material-symbols-outlined text-base" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-base" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-base" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-base" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-base" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="text-on-surface-variant italic leading-relaxed mb-4">"Finding sustainable fashion that actually looks designer is hard. The Ethereal Boutique nails it perfectly every single time."</p>
+<span class="font-headline font-bold text-on-surface">Sarah K.</span>
+</div>
+</div>
+</section>
+<!-- Newsletter CTA -->
+<section class="editorial-spacing px-8">
+<div class="max-w-5xl mx-auto bg-primary py-16 px-8 rounded-[2rem] text-center ambient-shadow relative overflow-hidden">
+<div class="absolute inset-0 opacity-10 pointer-events-none">
+<div class="absolute -top-24 -left-24 w-64 h-64 bg-white rounded-full blur-3xl"></div>
+<div class="absolute -bottom-24 -right-24 w-64 h-64 bg-white rounded-full blur-3xl"></div>
+</div>
+<div class="relative z-10">
+<h2 class="text-4xl font-headline font-extrabold text-on-primary mb-4 tracking-tight">Join The Inner Circle</h2>
+<p class="text-on-primary/80 mb-10 max-w-xl mx-auto font-body">Subscribe to receive exclusive access to early collection launches, private sales, and seasonal lookbooks.</p>
+<form class="flex flex-col sm:flex-row gap-4 max-w-lg mx-auto" onsubmit="event.preventDefault()">
+<input class="flex-grow bg-white/10 border-white/20 text-on-primary placeholder:text-on-primary/50 rounded-lg px-6 py-4 focus:ring-2 focus:ring-white/50 focus:border-transparent transition-all outline-none backdrop-blur-sm" placeholder="Enter your email address" type="email"/>
+<button class="bg-surface-container-lowest text-primary font-bold px-8 py-4 rounded-lg hover:bg-on-primary-fixed-variant hover:text-white transition-all duration-300">
+                        Subscribe
+                    </button>
+</form>
+<p class="text-xs text-on-primary/50 mt-6">By subscribing, you agree to our Privacy Policy and Terms of Service.</p>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-slate-50 dark:bg-slate-950 w-full pt-16 pb-8 border-none">
+<div class="grid grid-cols-2 md:grid-cols-5 gap-8 px-8 max-w-7xl mx-auto font-['Inter'] text-sm leading-relaxed">
+<div class="col-span-2">
+<a class="text-xl font-bold tracking-widest text-slate-900 dark:text-slate-100 font-headline mb-6 block uppercase" href="#">The Ethereal Boutique</a>
+<p class="text-slate-500 dark:text-slate-400 max-w-xs mb-6">Redefining luxury through architectural silhouettes and sustainable craftsmanship. Curating the modern wardrobe since 2024.</p>
+<div class="flex gap-4">
+<a class="text-slate-400 hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined">public</span></a>
+<a class="text-slate-400 hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined">share</span></a>
+<a class="text-slate-400 hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined">mail</span></a>
+</div>
+</div>
+<div>
+<h4 class="font-headline font-bold text-on-surface mb-6 uppercase tracking-wider text-xs">Shop</h4>
+<ul class="space-y-4">
+<li><a class="text-slate-500 dark:text-slate-400 hover:text-violet-600 dark:hover:text-violet-300 transition-opacity" href="#">Men</a></li>
+<li><a class="text-slate-500 dark:text-slate-400 hover:text-violet-600 dark:hover:text-violet-300 transition-opacity" href="#">Women</a></li>
+<li><a class="text-slate-500 dark:text-slate-400 hover:text-violet-600 dark:hover:text-violet-300 transition-opacity" href="#">Accessories</a></li>
+<li><a class="text-slate-500 dark:text-slate-400 hover:text-violet-600 dark:hover:text-violet-300 transition-opacity" href="#">New Arrivals</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-headline font-bold text-on-surface mb-6 uppercase tracking-wider text-xs">Support</h4>
+<ul class="space-y-4">
+<li><a class="text-slate-500 dark:text-slate-400 hover:text-violet-600 dark:hover:text-violet-300 transition-opacity" href="#">About</a></li>
+<li><a class="text-slate-500 dark:text-slate-400 hover:text-violet-600 dark:hover:text-violet-300 transition-opacity" href="#">Shipping</a></li>
+<li><a class="text-slate-500 dark:text-slate-400 hover:text-violet-600 dark:hover:text-violet-300 transition-opacity" href="#">Returns</a></li>
+<li><a class="text-slate-500 dark:text-slate-400 hover:text-violet-600 dark:hover:text-violet-300 transition-opacity" href="#">Sustainability</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-headline font-bold text-on-surface mb-6 uppercase tracking-wider text-xs">Legal</h4>
+<ul class="space-y-4">
+<li><a class="text-slate-500 dark:text-slate-400 hover:text-violet-600 dark:hover:text-violet-300 transition-opacity" href="#">Privacy Policy</a></li>
+<li><a class="text-slate-500 dark:text-slate-400 hover:text-violet-600 dark:hover:text-violet-300 transition-opacity" href="#">Terms of Service</a></li>
+<li><a class="text-slate-500 dark:text-slate-400 hover:text-violet-600 dark:hover:text-violet-300 transition-opacity" href="#">Cookies</a></li>
+</ul>
+</div>
+</div>
+<div class="max-w-7xl mx-auto px-8 mt-16 pt-8 border-t border-slate-200/50 dark:border-slate-800/50 flex flex-col md:flex-row justify-between items-center gap-4">
+<span class="text-slate-500 dark:text-slate-400 text-xs">© 2024 The Ethereal Boutique. All rights reserved.</span>
+<div class="flex gap-8 text-xs font-semibold">
+<span class="flex items-center gap-1 text-slate-500"><span class="material-symbols-outlined text-sm">lock</span> Secure Payment</span>
+<span class="flex items-center gap-1 text-slate-500"><span class="material-symbols-outlined text-sm">local_shipping</span> Global Express Delivery</span>
+</div>
+</div>
+</footer>
+</body></html>

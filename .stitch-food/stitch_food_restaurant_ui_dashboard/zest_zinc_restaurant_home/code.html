@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary": "#ffffff",
+                        "primary-fixed-dim": "#ffb59d",
+                        "outline-variant": "#e1bfb5",
+                        "error-container": "#ffdad6",
+                        "primary-container": "#ff6b35",
+                        "tertiary-container": "#00a7cb",
+                        "on-primary": "#ffffff",
+                        "secondary-fixed-dim": "#ffb3b2",
+                        "surface-container": "#f0eded",
+                        "on-surface": "#1c1b1b",
+                        "primary-fixed": "#ffdbd0",
+                        "secondary-container": "#de2b41",
+                        "surface-variant": "#e5e2e1",
+                        "on-error": "#ffffff",
+                        "on-tertiary-fixed-variant": "#004e60",
+                        "primary": "#ab3500",
+                        "on-secondary-fixed": "#410008",
+                        "on-primary-fixed": "#390c00",
+                        "on-tertiary": "#ffffff",
+                        "inverse-on-surface": "#f3f0ef",
+                        "on-primary-fixed-variant": "#832600",
+                        "on-tertiary-container": "#003744",
+                        "outline": "#8d7168",
+                        "surface-dim": "#dcd9d9",
+                        "tertiary-fixed-dim": "#59d5fb",
+                        "surface": "#fcf9f8",
+                        "tertiary-fixed": "#b5ebff",
+                        "error": "#ba1a1a",
+                        "surface-bright": "#fcf9f8",
+                        "background": "#fcf9f8",
+                        "secondary": "#b9052c",
+                        "on-background": "#1c1b1b",
+                        "inverse-primary": "#ffb59d",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-tint": "#ab3500",
+                        "secondary-fixed": "#ffdad9",
+                        "surface-container-highest": "#e5e2e1",
+                        "on-tertiary-fixed": "#001f28",
+                        "on-surface-variant": "#594139",
+                        "on-secondary-fixed-variant": "#92001f",
+                        "on-secondary-container": "#fffbff",
+                        "surface-container-high": "#eae7e7",
+                        "surface-container-low": "#f6f3f2",
+                        "inverse-surface": "#313030",
+                        "on-error-container": "#93000a",
+                        "on-primary-container": "#5f1900",
+                        "tertiary": "#00677e"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Plus Jakarta Sans"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body selection:bg-primary-fixed selection:text-on-primary-fixed">
+<nav class="bg-[#FCF9F8] dark:bg-stone-950 font-['Plus_Jakarta_Sans'] tracking-tight fixed w-full top-0 z-50 tonal-shift-bg">
+<div class="flex justify-between items-center px-8 py-4 max-w-7xl mx-auto">
+<div class="text-xl font-bold text-[#1C1B1B] dark:text-[#FCF9F8]">Culinary Editorial</div>
+<div class="hidden md:flex items-center space-x-8">
+<a class="text-[#AB3500] font-bold border-b-2 border-[#AB3500] pb-1 transition-colors" href="#">Home</a>
+<a class="text-[#1C1B1B] dark:text-[#F0EDED] hover:text-[#AB3500] transition-colors" href="#">Menu</a>
+<a class="text-[#1C1B1B] dark:text-[#F0EDED] hover:text-[#AB3500] transition-colors" href="#">About</a>
+<a class="text-[#1C1B1B] dark:text-[#F0EDED] hover:text-[#AB3500] transition-colors" href="#">Reviews</a>
+<a class="text-[#1C1B1B] dark:text-[#F0EDED] hover:text-[#AB3500] transition-colors" href="#">Contact</a>
+</div>
+<button class="bg-primary text-on-primary px-6 py-2.5 rounded-xl font-semibold shadow-sm hover:opacity-90 active:scale-95 transition-all duration-200">
+                Order Now
+            </button>
+</div>
+</nav>
+<main class="pt-20">
+<section class="relative h-[870px] min-h-[600px] flex items-center overflow-hidden px-8">
+<div class="absolute inset-0 z-0">
+<img class="w-full h-full object-cover" data-alt="Close-up of a gourmet wood-fired pizza with fresh basil and melting buffalo mozzarella on a rustic dark wooden table with dramatic lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDK-unLWQ6dGQiTT_IkCyFQO02BF9ZRYJM0qbKGx7ZsvgvJIT-YVTuzFB0diISAdR3MIHbEjMO96lGP-jFvlqmzXb7FhcrhprTCnUfPvE4KHAzEGXJO46-k5kG_4ubfoFLHDrtiZrNDYgccvJoPeUqDxhcZQnk3qDg58n7ccJ4dfkhVrX66DFv5_YkSIZu47EXQo5vpuzHtDaKN5wcUGBrR5P6LmeBSYUns0GjflvGN4sn4hzVJBBfU2S_LbXL7gR1dAq3HJsIJWQs"/>
+<div class="absolute inset-0 bg-gradient-to-r from-on-surface/80 via-on-surface/40 to-transparent"></div>
+</div>
+<div class="relative z-10 max-w-7xl mx-auto w-full">
+<div class="max-w-2xl">
+<span class="inline-block py-1 px-3 bg-primary/20 backdrop-blur-md text-primary font-bold rounded-full text-xs tracking-widest uppercase mb-6">Established 1994</span>
+<h1 class="font-headline text-5xl md:text-7xl font-extrabold text-surface leading-[1.1] tracking-tight mb-8">
+                        Modern Flavors, <br/><span class="text-primary-fixed-dim">Timeless Traditions</span>
+</h1>
+<p class="text-surface/90 text-lg md:text-xl mb-10 leading-relaxed font-light">
+                        Experience the artistry of Zest &amp; Zinc, where every dish is a narrative of heritage and innovation, served in an atmosphere of refined warmth.
+                    </p>
+<div class="flex flex-wrap gap-4">
+<button class="bg-primary hover:bg-primary-container text-on-primary px-8 py-4 rounded-xl font-bold transition-all shadow-lg flex items-center gap-2">
+                            Order Now <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+<button class="bg-surface/10 hover:bg-surface/20 backdrop-blur-xl border border-surface/20 text-surface px-8 py-4 rounded-xl font-bold transition-all">
+                            View Menu
+                        </button>
+</div>
+</div>
+</div>
+</section>
+<section class="py-24 max-w-7xl mx-auto px-8">
+<div class="flex items-end justify-between mb-12">
+<div>
+<h2 class="font-headline text-3xl font-extrabold tracking-tight mb-2">Explore the Menu</h2>
+<p class="text-on-surface-variant">Curated categories for every palate.</p>
+</div>
+<div class="hidden md:flex gap-2">
+<button class="p-2 rounded-full border border-outline-variant hover:bg-surface-container transition-colors"><span class="material-symbols-outlined">chevron_left</span></button>
+<button class="p-2 rounded-full border border-outline-variant hover:bg-surface-container transition-colors"><span class="material-symbols-outlined">chevron_right</span></button>
+</div>
+</div>
+<div class="grid grid-cols-2 lg:grid-cols-4 gap-6">
+<div class="group relative aspect-[4/5] rounded-3xl overflow-hidden bg-surface-container-low cursor-pointer transition-transform duration-500 hover:-translate-y-2">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="Artisanal pepperoni pizza on a marble surface with flour dust" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDvH7xTb_32972uoQNa7CehfwInxF5ghnUmy6dSAhyUkkfrm75PVImxWEg5LMC5B3nhLxO-BglTu373ZBTo50e3WpOJqmWK4jOAkafHb_8HWj-hYf0LNwghlR3uxvI3rzYDN7vzycQYwHYDAqhDr4K7zHqodf5DKq_cRGEz3HDyizlTVpeNnsvkZhhmq9AaTrLajIYJeucu9iaySNjaM9j4uewA86amwThihNotPP5Fi-J2IXBuQu-Pkje9jpb7nCQVRYqihLiG76U"/>
+<div class="absolute inset-0 bg-gradient-to-t from-on-surface/90 via-transparent to-transparent"></div>
+<div class="absolute bottom-6 left-6">
+<span class="material-symbols-outlined text-primary-fixed text-4xl mb-2" data-weight="fill">local_pizza</span>
+<h3 class="text-surface font-headline text-xl font-bold">Pizza</h3>
+</div>
+</div>
+<div class="group relative aspect-[4/5] rounded-3xl overflow-hidden bg-surface-container-low cursor-pointer transition-transform duration-500 hover:-translate-y-2">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="Juicy double cheeseburger with sesame bun and melting cheese" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC82Gj1Lghm8yCpApIalEuVzkY8d3PgOdITA7U9i6fJTGUieN_uOL6M3DqHiq1008LB1FTEKySGZridnRwSoTP8IxTFuxs9Qb9FgeCnsShEhLRZ9uiRNrCV1PwqQetF2Z_v5gzaMCunuGCpq0HPIftKgREAZcQAN25u4Op9YSe5qph_In2E09DR0LpKDd_TMA5M-UMze-3UgRtbYx53P7KpB9Pih3KsAHG6XUdTt2HtMvTEXZSp8FT-tMABTmSzIw0bfUH2D4YhXKA"/>
+<div class="absolute inset-0 bg-gradient-to-t from-on-surface/90 via-transparent to-transparent"></div>
+<div class="absolute bottom-6 left-6">
+<span class="material-symbols-outlined text-primary-fixed text-4xl mb-2" data-weight="fill">lunch_dining</span>
+<h3 class="text-surface font-headline text-xl font-bold">Burgers</h3>
+</div>
+</div>
+<div class="group relative aspect-[4/5] rounded-3xl overflow-hidden bg-surface-container-low cursor-pointer transition-transform duration-500 hover:-translate-y-2">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="Vibrant tropical cocktails in chilled glasses with fresh fruit garnish" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDbWMgdPF45d-q21AXwKOa4uGMUAcFU6_2gqDkS13QuVr_922hoV1sF2xfTcv4MVeulM7ogsFW-pAgL65oUDnp9bTov4zEwSTx4wda6yInOU2dpwTjZU-DdCg3jOHpHdwWoyK4MEvidDtrgktx-9LDAojHtbmJj2TU_Y34hFKVfi1yDxHlIF3pivXVrZTezIn1w3DCrfG6pS178itIkL8Abs8oLT2a93BZ5Juyu3si8cpEPKEmuVhYV4UVykxq7buAZFTAi4ezs26Y"/>
+<div class="absolute inset-0 bg-gradient-to-t from-on-surface/90 via-transparent to-transparent"></div>
+<div class="absolute bottom-6 left-6">
+<span class="material-symbols-outlined text-primary-fixed text-4xl mb-2" data-weight="fill">local_bar</span>
+<h3 class="text-surface font-headline text-xl font-bold">Drinks</h3>
+</div>
+</div>
+<div class="group relative aspect-[4/5] rounded-3xl overflow-hidden bg-surface-container-low cursor-pointer transition-transform duration-500 hover:-translate-y-2">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="Decadent chocolate lava cake with raspberry sauce and powdered sugar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBVK5yoEmoNx56BmdadEPXIHti-J8iPQtOBXZDWtPakcD6JUS5xiJonzqYck1NeOjLTNUQ5TjEAcKkhBQKMJdV1D5Xh1uuHfOaZ95WKBlmuvacyUfNiBIs6AubP8Gj7g4pR-_uLdvrrNb2aG0o52T3F_inx5Viwf7UwTlY3uXzvcHPEzbBfCyzEZe1zrv8iVerz0PQ1cHwD69mkr-hFujAcB4CGSBCsDkgoC7Z-FwjcdrvNPRiOBBYh2EZ2cEa4TbkzYqRMGN6lwOk"/>
+<div class="absolute inset-0 bg-gradient-to-t from-on-surface/90 via-transparent to-transparent"></div>
+<div class="absolute bottom-6 left-6">
+<span class="material-symbols-outlined text-primary-fixed text-4xl mb-2" data-weight="fill">icecream</span>
+<h3 class="text-surface font-headline text-xl font-bold">Desserts</h3>
+</div>
+</div>
+</div>
+</section>
+<section class="bg-surface-container-low py-24">
+<div class="max-w-7xl mx-auto px-8">
+<div class="text-center mb-16">
+<h2 class="font-headline text-4xl font-extrabold tracking-tight mb-4">Chef's Recommendations</h2>
+<p class="text-on-surface-variant max-w-xl mx-auto">Selected with passion, prepared with precision. The crown jewels of our kitchen.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<div class="bg-surface-container-lowest p-5 rounded-[2rem] transition-all hover:shadow-xl group">
+<div class="relative overflow-hidden rounded-2xl mb-6 aspect-video">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Classic Italian margherita pizza with bubbling cheese and fresh basil leaves" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBykZRwT19D-bz90Tm0WmSgMyl3CWn62NsedFsz438gWe-6OMgUMITurNq4YASh5e_bXWlPqfqeFy1VjAs0GIVbN1rs_OCTQ6101u97g6V6_aGczxnGDnQQJ7NvI-d9czE1CxH_syqyw6TVT43HRzoyYgmoGMzFtMri7r53vR3gawFCfadlmCxR1qKiKdSfTeqc_2EO0mrLVpNOsxmUMBPSlMn5cigkVEkyxEnhMiFq_rIAhu0FJXtM78YZeiwBZ_11P9W_TJPVUFQ"/>
+<div class="absolute top-4 right-4 bg-surface/90 backdrop-blur shadow-sm px-3 py-1 rounded-full text-xs font-bold text-primary">BEST SELLER</div>
+</div>
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-headline text-xl font-bold">Truffle Umami Pizza</h3>
+<span class="text-primary font-extrabold">$24.00</span>
+</div>
+<p class="text-sm text-on-surface-variant mb-6 leading-relaxed">Black truffle cream, wild mushrooms, fior di latte, and aged parmesan rain.</p>
+<button class="w-full py-3 bg-surface-container text-on-surface hover:bg-primary hover:text-on-primary transition-all rounded-xl font-bold flex justify-center items-center gap-2">
+<span class="material-symbols-outlined text-lg">shopping_bag</span> Add to Cart
+                        </button>
+</div>
+<div class="bg-surface-container-lowest p-5 rounded-[2rem] transition-all hover:shadow-xl group">
+<div class="relative overflow-hidden rounded-2xl mb-6 aspect-video">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Gourmet wagyu beef burger with caramelized onions and brioche bun" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBz79hwM6gEccSqKljGuf3B7TBnezNCgK5d-ROC2prwHVquta8GbEo64ZjhFJq9tzSZLejmqh3orMIOFhsUuoC3KpMdrUpTNJ7B3pQaKsdMhQt1cdBOc5Ktot2zussUQMybgtivBmdyRA5vdw0I-QZLuuMShXgWF5dZlnFXdAokMLp_W3ZXNpDYxN1vZBNy60N3ytffMnvYEOiECWYXgx0oor-E0N5L85dboQ7v9Gi6El7d3AquvwVT5ivdbyKynEPUVs8eYegLseo"/>
+</div>
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-headline text-xl font-bold">The Zinc Signature Burger</h3>
+<span class="text-primary font-extrabold">$18.50</span>
+</div>
+<p class="text-sm text-on-surface-variant mb-6 leading-relaxed">Wagyu beef patty, house-made zinc sauce, caramelized onions on brioche.</p>
+<button class="w-full py-3 bg-surface-container text-on-surface hover:bg-primary hover:text-on-primary transition-all rounded-xl font-bold flex justify-center items-center gap-2">
+<span class="material-symbols-outlined text-lg">shopping_bag</span> Add to Cart
+                        </button>
+</div>
+<div class="bg-surface-container-lowest p-5 rounded-[2rem] transition-all hover:shadow-xl group">
+<div class="relative overflow-hidden rounded-2xl mb-6 aspect-video">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Al dente pasta with rich tomato sauce and fresh herbs in a white bowl" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAq9YBKhSeY5-o6-fdECWPA4D33UDNodgHMmEv9kYRwZufLyIy98g_-XWX667cqaieBZcKUikRO2QNTRgH3_spJMwAbR7uDe9ctXhk355ayoih80MEb923dp3H0Fx3Ad87IOAG7NDQ_87eqCNhgyGNhRQWY3b6VrmOgN-MQL5-WV79LcLHi8KvMbN3D-oqSnAPSdk8XE2aDvoMgh4mIqosDq78DODEd9y01-5iVcHpaMpYzDjZ_RdWhQK7Q-g7O1d93EzYuv9wBm2Q"/>
+</div>
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-headline text-xl font-bold">Heirloom Tomato Pasta</h3>
+<span class="text-primary font-extrabold">$21.00</span>
+</div>
+<p class="text-sm text-on-surface-variant mb-6 leading-relaxed">Handmade tagliatelle, roasted heirloom tomatoes, basil oil, smoked ricotta.</p>
+<button class="w-full py-3 bg-surface-container text-on-surface hover:bg-primary hover:text-on-primary transition-all rounded-xl font-bold flex justify-center items-center gap-2">
+<span class="material-symbols-outlined text-lg">shopping_bag</span> Add to Cart
+                        </button>
+</div>
+</div>
+</div>
+</section>
+<section class="py-24 max-w-7xl mx-auto px-8 overflow-hidden">
+<div class="grid lg:grid-cols-2 gap-16 items-center">
+<div class="relative">
+<div class="aspect-[4/5] rounded-[3rem] overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Professional chefs working in a clean, modern stainless steel restaurant kitchen" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDQyvDZi_-YbEf9937iv6-ntEvdfAg1HFEv79lOJveLT9dqg7XeghBz6vUpxdOnmLk1h6VnWdfmbjfgEkt2UDPo8V1He-UlfMid4eM7YCyZ8DJC4cMcGP-nDE82iGX-2tsdUfZAHjQJjgTolMhowvNJ1CEVVNDWvq9HljQUCSk4PjdOzNPwejF24Qs64faZSCAH6LoxS3fad86zf5C68Ih1mPSrvIBm80TUfmCQ5jYSyQphoSlpjaBrD2-Rk-XNOjx2G2uECIR3c9U"/>
+</div>
+<div class="absolute -bottom-8 -right-8 bg-primary p-12 rounded-[2.5rem] shadow-2xl hidden md:block">
+<p class="text-on-primary font-headline text-4xl font-black">25+</p>
+<p class="text-on-primary/80 text-sm uppercase tracking-widest font-bold">Years of Mastery</p>
+</div>
+</div>
+<div>
+<h2 class="font-headline text-4xl md:text-5xl font-extrabold tracking-tight mb-8 leading-tight">Crafting Culinary <br/>Editorials Since 1994</h2>
+<p class="text-on-surface-variant text-lg mb-8 leading-relaxed">
+                        At Zest &amp; Zinc, we believe food is the ultimate medium for storytelling. Our "Editorial" approach means every ingredient is a word, and every plate is a published work of art. 
+                    </p>
+<div class="space-y-6 mb-10">
+<div class="flex gap-4">
+<div class="w-12 h-12 shrink-0 bg-primary-fixed rounded-xl flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">eco</span>
+</div>
+<div>
+<h4 class="font-bold mb-1">Locally Sourced</h4>
+<p class="text-sm text-on-surface-variant">Partnerships with 15+ local organic farms within a 50-mile radius.</p>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="w-12 h-12 shrink-0 bg-primary-fixed rounded-xl flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">restaurant</span>
+</div>
+<div>
+<h4 class="font-bold mb-1">Artisanal Mastery</h4>
+<p class="text-sm text-on-surface-variant">Our chefs undergo rigid training in classical and avant-garde techniques.</p>
+</div>
+</div>
+</div>
+<button class="text-primary font-bold flex items-center gap-2 group">
+                        Discover Our Full Story <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_right_alt</span>
+</button>
+</div>
+</div>
+</section>
+<section class="bg-[#F0EDED] dark:bg-stone-900/50 py-24">
+<div class="max-w-7xl mx-auto px-8">
+<div class="flex flex-col md:flex-row justify-between items-center mb-16 gap-4">
+<h2 class="font-headline text-3xl font-extrabold tracking-tight">The Modern Experience</h2>
+<div class="flex items-center gap-2">
+<span class="font-bold">4.9/5</span>
+<div class="flex text-primary">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<span class="text-on-surface-variant text-sm">from 2k+ reviews</span>
+</div>
+</div>
+<div class="grid md:grid-cols-3 gap-8">
+<div class="bg-surface-container-lowest p-8 rounded-3xl border border-outline-variant/10">
+<div class="flex gap-4 mb-6">
+<div class="w-12 h-12 rounded-full overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Portrait of a smiling middle-aged man in casual attire" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD4WXlVYeNruoQQchOiDCNVHCDRH4sJB0B2sqr9b2ogckRbtoTu5B4aZpiULtnMK1kBU1Y0FKnzAMDVzTwiMkCQjza0foHCOAwkVxcnIaZ0eoJSllWCZ3_95jcpjQAv8dB8XEnfWx2SIAwbjAUEWlDgZGKhN-PVnCZra1pOevQNFfQVsOfHuTnUzSeVjuLrFmpbT__8uwCcfFiMTBzCmWsznOw8h65Sr9kRZCcC_zeA-zYrR7nvg09BHnv2ebALoE8LWEV3j0oaq_0"/>
+</div>
+<div>
+<h4 class="font-bold">James Thompson</h4>
+<p class="text-xs text-on-surface-variant">Food Critic</p>
+</div>
+</div>
+<p class="text-on-surface italic leading-relaxed">"The Zinc Signature Burger is a masterclass in balance. The Zinc sauce is addictive. Best culinary experience in the city!"</p>
+</div>
+<div class="bg-surface-container-lowest p-8 rounded-3xl border border-outline-variant/10 md:mt-8">
+<div class="flex gap-4 mb-6">
+<div class="w-12 h-12 rounded-full overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Portrait of a professional young woman with a friendly expression" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBFNJ1zaQDKyQmfty-qUfp3zuBf70lEQ-CM4LMiLBwFPFPG7C_RgsPjHfUzIkcO6vlrpNumM_4oBc7aFnKnbRJ21Y4ce8hfMRPDl_VIE_vMV0e9_htBclVvh5-6-CygqmVA5PKECPyEvNCy7WrxCxa6-OLEQINnbgMVtDDBaxmDU_mO2wyJ1XpvZEausnaijeqf1byNygj75tt7hJZJTTbxdUM_00_vEdRpPLx-FIMNoAtl33FsowImJE-FoEdivBHWzm-l21b0Pd8"/>
+</div>
+<div>
+<h4 class="font-bold">Sarah Chen</h4>
+<p class="text-xs text-on-surface-variant">Verified Guest</p>
+</div>
+</div>
+<p class="text-on-surface italic leading-relaxed">"Atmosphere is exactly as described—modern but cozy. The Heirloom Tomato Pasta tasted like it was picked minutes before serving."</p>
+</div>
+<div class="bg-surface-container-lowest p-8 rounded-3xl border border-outline-variant/10">
+<div class="flex gap-4 mb-6">
+<div class="w-12 h-12 rounded-full overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Close up portrait of a bearded man with a stylish look" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDoE8RdjBGka53rY_-qLcWShJzLn_PHQPq8fGZGzzD-lrYDv8cEJma8ibTsPmyfAA3bAQjhodHIO5SPpnHKHRlR1-Le18n1jUiegR1-dUhHLfYnsxWDnRNccMj0FwV1OSvhGh1UD1xpUh0mEUHUjuOmoYxqwEJ_XqwUF3hCx-WWvXuNdGyo-thxUURPn9ZibygjXcZTTHlLOgg5TBUdLx1wxcUg1TZ9H1yeLDVfrEmvRmb_LknAR6GTLMd-Xm12WWT4f16On5z95BU"/>
+</div>
+<div>
+<h4 class="font-bold">Marco Rossi</h4>
+<p class="text-xs text-on-surface-variant">Frequent Traveler</p>
+</div>
+</div>
+<p class="text-on-surface italic leading-relaxed">"Being from Italy, I'm picky about pizza. Zest &amp; Zinc gets the crust exactly right—charred, airy, and flavorful."</p>
+</div>
+</div>
+</div>
+</section>
+<section class="py-24 max-w-7xl mx-auto px-8">
+<div class="grid lg:grid-cols-5 gap-12">
+<div class="lg:col-span-2">
+<h2 class="font-headline text-4xl font-extrabold tracking-tight mb-6">Visit the Editor's Table</h2>
+<p class="text-on-surface-variant mb-10">Have questions about our ingredients or want to book a private event? Reach out to our concierge.</p>
+<div class="space-y-6">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-lg">location_on</span>
+</div>
+<p class="text-sm font-medium">124 Culinary Boulevard, Gastronomy District</p>
+</div>
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-lg">call</span>
+</div>
+<p class="text-sm font-medium">+1 (555) 012-3456</p>
+</div>
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-lg">mail</span>
+</div>
+<p class="text-sm font-medium">hello@zestzinc.com</p>
+</div>
+</div>
+<div class="mt-10 rounded-3xl overflow-hidden h-64 relative">
+<img class="w-full h-full object-cover" data-alt="Stylized map showing urban city blocks in a clean minimal design" data-location="New York" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD2JgBzcwRv1P4J79jOvSwa3tLVVZt75xZRompx-cnqq_55DSJFOPm9RqI41mh8-S4_6nwS6MtGsCcvOr7Zt3exO7fdgVlRNH5hVqLG1sRBEBsPLtQi1GNjLhQZdP4mS62gkltIe0_0vH8kpqGnhK1oMDwnlC3iB5rSW9z3iYvdG04_r_8lNxM-YSKlHV6AEhupICts0wCKGsCkaqe1w51w4Q9EUR2PZ8OeOd7FiHjH7ICpVXfbE0gADZBW5UtEYopisfIAmWu9B3E"/>
+<div class="absolute inset-0 bg-primary/10"></div>
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+<div class="w-8 h-8 bg-primary rounded-full border-4 border-surface shadow-lg"></div>
+</div>
+</div>
+</div>
+<div class="lg:col-span-3 bg-surface-container-low p-10 rounded-[2.5rem]">
+<form class="space-y-6">
+<div class="grid md:grid-cols-2 gap-6">
+<div class="space-y-2">
+<label class="text-xs font-bold uppercase tracking-widest text-on-surface-variant px-1">Full Name</label>
+<input class="w-full bg-surface rounded-xl border-none focus:ring-2 focus:ring-primary py-4 px-6 text-sm" placeholder="John Doe" type="text"/>
+</div>
+<div class="space-y-2">
+<label class="text-xs font-bold uppercase tracking-widest text-on-surface-variant px-1">Email Address</label>
+<input class="w-full bg-surface rounded-xl border-none focus:ring-2 focus:ring-primary py-4 px-6 text-sm" placeholder="john@example.com" type="email"/>
+</div>
+</div>
+<div class="space-y-2">
+<label class="text-xs font-bold uppercase tracking-widest text-on-surface-variant px-1">Subject</label>
+<select class="w-full bg-surface rounded-xl border-none focus:ring-2 focus:ring-primary py-4 px-6 text-sm appearance-none">
+<option>General Inquiry</option>
+<option>Reservation</option>
+<option>Private Event</option>
+<option>Feedback</option>
+</select>
+</div>
+<div class="space-y-2">
+<label class="text-xs font-bold uppercase tracking-widest text-on-surface-variant px-1">Your Message</label>
+<textarea class="w-full bg-surface rounded-xl border-none focus:ring-2 focus:ring-primary py-4 px-6 text-sm" placeholder="How can we help you?" rows="4"></textarea>
+</div>
+<button class="w-full bg-primary text-on-primary py-4 rounded-xl font-bold hover:opacity-90 transition-opacity">
+                            Send Editorial Request
+                        </button>
+</form>
+</div>
+</div>
+</section>
+</main>
+<footer class="bg-[#F0EDED] dark:bg-stone-900 font-['Inter'] text-sm">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-8 px-8 py-12 max-w-7xl mx-auto">
+<div class="col-span-1 md:col-span-1">
+<div class="text-lg font-bold text-[#1C1B1B] dark:text-[#FCF9F8] mb-6">Culinary Editorial</div>
+<p class="text-on-surface-variant leading-relaxed mb-6">Redefining the modern dining experience through meticulous craft and editorial vision.</p>
+<div class="flex gap-4">
+<a class="w-8 h-8 rounded-full bg-surface flex items-center justify-center text-primary hover:bg-primary hover:text-on-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-base">public</span>
+</a>
+<a class="w-8 h-8 rounded-full bg-surface flex items-center justify-center text-primary hover:bg-primary hover:text-on-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-base">share</span>
+</a>
+</div>
+</div>
+<div>
+<h4 class="font-bold text-[#1C1B1B] dark:text-white mb-6 uppercase tracking-widest text-xs">Navigation</h4>
+<ul class="space-y-4">
+<li><a class="text-[#1C1B1B] dark:text-[#F0EDED] hover:opacity-80 transition-all underline" href="#">Home</a></li>
+<li><a class="text-[#1C1B1B] dark:text-[#F0EDED] hover:opacity-80 transition-all" href="#">Menu</a></li>
+<li><a class="text-[#1C1B1B] dark:text-[#F0EDED] hover:opacity-80 transition-all" href="#">Story</a></li>
+<li><a class="text-[#1C1B1B] dark:text-[#F0EDED] hover:opacity-80 transition-all" href="#">Careers</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold text-[#1C1B1B] dark:text-white mb-6 uppercase tracking-widest text-xs">Policy</h4>
+<ul class="space-y-4">
+<li><a class="text-[#1C1B1B] dark:text-[#F0EDED] hover:opacity-80 transition-all" href="#">Privacy Policy</a></li>
+<li><a class="text-[#1C1B1B] dark:text-[#F0EDED] hover:opacity-80 transition-all" href="#">Terms of Service</a></li>
+<li><a class="text-[#1C1B1B] dark:text-[#F0EDED] hover:opacity-80 transition-all" href="#">Sustainability</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold text-[#1C1B1B] dark:text-white mb-6 uppercase tracking-widest text-xs">Newsletter</h4>
+<p class="text-xs text-on-surface-variant mb-4">Subscribe for seasonal menu previews.</p>
+<div class="flex gap-2">
+<input class="bg-surface-container-lowest border-none rounded-lg text-xs w-full py-2" placeholder="Email" type="text"/>
+<button class="bg-primary text-on-primary px-3 rounded-lg"><span class="material-symbols-outlined text-sm">send</span></button>
+</div>
+</div>
+</div>
+<div class="max-w-7xl mx-auto px-8 py-6 border-t border-outline-variant/10 text-center md:text-left">
+<p class="text-[#1C1B1B] dark:text-[#F0EDED] opacity-60 text-xs">© 2024 Culinary Editorial. The Modern Maître D’.</p>
+</div>
+</footer>
+</body></html>
