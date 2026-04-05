@@ -37,6 +37,8 @@ function normalizeContent(rawContent) {
   const sourceReasons = sourceSections.reasons || {}
   const fallbackProjects = fallbackSections.projects || {}
   const sourceProjects = sourceSections.projects || {}
+  const fallbackRestaurantGallery = fallback.restaurantGallery || {}
+  const sourceRestaurantGallery = source.restaurantGallery || {}
   const fallbackFashionGallery = fallback.fashionGallery || {}
   const sourceFashionGallery = source.fashionGallery || {}
 
@@ -110,6 +112,15 @@ function normalizeContent(rawContent) {
       ...(fallback.projectPages || {}),
       ...(source.projectPages || {}),
     },
+    restaurantGallery: {
+      ...fallbackRestaurantGallery,
+      ...sourceRestaurantGallery,
+      highlights: asArray(sourceRestaurantGallery.highlights, asArray(fallbackRestaurantGallery.highlights)),
+      featurePoints: asArray(sourceRestaurantGallery.featurePoints, asArray(fallbackRestaurantGallery.featurePoints)),
+      adminHighlights: asArray(sourceRestaurantGallery.adminHighlights, asArray(fallbackRestaurantGallery.adminHighlights)),
+      metrics: asArray(sourceRestaurantGallery.metrics, asArray(fallbackRestaurantGallery.metrics)),
+      screens: asArray(sourceRestaurantGallery.screens, asArray(fallbackRestaurantGallery.screens)),
+    },
     fashionGallery: {
       ...fallbackFashionGallery,
       ...sourceFashionGallery,
@@ -117,10 +128,6 @@ function normalizeContent(rawContent) {
       featurePoints: asArray(sourceFashionGallery.featurePoints, asArray(fallbackFashionGallery.featurePoints)),
       metrics: asArray(sourceFashionGallery.metrics, asArray(fallbackFashionGallery.metrics)),
       screens: asArray(sourceFashionGallery.screens, asArray(fallbackFashionGallery.screens)),
-      listingShowcase: {
-        ...(fallbackFashionGallery.listingShowcase || {}),
-        ...(sourceFashionGallery.listingShowcase || {}),
-      },
       productSpotlight: {
         ...(fallbackFashionGallery.productSpotlight || {}),
         ...(sourceFashionGallery.productSpotlight || {}),

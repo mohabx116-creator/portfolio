@@ -2,6 +2,7 @@ import { Link, useParams } from 'react-router-dom'
 import ButtonLink from '../components/ButtonLink'
 import Container from '../components/Container'
 import FashionCaseStudyPage from '../components/FashionCaseStudyPage'
+import RestaurantCaseStudyPage from '../components/RestaurantCaseStudyPage'
 import Navbar from '../sections/Navbar'
 import Footer from '../sections/Footer'
 import useAppSettings from '../context/useAppSettings'
@@ -22,6 +23,10 @@ function ProjectExperiencePage() {
 
   if (project.template === 'fashion-gallery') {
     return <FashionCaseStudyPage />
+  }
+
+  if (project.template === 'restaurant-gallery') {
+    return <RestaurantCaseStudyPage />
   }
 
   return (

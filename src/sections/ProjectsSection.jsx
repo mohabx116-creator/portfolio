@@ -5,6 +5,7 @@ import ProjectModal from '../components/ProjectModal'
 import Reveal from '../components/Reveal'
 import SectionHeading from '../components/SectionHeading'
 import FashionGalleryPanel from '../components/FashionGalleryPanel'
+import RestaurantGalleryPanel from '../components/RestaurantGalleryPanel'
 import useAppSettings from '../context/useAppSettings'
 
 function ProjectsSection() {
@@ -21,10 +22,15 @@ function ProjectsSection() {
 
   const tabs = [
     { id: 'all', label: projectsSection.allTab || 'All Work' },
+    { id: 'restaurant-gallery', label: projectsSection.restaurantTab || 'Restaurant Gallery' },
     { id: 'fashion-gallery', label: projectsSection.fashionTab || 'Fashion Gallery' },
   ]
 
-  const visibleProjects = activeTab === 'all' ? projects : generalProjects.filter((project) => project.route.includes('fashion'))
+  const visibleProjects = activeTab === 'all'
+    ? projects
+    : activeTab === 'restaurant-gallery'
+      ? generalProjects.filter((project) => project.route.includes('restaurant'))
+      : generalProjects.filter((project) => project.route.includes('fashion'))
 
   return (
     <>
@@ -69,7 +75,9 @@ function ProjectsSection() {
             </div>
           </Reveal>
 
-          {activeTab === 'fashion-gallery' ? (
+          {activeTab === 'restaurant-gallery' ? (
+            <RestaurantGalleryPanel />
+          ) : activeTab === 'fashion-gallery' ? (
             <FashionGalleryPanel />
           ) : (
             <div className="grid gap-5 sm:gap-6 md:grid-cols-2 xl:grid-cols-3 xl:gap-8">
