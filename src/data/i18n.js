@@ -32,7 +32,7 @@ const makeContent = (copy) => ({
       ...copy.projectItems.dashboard,
     },
     {
-      route: '/projects/restaurant-gallery',
+      route: '/experiences/restaurant-gallery',
       image: projectAssets.restaurantGallery.cover,
       ...copy.projectItems.restaurantGallery,
     },
@@ -42,7 +42,7 @@ const makeContent = (copy) => ({
       ...copy.projectItems.fashion,
     },
     {
-      route: '/projects/fashion-gallery',
+      route: '/experiences/fashion-gallery',
       image: projectAssets.fashionGallery.cover,
       ...copy.projectItems.fashionGallery,
     },
@@ -71,7 +71,7 @@ const makeContent = (copy) => ({
   },
   restaurantGallery: {
     ...copy.restaurantGallery,
-    route: '/projects/restaurant-gallery',
+    route: '/experiences/restaurant-gallery',
     screens: [
       {
         image: projectAssets.restaurantGallery.screens.home,
@@ -93,7 +93,7 @@ const makeContent = (copy) => ({
   },
   fashionGallery: {
     ...copy.fashionGallery,
-    route: '/projects/fashion-gallery',
+    route: '/experiences/fashion-gallery',
     screens: [
       {
         image: projectAssets.fashionGallery.screens.home,

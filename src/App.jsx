@@ -9,6 +9,8 @@ import CtaSection from './sections/CtaSection'
 import ContactSection from './sections/ContactSection'
 import Footer from './sections/Footer'
 import ProjectExperiencePage from './pages/ProjectExperiencePage'
+import RestaurantExperiencePage from './pages/RestaurantExperiencePage'
+import FashionExperiencePage from './pages/FashionExperiencePage'
 import useAppSettings from './context/useAppSettings'
 import ScrollToTop from './components/ScrollToTop'
 
@@ -39,6 +41,8 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/projects/:slug" element={<ProjectExperiencePage />} />
+        <Route path="/experiences/restaurant-gallery" element={<RestaurantExperiencePage />} />
+        <Route path="/experiences/fashion-gallery" element={<FashionExperiencePage />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </div>
