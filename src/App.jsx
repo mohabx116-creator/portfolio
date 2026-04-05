@@ -10,6 +10,7 @@ import ContactSection from './sections/ContactSection'
 import Footer from './sections/Footer'
 import ProjectExperiencePage from './pages/ProjectExperiencePage'
 import useAppSettings from './context/useAppSettings'
+import ScrollToTop from './components/ScrollToTop'
 
 function HomePage() {
   return (
@@ -34,6 +35,7 @@ function App() {
 
   return (
     <div className={`min-h-screen bg-surface text-on-surface theme-${theme}`}>
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/projects/:slug" element={<ProjectExperiencePage />} />

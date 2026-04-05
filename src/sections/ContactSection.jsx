@@ -1,11 +1,13 @@
-﻿import Container from '../components/Container'
+import Container from '../components/Container'
 import Reveal from '../components/Reveal'
 import SectionHeading from '../components/SectionHeading'
 import useAppSettings from '../context/useAppSettings'
 
 function ContactSection() {
   const { content } = useAppSettings()
-  const prioritizedContacts = [...content.contacts].sort((a, b) => {
+  const contactSection = content?.sections?.contact || {}
+  const contacts = Array.isArray(content?.contacts) ? content.contacts : []
+  const prioritizedContacts = [...contacts].sort((a, b) => {
     if (a.label === 'WhatsApp') return -1
     if (b.label === 'WhatsApp') return 1
     return 0
@@ -17,13 +19,16 @@ function ContactSection() {
         <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
           <Reveal className="text-start">
             <SectionHeading
-              eyebrow={content.sections.contact.eyebrow}
-              title={content.sections.contact.title}
-              description={content.sections.contact.description}
+              eyebrow={contactSection.eyebrow}
+              title={contactSection.title}
+              description={contactSection.description}
+              className="max-w-2xl"
+              titleClassName="text-[2.2rem] leading-[1.16] sm:text-[2.55rem] lg:text-[2.95rem]"
+              descriptionClassName="max-w-2xl text-lg leading-9"
             />
             <div className="mt-8 rounded-[1.5rem] border border-primary/20 bg-primary/10 p-5 text-sm leading-7 text-on-surface backdrop-blur-sm">
-              <p className="font-headline text-base font-bold text-primary">{content.sections.contact.highlightTitle}</p>
-              <p className="mt-2 text-on-muted">{content.sections.contact.highlightCopy}</p>
+              <p className="font-headline text-base font-bold text-primary">{contactSection.highlightTitle}</p>
+              <p className="mt-2 text-on-muted">{contactSection.highlightCopy}</p>
             </div>
           </Reveal>
 
@@ -32,7 +37,7 @@ function ContactSection() {
               const isWhatsApp = item.label === 'WhatsApp'
 
               return (
-                <Reveal key={item.label} delay={index * 0.08}>
+                <Reveal key={item.label || index} delay={index * 0.08}>
                   <a
                     href={item.href}
                     target="_blank"
@@ -48,13 +53,13 @@ function ContactSection() {
                         <p className="font-label text-xs uppercase tracking-[0.2em] text-primary">{item.label}</p>
                         {isWhatsApp ? (
                           <span className="rounded-full border border-primary/30 bg-primary/15 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.18em] text-primary">
-                            {content.sections.contact.fastest}
+                            {contactSection.fastest}
                           </span>
                         ) : null}
                       </div>
                       <p className="mt-4 break-words font-headline text-xl font-bold text-on-surface transition-colors duration-300 hover:text-primary">{item.value}</p>
                     </div>
-                    <span className="text-sm text-on-muted">{content.sections.contact.action}</span>
+                    <span className="text-sm text-on-muted">{contactSection.action}</span>
                   </a>
                 </Reveal>
               )
@@ -67,4 +72,3 @@ function ContactSection() {
 }
 
 export default ContactSection
-

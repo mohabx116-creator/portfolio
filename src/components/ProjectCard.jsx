@@ -4,6 +4,7 @@ import useAppSettings from '../context/useAppSettings'
 function ProjectCard({ title, description, image, category, stack, route }) {
   const { isRTL, content } = useAppSettings()
   const iconPosition = isRTL ? 'left-4' : 'right-4'
+  const projectsSection = content?.sections?.projects || {}
 
   return (
     <Link
@@ -21,8 +22,8 @@ function ProjectCard({ title, description, image, category, stack, route }) {
         <div className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-black/10 to-transparent opacity-70" />
         <div className="absolute inset-x-0 bottom-0 translate-y-4 px-6 pb-6 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
           <div className="rounded-2xl border border-white/10 bg-surface/75 px-4 py-3 text-start backdrop-blur-md">
-            <p className="text-xs uppercase tracking-[0.2em] text-primary">{content.sections.projects.cardHintTitle}</p>
-            <p className="mt-2 text-sm leading-6 text-on-surface">{content.sections.projects.cardHintCopy}</p>
+            <p className="text-xs uppercase tracking-[0.2em] text-primary">{projectsSection.cardHintTitle}</p>
+            <p className="mt-2 text-sm leading-6 text-on-surface">{projectsSection.cardHintCopy}</p>
           </div>
         </div>
         <div className={`absolute top-4 flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-surface/80 text-primary backdrop-blur-md transition-all duration-300 group-hover:scale-110 group-hover:border-primary/30 group-hover:bg-surface-top/90 ${iconPosition}`}>

@@ -1,4 +1,4 @@
-﻿import { createContext, useEffect, useMemo, useState } from 'react'
+import { createContext, useEffect, useMemo, useState } from 'react'
 import { portfolioContent } from '../data/i18n'
 
 const STORAGE_KEYS = {
@@ -7,10 +7,117 @@ const STORAGE_KEYS = {
 }
 
 const AppSettingsContext = createContext(null)
+const VALID_THEMES = new Set(['dark', 'light'])
+const VALID_LANGUAGES = new Set(['ar', 'en'])
+const FALLBACK_LANGUAGE = 'en'
+
+function getStoredValue(key, validValues, fallback) {
+  try {
+    const value = localStorage.getItem(key)
+    return validValues.has(value) ? value : fallback
+  } catch {
+    return fallback
+  }
+}
+
+function asArray(value, fallback = []) {
+  return Array.isArray(value) ? value : fallback
+}
+
+function normalizeContent(rawContent) {
+  const fallback = portfolioContent[FALLBACK_LANGUAGE] || {}
+  const source = rawContent || fallback
+  const fallbackSections = fallback.sections || {}
+  const sourceSections = source.sections || {}
+  const fallbackHero = fallback.hero || {}
+  const sourceHero = source.hero || {}
+  const fallbackAbout = fallbackSections.about || {}
+  const sourceAbout = sourceSections.about || {}
+  const fallbackReasons = fallbackSections.reasons || {}
+  const sourceReasons = sourceSections.reasons || {}
+  const fallbackProjects = fallbackSections.projects || {}
+  const sourceProjects = sourceSections.projects || {}
+
+  return {
+    ...fallback,
+    ...source,
+    nav: {
+      ...(fallback.nav || {}),
+      ...(source.nav || {}),
+    },
+    controls: {
+      ...(fallback.controls || {}),
+      ...(source.controls || {}),
+    },
+    hero: {
+      ...fallbackHero,
+      ...sourceHero,
+      trustBadges: asArray(sourceHero.trustBadges, asArray(fallbackHero.trustBadges)),
+      stats: asArray(sourceHero.stats, asArray(fallbackHero.stats)),
+      mock: {
+        ...(fallbackHero.mock || {}),
+        ...(sourceHero.mock || {}),
+      },
+    },
+    sections: {
+      ...fallbackSections,
+      ...sourceSections,
+      services: {
+        ...(fallbackSections.services || {}),
+        ...(sourceSections.services || {}),
+      },
+      projects: {
+        ...fallbackProjects,
+        ...sourceProjects,
+        modal: {
+          ...((fallbackProjects && fallbackProjects.modal) || {}),
+          ...((sourceProjects && sourceProjects.modal) || {}),
+        },
+      },
+      reasons: {
+        ...fallbackReasons,
+        ...sourceReasons,
+        items: asArray(sourceReasons.items, asArray(fallbackReasons.items)),
+      },
+      about: {
+        ...fallbackAbout,
+        ...sourceAbout,
+        highlights: asArray(sourceAbout.highlights, asArray(fallbackAbout.highlights)),
+      },
+      cta: {
+        ...(fallbackSections.cta || {}),
+        ...(sourceSections.cta || {}),
+      },
+      contact: {
+        ...(fallbackSections.contact || {}),
+        ...(sourceSections.contact || {}),
+      },
+      projectPage: {
+        ...(fallbackSections.projectPage || {}),
+        ...(sourceSections.projectPage || {}),
+      },
+    },
+    footer: {
+      ...(fallback.footer || {}),
+      ...(source.footer || {}),
+    },
+    services: asArray(source.services, asArray(fallback.services)),
+    contacts: asArray(source.contacts, asArray(fallback.contacts)),
+    projects: asArray(source.projects, asArray(fallback.projects)),
+    projectPages: {
+      ...(fallback.projectPages || {}),
+      ...(source.projectPages || {}),
+    },
+    contactData: {
+      ...(fallback.contactData || {}),
+      ...(source.contactData || {}),
+    },
+  }
+}
 
 function AppSettingsProvider({ children }) {
-  const [theme, setTheme] = useState(() => localStorage.getItem(STORAGE_KEYS.theme) || 'dark')
-  const [language, setLanguage] = useState(() => localStorage.getItem(STORAGE_KEYS.language) || 'ar')
+  const [theme, setTheme] = useState(() => getStoredValue(STORAGE_KEYS.theme, VALID_THEMES, 'dark'))
+  const [language, setLanguage] = useState(() => getStoredValue(STORAGE_KEYS.language, VALID_LANGUAGES, 'ar'))
 
   useEffect(() => {
     localStorage.setItem(STORAGE_KEYS.theme, theme)
@@ -24,13 +131,15 @@ function AppSettingsProvider({ children }) {
   }, [language])
 
   const value = useMemo(() => {
-    const isRTL = language === 'ar'
+    const safeLanguage = VALID_LANGUAGES.has(language) ? language : 'ar'
+    const isRTL = safeLanguage === 'ar'
+    const content = normalizeContent(portfolioContent[safeLanguage])
 
     return {
       theme,
-      language,
+      language: safeLanguage,
       isRTL,
-      content: portfolioContent[language],
+      content,
       toggleTheme: () => setTheme((current) => (current === 'dark' ? 'light' : 'dark')),
       toggleLanguage: () => setLanguage((current) => (current === 'ar' ? 'en' : 'ar')),
     }
