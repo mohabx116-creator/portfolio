@@ -16,7 +16,7 @@ const iconMap = {
   marketplace: Store,
 }
 
-function ContactCard({ label, value, href, cta, icon, featured = false, badge }) {
+function ContactCard({ label, href, cta, icon, featured = false, badge }) {
   const Icon = iconMap[icon] || Code2
 
   return (
@@ -45,13 +45,6 @@ function ContactCard({ label, value, href, cta, icon, featured = false, badge })
           </span>
         ) : null}
       </div>
-
-      <div className="min-w-0">
-        <p className="break-words font-headline text-[1.02rem] font-bold leading-8 text-on-surface sm:text-[1.15rem]">
-          {value}
-        </p>
-      </div>
-
       <div className="flex items-center justify-between gap-3 border-t border-outline-variant/12 pt-4">
         <span className="text-sm font-medium text-on-muted transition-colors duration-300 group-hover:text-primary">
           {cta}
