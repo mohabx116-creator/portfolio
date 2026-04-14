@@ -3,7 +3,7 @@
 const contactData = {
   email: 'mohabx116@gmail.com',
   whatsapp: '+201027613133',
-  linkedin: 'https://www.linkedin.com/in/mohabx116',
+  linkedin: 'https://www.linkedin.com/in/mohab-din-nady-171815372/?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3ByVjS3a%2F0SnqGTCxAb43iGw%3D%3D',
   freelancer: 'https://www.freelancer.com/u/mohabx116',
   khamsat: 'https://khamsat.com/user/mohabx_116',
   fiverr: 'https://www.fiverr.com/s/7YzX11x',
