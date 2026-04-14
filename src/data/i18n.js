@@ -3,6 +3,8 @@
 const contactData = {
   email: 'mohabx116@gmail.com',
   whatsapp: '+201027613133',
+  linkedin: 'https://www.linkedin.com/in/mohabx116',
+  freelancer: 'https://www.freelancer.com/u/mohabx116',
   khamsat: 'https://khamsat.com/user/mohabx_116',
   fiverr: 'https://www.fiverr.com/s/7YzX11x',
   github: 'https://github.com/mohabx116-creator',
@@ -21,6 +23,8 @@ const makeContent = (copy) => ({
   contacts: [
     { label: 'Email', value: contactData.email, href: `mailto:${contactData.email}` },
     { label: 'WhatsApp', value: contactData.whatsapp, href: 'https://wa.me/201027613133' },
+    { label: 'LinkedIn', value: 'linkedin.com/in/mohabx116', href: contactData.linkedin },
+    { label: 'Freelancer', value: 'freelancer.com/u/mohabx116', href: contactData.freelancer },
     { label: 'Khamsat', value: contactData.khamsat, href: contactData.khamsat },
     { label: 'Fiverr', value: contactData.fiverr, href: contactData.fiverr },
     { label: 'GitHub', value: contactData.github, href: contactData.github },
