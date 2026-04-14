@@ -3,6 +3,8 @@ import Reveal from '../components/Reveal'
 import SectionHeading from '../components/SectionHeading'
 import useAppSettings from '../context/useAppSettings'
 
+const icons = ['</>', '□', '⚡', 'API', 'UX', '◎']
+
 function WhyChooseSection() {
   const { content } = useAppSettings()
   const reasonsSection = content?.sections?.reasons || {}
@@ -19,12 +21,15 @@ function WhyChooseSection() {
             align="center"
           />
         </Reveal>
-        <div className="mt-10 grid gap-4 sm:mt-12 md:grid-cols-2 xl:mt-16 xl:grid-cols-5">
+        <div className="mt-10 grid gap-4 sm:mt-12 md:grid-cols-2 xl:mt-16 xl:grid-cols-3">
           {reasons.map((reason, index) => (
-            <Reveal key={reason || index} delay={index * 0.08}>
+            <Reveal key={reason.title || index} delay={index * 0.08}>
               <div className="dashboard-card ghost-border h-full p-5 text-start transition-all duration-300 hover:-translate-y-1 hover:border-primary/25 hover:bg-surface-card/90 sm:p-6">
-                <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10 text-primary sm:mb-5 sm:h-11 sm:w-11">?</div>
-                <p className="text-sm font-medium leading-7 text-on-surface">{reason}</p>
+                <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-xl bg-primary/10 font-headline text-sm font-bold text-primary sm:mb-5 sm:h-12 sm:w-12">
+                  {icons[index % icons.length]}
+                </div>
+                <h3 className="font-headline text-lg font-bold text-on-surface">{reason.title}</h3>
+                <p className="mt-3 text-sm leading-7 text-on-muted">{reason.description}</p>
               </div>
             </Reveal>
           ))}
