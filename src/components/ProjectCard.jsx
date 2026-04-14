@@ -13,11 +13,14 @@ function ProjectCard({
   impact,
   route,
   liveUrl,
+  liveLabel,
   githubUrl,
   featured = false,
 }) {
   const { content } = useAppSettings()
   const projectsSection = content?.sections?.projects || {}
+  const isExternalLiveProject = typeof liveUrl === 'string' && /^https?:\/\//.test(liveUrl)
+  const primaryCtaLabel = liveLabel || projectsSection.liveDemo
 
   return (
     <article
@@ -90,11 +93,22 @@ function ProjectCard({
             </div>
           </div>
 
-          <div className="mt-6 flex flex-col gap-3 sm:flex-row">
-            <ButtonLink href={liveUrl || route} className="w-full sm:flex-1">
-              {projectsSection.liveDemo}
+          <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-stretch sm:gap-4">
+            <ButtonLink
+              href={liveUrl || route}
+              target={isExternalLiveProject ? '_blank' : undefined}
+              rel={isExternalLiveProject ? 'noopener noreferrer' : undefined}
+              className={`w-full sm:min-w-[11rem] sm:flex-1 ${isExternalLiveProject ? 'scale-100 shadow-[0_20px_54px_rgba(var(--color-primary-container),0.32)] hover:scale-[1.02] hover:shadow-[0_24px_64px_rgba(var(--color-primary-container),0.4)]' : ''}`}
+            >
+              {primaryCtaLabel}
             </ButtonLink>
-            <ButtonLink href={githubUrl} target="_blank" rel="noreferrer" variant="ghost" className="w-full sm:flex-1">
+            <ButtonLink
+              href={githubUrl}
+              target="_blank"
+              rel="noreferrer"
+              variant="ghost"
+              className="w-full sm:flex-[0.88]"
+            >
               {projectsSection.githubCta}
             </ButtonLink>
           </div>

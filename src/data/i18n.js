@@ -233,7 +233,8 @@ export const portfolioContent = {
         impact: 'تجربة أسرع في المتابعة، قراءة أسهل للبيانات، واستخدام أفضل على مختلف أحجام الشاشات.',
         filter: 'dashboard',
         featured: true,
-        liveUrl: '/projects/dashboard',
+        liveLabel: 'عرض المشروع',
+        liveUrl: 'https://restaurant-dashboard-gules-one.vercel.app',
         githubUrl: contactData.github,
       },
       restaurantGallery: {
@@ -571,7 +572,8 @@ export const portfolioContent = {
         impact: 'The result is a faster, more practical admin experience with better readability and smoother use across devices.',
         filter: 'dashboard',
         featured: true,
-        liveUrl: '/projects/dashboard',
+        liveLabel: 'View Dashboard',
+        liveUrl: 'https://restaurant-dashboard-gules-one.vercel.app',
         githubUrl: contactData.github,
       },
       restaurantGallery: {
