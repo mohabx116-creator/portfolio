@@ -37,6 +37,8 @@ function normalizeContent(rawContent) {
   const sourceReasons = sourceSections.reasons || {}
   const fallbackProjects = fallbackSections.projects || {}
   const sourceProjects = sourceSections.projects || {}
+  const fallbackTestimonials = fallbackSections.testimonials || {}
+  const sourceTestimonials = sourceSections.testimonials || {}
   const fallbackRestaurantGallery = fallback.restaurantGallery || {}
   const sourceRestaurantGallery = source.restaurantGallery || {}
   const fallbackFashionGallery = fallback.fashionGallery || {}
@@ -58,6 +60,7 @@ function normalizeContent(rawContent) {
       ...sourceHero,
       trustBadges: asArray(sourceHero.trustBadges, asArray(fallbackHero.trustBadges)),
       stats: asArray(sourceHero.stats, asArray(fallbackHero.stats)),
+      quickLinks: asArray(sourceHero.quickLinks, asArray(fallbackHero.quickLinks)),
       mock: {
         ...(fallbackHero.mock || {}),
         ...(sourceHero.mock || {}),
@@ -77,6 +80,11 @@ function normalizeContent(rawContent) {
           ...((fallbackProjects && fallbackProjects.modal) || {}),
           ...((sourceProjects && sourceProjects.modal) || {}),
         },
+      },
+      testimonials: {
+        ...fallbackTestimonials,
+        ...sourceTestimonials,
+        items: asArray(sourceTestimonials.items, asArray(fallbackTestimonials.items)),
       },
       reasons: {
         ...fallbackReasons,
@@ -143,7 +151,7 @@ function normalizeContent(rawContent) {
 
 function AppSettingsProvider({ children }) {
   const [theme, setTheme] = useState(() => getStoredValue(STORAGE_KEYS.theme, VALID_THEMES, 'dark'))
-  const [language, setLanguage] = useState(() => getStoredValue(STORAGE_KEYS.language, VALID_LANGUAGES, 'ar'))
+  const [language, setLanguage] = useState(() => getStoredValue(STORAGE_KEYS.language, VALID_LANGUAGES, 'en'))
 
   useEffect(() => {
     localStorage.setItem(STORAGE_KEYS.theme, theme)
@@ -157,7 +165,7 @@ function AppSettingsProvider({ children }) {
   }, [language])
 
   const value = useMemo(() => {
-    const safeLanguage = VALID_LANGUAGES.has(language) ? language : 'ar'
+    const safeLanguage = VALID_LANGUAGES.has(language) ? language : 'en'
     const isRTL = safeLanguage === 'ar'
     const content = normalizeContent(portfolioContent[safeLanguage])
 

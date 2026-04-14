@@ -1,12 +1,7 @@
-﻿import { Navigate, Route, Routes } from 'react-router-dom'
+import { Suspense, lazy } from 'react'
+import { Navigate, Route, Routes } from 'react-router-dom'
 import Navbar from './sections/Navbar'
 import HeroSection from './sections/HeroSection'
-import ServicesSection from './sections/ServicesSection'
-import ProjectsSection from './sections/ProjectsSection'
-import WhyChooseSection from './sections/WhyChooseSection'
-import AboutSection from './sections/AboutSection'
-import CtaSection from './sections/CtaSection'
-import ContactSection from './sections/ContactSection'
 import Footer from './sections/Footer'
 import ProjectExperiencePage from './pages/ProjectExperiencePage'
 import RestaurantExperiencePage from './pages/RestaurantExperiencePage'
@@ -14,18 +9,33 @@ import FashionExperiencePage from './pages/FashionExperiencePage'
 import useAppSettings from './context/useAppSettings'
 import ScrollToTop from './components/ScrollToTop'
 
+const ServicesSection = lazy(() => import('./sections/ServicesSection'))
+const ProjectsSection = lazy(() => import('./sections/ProjectsSection'))
+const WhyChooseSection = lazy(() => import('./sections/WhyChooseSection'))
+const AboutSection = lazy(() => import('./sections/AboutSection'))
+const TestimonialsSection = lazy(() => import('./sections/TestimonialsSection'))
+const CtaSection = lazy(() => import('./sections/CtaSection'))
+const ContactSection = lazy(() => import('./sections/ContactSection'))
+
+function SectionFallback() {
+  return <div className="h-20" aria-hidden="true" />
+}
+
 function HomePage() {
   return (
     <>
       <Navbar />
       <main>
         <HeroSection />
-        <ServicesSection />
-        <ProjectsSection />
-        <WhyChooseSection />
-        <AboutSection />
-        <CtaSection />
-        <ContactSection />
+        <Suspense fallback={<SectionFallback />}>
+          <ServicesSection />
+          <ProjectsSection />
+          <WhyChooseSection />
+          <AboutSection />
+          <TestimonialsSection />
+          <CtaSection />
+          <ContactSection />
+        </Suspense>
       </main>
       <Footer />
     </>
