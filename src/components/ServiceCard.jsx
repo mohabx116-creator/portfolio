@@ -16,7 +16,7 @@ function ServiceCard({ title, description, icon }) {
           {icons[icon]}
         </svg>
       </div>
-      <h3 className="relative font-headline text-lg font-bold leading-7 text-on-surface transition-colors duration-300 group-hover:text-primary sm:text-xl">{title}</h3>
+      <h3 className="headline-gradient relative font-headline text-lg font-bold leading-7 sm:text-xl">{title}</h3>
       <p className="relative mt-3 text-sm leading-7 text-on-muted">{description}</p>
     </article>
   )

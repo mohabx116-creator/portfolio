@@ -15,8 +15,8 @@ const fileTree = ['app', 'routes', 'components', 'sections', 'ui', 'tokens']
 function ProjectsBackdrop() {
   return (
     <div className="pointer-events-none absolute inset-0 overflow-hidden">
-      <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(8,14,30,0.84),rgba(11,19,38,0.94)_42%,rgba(14,22,40,0.96))]" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(var(--color-primary-container),0.1),transparent_24%),radial-gradient(circle_at_85%_20%,rgba(var(--color-secondary),0.08),transparent_18%),radial-gradient(circle_at_50%_100%,rgba(var(--color-tertiary),0.05),transparent_24%)]" />
+      <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(var(--color-surface),0.74),rgba(var(--color-surface-dim),0.88)_42%,rgba(var(--color-surface-low),0.96))]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(var(--color-primary-container),0.08),transparent_24%),radial-gradient(circle_at_85%_20%,rgba(var(--color-secondary),0.06),transparent_18%),radial-gradient(circle_at_50%_100%,rgba(var(--color-tertiary),0.04),transparent_24%)]" />
 
       <div
         className="absolute inset-0 opacity-28"
@@ -44,7 +44,7 @@ function ProjectsBackdrop() {
       <div className="absolute left-[-8rem] top-16 hidden h-80 w-80 rounded-full bg-primary/8 blur-3xl lg:block" />
       <div className="absolute bottom-[-8rem] right-[-4rem] hidden h-96 w-96 rounded-full bg-secondary/7 blur-3xl lg:block" />
 
-      <div className="absolute left-[-2rem] top-24 hidden w-[40rem] -rotate-[4deg] rounded-[2rem] border border-outline-variant/15 bg-surface-card/28 p-4 shadow-[0_30px_90px_rgba(0,0,0,0.18)] backdrop-blur-[10px] lg:block xl:w-[44rem]">
+      <div className="absolute left-[-2rem] top-24 hidden w-[40rem] -rotate-[4deg] rounded-[2rem] border border-outline-variant/30 bg-surface-card/46 p-4 shadow-[0_30px_90px_rgba(15,23,42,0.08)] backdrop-blur-[10px] lg:block xl:w-[44rem]">
         <div className="flex items-center justify-between rounded-[1.35rem] border border-white/5 bg-surface/78 px-4 py-3">
           <div className="flex items-center gap-3">
             <div className="flex gap-2">
@@ -160,7 +160,7 @@ function ProjectsBackdrop() {
         </div>
       </div>
 
-      <div className="absolute right-[-2rem] top-24 hidden w-[30rem] rotate-[5deg] rounded-[2rem] border border-outline-variant/15 bg-surface-card/24 p-4 shadow-[0_28px_80px_rgba(0,0,0,0.16)] backdrop-blur-[10px] lg:block xl:w-[34rem]">
+      <div className="absolute right-[-2rem] top-24 hidden w-[30rem] rotate-[5deg] rounded-[2rem] border border-outline-variant/28 bg-surface-card/42 p-4 shadow-[0_28px_80px_rgba(15,23,42,0.08)] backdrop-blur-[10px] lg:block xl:w-[34rem]">
         <div className="flex items-center justify-between rounded-[1.35rem] border border-white/5 bg-surface/78 px-4 py-3">
           <div className="flex items-center gap-3">
             <div className="flex gap-2">
@@ -230,8 +230,8 @@ function ProjectsBackdrop() {
         </div>
       </div>
 
-      <div className="absolute bottom-16 left-1/2 hidden w-[28rem] -translate-x-1/2 rounded-[1.85rem] border border-outline-variant/15 bg-surface-card/22 p-4 shadow-[0_24px_60px_rgba(0,0,0,0.12)] backdrop-blur-[8px] xl:block">
-        <div className="flex items-center justify-between">
+      <div className="absolute bottom-16 left-1/2 hidden w-[28rem] -translate-x-1/2 rounded-[1.85rem] border border-outline-variant/28 bg-surface-card/40 p-4 shadow-[0_24px_60px_rgba(15,23,42,0.08)] backdrop-blur-[8px] xl:block">
+      <div className="flex items-center justify-between">
           <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-primary/72">component-system</span>
           <div className="flex gap-2">
             <span className="h-2.5 w-2.5 rounded-full bg-primary/45" />

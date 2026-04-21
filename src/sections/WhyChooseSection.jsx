@@ -28,7 +28,7 @@ function WhyChooseSection() {
                 <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-xl bg-primary/10 font-headline text-sm font-bold text-primary sm:mb-5 sm:h-12 sm:w-12">
                   {icons[index % icons.length]}
                 </div>
-                <h3 className="font-headline text-lg font-bold text-on-surface">{reason.title}</h3>
+                <h3 className="headline-gradient font-headline text-lg font-bold">{reason.title}</h3>
                 <p className="mt-3 text-sm leading-7 text-on-muted">{reason.description}</p>
               </div>
             </Reveal>

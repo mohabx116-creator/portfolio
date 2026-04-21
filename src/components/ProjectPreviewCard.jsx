@@ -72,7 +72,7 @@ function ProjectPreviewCard({ project, onOpen }) {
         </div>
 
         <div className="absolute inset-x-4 bottom-4">
-          <div className="rounded-[1.4rem] border border-white/10 bg-surface/72 p-4 shadow-[0_20px_40px_rgba(0,0,0,0.18)] backdrop-blur-md transition-transform duration-300 group-hover:-translate-y-1 group-focus-visible:-translate-y-1">
+          <div className="rounded-[1.4rem] border border-white/12 bg-[rgba(15,23,42,0.72)] p-4 shadow-[0_20px_40px_rgba(0,0,0,0.18)] backdrop-blur-md transition-transform duration-300 group-hover:-translate-y-1 group-focus-visible:-translate-y-1">
             {shortLabel ? (
               <p className="text-[10px] font-bold uppercase tracking-[0.22em] text-primary/92">
                 {shortLabel}
@@ -99,7 +99,7 @@ function ProjectPreviewCard({ project, onOpen }) {
                   stopPropagation(event)
                   onOpen(project)
                 }}
-                className="inline-flex min-h-11 items-center justify-center rounded-xl bg-primary px-4 py-2.5 text-sm font-bold text-surface transition-all duration-300 hover:brightness-110 sm:flex-1"
+                className="inline-flex min-h-11 items-center justify-center rounded-xl bg-primary px-4 py-2.5 text-sm font-bold text-white transition-all duration-300 hover:brightness-110 sm:flex-1"
               >
                 {primaryLabel}
               </button>

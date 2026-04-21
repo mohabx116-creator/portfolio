@@ -59,7 +59,7 @@ function ProjectCard({
         </div>
 
         <div className="flex h-full flex-col p-5 text-start sm:p-6 lg:p-7">
-          <h3 className="font-headline text-[1.28rem] font-bold leading-8 text-on-surface transition-colors duration-300 group-hover:text-primary sm:text-[1.5rem]">
+          <h3 className="headline-gradient font-headline text-[1.28rem] font-bold leading-8 sm:text-[1.5rem]">
             {title}
           </h3>
           <p className="mt-3 text-sm leading-7 text-on-surface/90 sm:text-[0.98rem]">{description}</p>

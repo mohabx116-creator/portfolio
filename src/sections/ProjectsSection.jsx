@@ -43,7 +43,7 @@ function ProjectsSection() {
               href={content?.contactData?.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 self-start text-sm font-medium text-on-muted transition-colors duration-300 hover:text-primary"
+              className="inline-flex items-center gap-2 self-start text-sm font-semibold text-on-surface/72 transition-colors duration-300 hover:text-primary"
             >
               {projectsSection.github}
               <span aria-hidden="true">-&gt;</span>
@@ -63,8 +63,8 @@ function ProjectsSection() {
                   onClick={() => setActiveFilter(filter.id)}
                   className={`inline-flex min-h-11 items-center rounded-full px-4 py-2.5 text-sm font-bold transition-all duration-300 ${
                     isActive
-                      ? 'bg-primary text-surface shadow-[0_14px_32px_rgba(var(--color-primary-container),0.26)]'
-                      : 'ghost-border bg-surface-card text-on-muted hover:border-primary/25 hover:text-primary'
+                      ? 'bg-primary text-white shadow-[0_14px_32px_rgba(var(--color-primary-container),0.26)]'
+                      : 'ghost-border bg-surface-card text-on-surface/78 hover:border-primary/25 hover:text-primary'
                   }`}
                 >
                   {filter.label}
@@ -85,7 +85,7 @@ function ProjectsSection() {
         <Reveal delay={0.16}>
           <div className="mt-12 rounded-[2rem] border border-outline-variant/15 bg-surface-card/75 p-6 text-center shadow-[0_20px_50px_rgba(0,0,0,0.12)] backdrop-blur-sm sm:mt-14 sm:p-8 lg:mt-16 lg:p-10">
             <p className="section-kicker">{projectsSection.eyebrow}</p>
-            <h3 className="mt-3 font-headline text-[1.55rem] font-bold tracking-[-0.02em] text-on-surface sm:text-[2rem]">
+            <h3 className="headline-gradient mt-3 font-headline text-[1.55rem] font-bold tracking-[-0.02em] sm:text-[2rem]">
               {projectsSection.ctaTitle}
             </h3>
             <p className="mx-auto mt-4 max-w-2xl text-sm leading-7 text-on-muted sm:text-base sm:leading-8">
