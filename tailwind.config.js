@@ -26,12 +26,12 @@ export default {
         label: ['Inter', 'IBM Plex Sans Arabic', 'sans-serif'],
       },
       boxShadow: {
-        ambient: '0 8px 32px rgba(0, 0, 0, 0.12)',
-        panel: '0 24px 80px rgba(0, 0, 0, 0.18)',
+        ambient: '0 18px 44px rgba(0, 0, 0, 0.32)',
+        panel: '0 36px 92px rgba(0, 0, 0, 0.46)',
       },
       backgroundImage: {
-        'berry-glow': 'radial-gradient(circle at top right, rgba(var(--color-primary), 0.14), transparent 34%), radial-gradient(circle at bottom left, rgba(var(--color-secondary), 0.1), transparent 28%)',
-        'berry-text': 'linear-gradient(135deg, rgb(var(--color-on-surface)) 0%, rgb(var(--color-primary)) 52%, rgb(var(--color-secondary)) 100%)',
+        'berry-glow': 'radial-gradient(circle at top left, rgba(var(--color-primary-container), 0.2), transparent 30%), radial-gradient(circle at 85% 20%, rgba(var(--color-secondary-container), 0.12), transparent 22%), radial-gradient(circle at 50% 100%, rgba(var(--color-tertiary), 0.08), transparent 22%)',
+        'berry-text': 'linear-gradient(135deg, rgb(var(--color-on-surface)) 0%, rgb(var(--color-on-surface)) 38%, rgb(var(--color-primary)) 72%, rgb(var(--color-secondary)) 100%)',
         'berry-button': 'linear-gradient(135deg, rgb(var(--color-primary-container)) 0%, rgb(var(--color-secondary-container)) 100%)',
       },
       keyframes: {

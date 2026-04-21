@@ -1,7 +1,9 @@
 import { useMemo, useState } from 'react'
 import ButtonLink from '../components/ButtonLink'
 import Container from '../components/Container'
-import ProjectCard from '../components/ProjectCard'
+import ProjectModal from '../components/ProjectModal'
+import ProjectsBackdrop from '../components/ProjectsBackdrop'
+import ProjectPreviewCard from '../components/ProjectPreviewCard'
 import Reveal from '../components/Reveal'
 import SectionHeading from '../components/SectionHeading'
 import useAppSettings from '../context/useAppSettings'
@@ -9,13 +11,13 @@ import useAppSettings from '../context/useAppSettings'
 function ProjectsSection() {
   const { content } = useAppSettings()
   const [activeFilter, setActiveFilter] = useState('all')
+  const [selectedProject, setSelectedProject] = useState(null)
   const projectsSection = content?.sections?.projects || {}
   const projects = Array.isArray(content?.projects) ? content.projects : []
-  const featuredProjects = useMemo(() => projects.filter((project) => project.featured), [projects])
-  const filteredProjects = useMemo(
+  const visibleProjects = useMemo(
     () => (
       activeFilter === 'all'
-        ? projects.filter((project) => !project.featured)
+        ? projects
         : projects.filter((project) => project.filter === activeFilter)
     ),
     [activeFilter, projects],
@@ -29,8 +31,9 @@ function ProjectsSection() {
   ]
 
   return (
-    <section id="projects" className="bg-surface px-4 py-20 sm:px-6 sm:py-24 lg:px-8 lg:py-28">
-      <Container>
+    <section id="projects" className="relative overflow-hidden bg-surface px-4 py-20 sm:px-6 sm:py-24 lg:px-8 lg:py-28">
+      <ProjectsBackdrop />
+      <Container className="relative z-10">
         <div className="mb-10 flex flex-col gap-5 sm:mb-12 md:flex-row md:items-end md:justify-between lg:mb-16">
           <Reveal>
             <SectionHeading eyebrow={projectsSection.eyebrow} title={projectsSection.title} description={projectsSection.description} />
@@ -39,11 +42,11 @@ function ProjectsSection() {
             <a
               href={content?.contactData?.github}
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
               className="inline-flex items-center gap-2 self-start text-sm font-medium text-on-muted transition-colors duration-300 hover:text-primary"
             >
               {projectsSection.github}
-              <span aria-hidden="true">↗</span>
+              <span aria-hidden="true">-&gt;</span>
             </a>
           </Reveal>
         </div>
@@ -71,24 +74,12 @@ function ProjectsSection() {
           </div>
         </Reveal>
 
-        <div className="grid gap-6 xl:gap-8">
-          {activeFilter === 'all' ? (
-            <div className="grid gap-6 lg:grid-cols-2 xl:gap-8">
-              {featuredProjects.map((project, index) => (
-                <Reveal key={`${project.title}-${index}`} delay={index * 0.08}>
-                  <ProjectCard {...project} />
-                </Reveal>
-              ))}
-            </div>
-          ) : null}
-
-          <div className="grid gap-6 lg:grid-cols-2 xl:gap-8">
-            {filteredProjects.map((project, index) => (
-              <Reveal key={`${project.title}-${activeFilter}-${index}`} delay={index * 0.06}>
-                <ProjectCard {...project} featured={activeFilter === 'all' ? project.featured : false} />
-              </Reveal>
-            ))}
-          </div>
+        <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3 xl:gap-8">
+          {visibleProjects.map((project, index) => (
+            <Reveal key={`${project.title}-${activeFilter}-${index}`} delay={index * 0.06}>
+              <ProjectPreviewCard project={project} onOpen={setSelectedProject} />
+            </Reveal>
+          ))}
         </div>
 
         <Reveal delay={0.16}>
@@ -108,6 +99,8 @@ function ProjectsSection() {
           </div>
         </Reveal>
       </Container>
+
+      {selectedProject ? <ProjectModal project={selectedProject} onClose={() => setSelectedProject(null)} /> : null}
     </section>
   )
 }

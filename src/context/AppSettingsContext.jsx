@@ -2,7 +2,7 @@ import { createContext, useEffect, useMemo, useState } from 'react'
 import { portfolioContent } from '../data/i18n'
 
 const STORAGE_KEYS = {
-  theme: 'portfolio-theme',
+  theme: 'portfolio-theme-v3',
   language: 'portfolio-language',
 }
 
@@ -150,7 +150,7 @@ function normalizeContent(rawContent) {
 }
 
 function AppSettingsProvider({ children }) {
-  const [theme, setTheme] = useState(() => getStoredValue(STORAGE_KEYS.theme, VALID_THEMES, 'dark'))
+  const [theme, setTheme] = useState(() => getStoredValue(STORAGE_KEYS.theme, VALID_THEMES, 'light'))
   const [language, setLanguage] = useState(() => getStoredValue(STORAGE_KEYS.language, VALID_LANGUAGES, 'en'))
 
   useEffect(() => {

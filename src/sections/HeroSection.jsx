@@ -1,8 +1,10 @@
 import ButtonLink from '../components/ButtonLink'
 import Container from '../components/Container'
+import HeroBackdrop from '../components/HeroBackdrop'
 import Reveal from '../components/Reveal'
 import useAppSettings from '../context/useAppSettings'
-import heroFigmaReactPromo from '../assets/hero-figma-react-promo.png'
+import figgyPreview from '../../tmp_pick_7.png'
+import oneClickPreview from '../../tmp_pick_5.jpg'
 
 function HeroSection() {
   const { content, isRTL } = useAppSettings()
@@ -10,12 +12,35 @@ function HeroSection() {
   const trustBadges = Array.isArray(hero.trustBadges) ? hero.trustBadges : []
   const quickLinks = Array.isArray(hero.quickLinks) ? hero.quickLinks : []
   const heroStats = Array.isArray(hero.stats) ? hero.stats : []
+  const showcaseLabel = 'creative-showcase.v2'
+  const previewCards = [
+    {
+      id: 'food-app-preview',
+      title: 'Figgy React',
+      image: figgyPreview,
+      position: 'left-4 top-4 w-[84%] sm:left-6 sm:top-6 sm:w-[80%]',
+      rotation: '-rotate-[2.5deg] sm:-rotate-[3.5deg]',
+      aspect: 'aspect-[16/9]',
+      fit: 'object-contain',
+      frame: 'bg-[#1f1f1f]',
+      layer: 'z-10',
+    },
+    {
+      id: 'one-click-preview',
+      title: 'One Click React',
+      image: oneClickPreview,
+      position: 'bottom-4 right-3 w-[58%] sm:bottom-6 sm:right-4 sm:w-[52%]',
+      rotation: 'rotate-[2deg] sm:rotate-[3deg]',
+      aspect: 'aspect-[16/10]',
+      layer: 'z-20',
+    },
+  ]
   const buttonAlign = isRTL ? 'justify-end' : 'justify-start'
   const badgeAlign = isRTL ? 'justify-end' : 'justify-start'
 
   return (
     <section id="home" className="section-divider relative overflow-hidden px-4 pb-16 pt-28 sm:px-6 sm:pb-20 sm:pt-32 lg:px-8 lg:pb-24 lg:pt-36">
-      <div className="absolute inset-0 bg-berry-glow opacity-100" />
+      <HeroBackdrop />
       <Container className="relative z-10">
         <div className="grid items-center gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:gap-14 xl:gap-16">
           <Reveal className="text-start">
@@ -39,7 +64,7 @@ function HeroSection() {
               <ButtonLink
                 href="#projects"
                 variant="ghost"
-                className="w-full border border-outline-variant/15 bg-surface-card px-6 py-4 text-base shadow-[0_12px_30px_rgba(0,0,0,0.08)] hover:border-primary/25 hover:bg-surface-high sm:w-auto sm:min-w-[220px] sm:px-8 sm:text-lg"
+                className="w-full px-6 py-4 text-base shadow-[0_18px_42px_rgba(0,0,0,0.16)] sm:w-auto sm:min-w-[220px] sm:px-8 sm:text-lg"
               >
                 {hero.secondaryCta}
               </ButtonLink>
@@ -83,17 +108,32 @@ function HeroSection() {
                     <span className="h-2.5 w-2.5 rounded-full bg-tertiary/60 sm:h-3 sm:w-3" />
                     <span className="h-2.5 w-2.5 rounded-full bg-primary/60 sm:h-3 sm:w-3" />
                   </div>
-                  <span className="max-w-[50%] truncate text-[9px] uppercase tracking-[0.18em] text-on-muted/60 sm:text-[10px] sm:tracking-[0.22em]">{hero?.mock?.file}</span>
+                  <span className="max-w-[58%] truncate text-[9px] uppercase tracking-[0.18em] text-on-muted/60 sm:text-[10px] sm:tracking-[0.22em]">{showcaseLabel}</span>
                 </div>
 
                 <div className="p-3 sm:p-5 lg:p-6">
-                  <div className="overflow-hidden rounded-[1.2rem] border border-outline-variant/15 bg-surface shadow-[0_20px_50px_rgba(0,0,0,0.12)] sm:rounded-[1.5rem]">
-                    <img
-                      src={heroFigmaReactPromo}
-                      alt={hero.title}
-                      className="max-h-[22rem] w-full object-cover object-top transition-transform duration-500 hover:scale-[1.01] sm:max-h-none"
-                      fetchPriority="high"
-                    />
+                  <div className="overflow-hidden rounded-[1.2rem] border border-outline-variant/15 bg-[radial-gradient(circle_at_18%_20%,rgba(var(--color-primary-container),0.18),transparent_28%),radial-gradient(circle_at_82%_76%,rgba(var(--color-tertiary),0.12),transparent_24%),linear-gradient(155deg,rgba(var(--color-surface-low),0.98),rgba(var(--color-surface-card),0.94))] shadow-[0_24px_56px_rgba(0,0,0,0.28)] sm:rounded-[1.5rem]">
+                    <div className="relative aspect-[5/4] sm:aspect-[4/3]">
+                      <div className="absolute inset-0 bg-gradient-to-br from-white/8 via-transparent to-primary/10" />
+                      {previewCards.map((card, index) => (
+                        <div
+                          key={card.id}
+                          className={`group absolute overflow-hidden rounded-[1.25rem] border border-white/40 bg-surface/90 shadow-[0_22px_60px_rgba(0,0,0,0.18)] backdrop-blur transition-transform duration-500 hover:-translate-y-1 hover:rotate-0 ${card.position} ${card.rotation} ${card.layer || ''} ${card.frame || ''}`}
+                        >
+                          <div className="absolute left-3 top-3 z-20 rounded-full bg-surface-card/90 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.16em] text-primary shadow-[0_8px_18px_rgba(0,0,0,0.08)] sm:left-4 sm:top-4 sm:text-[11px]">
+                            {card.title}
+                          </div>
+                          <img
+                            src={card.image}
+                            alt={card.title}
+                            className={`h-full w-full transition-transform duration-500 group-hover:scale-[1.03] ${card.aspect} ${card.fit || 'object-cover'}`}
+                            fetchPriority={index === 0 ? 'high' : undefined}
+                          />
+                        </div>
+                      ))}
+                      <div className="absolute left-[14%] top-[58%] h-20 w-20 rounded-full bg-primary/12 blur-3xl sm:h-24 sm:w-24" />
+                      <div className="absolute right-[16%] top-[16%] h-14 w-14 rounded-full bg-tertiary/14 blur-3xl sm:h-20 sm:w-20" />
+                    </div>
                   </div>
 
                   <div className="mt-4 grid gap-3 sm:grid-cols-3">

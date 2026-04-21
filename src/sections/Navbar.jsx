@@ -121,7 +121,7 @@ function Navbar() {
                   target="_blank"
                   rel="noreferrer"
                   variant="primary"
-                  className="cta-attention whitespace-nowrap rounded-full bg-gradient-to-r from-primary-container via-[#5f75ff] to-secondary-container px-5 py-3 text-sm shadow-[0_18px_44px_rgba(var(--color-primary-container),0.34)] lg:px-6"
+                  className="cta-attention whitespace-nowrap rounded-full px-5 py-3 text-sm lg:px-6"
                 >
                   {ctaSection.action || 'Contact'}
                 </ButtonLink>
@@ -129,7 +129,7 @@ function Navbar() {
                 <ButtonLink
                   href="#contact"
                   variant="primary"
-                  className="cta-attention whitespace-nowrap rounded-full bg-gradient-to-r from-primary-container via-[#5f75ff] to-secondary-container px-5 py-3 text-sm shadow-[0_18px_44px_rgba(var(--color-primary-container),0.34)] lg:px-6"
+                  className="cta-attention whitespace-nowrap rounded-full px-5 py-3 text-sm lg:px-6"
                 >
                   {nav.contactCta || 'Contact Me'}
                 </ButtonLink>

@@ -1,10 +1,10 @@
 function ButtonLink({ href, children, variant = 'primary', target, rel, className = '', onClick }) {
   const variants = {
     primary:
-      'bg-berry-button text-white shadow-[0_18px_48px_rgba(var(--color-primary-container),0.28)] hover:brightness-110 hover:shadow-[0_20px_56px_rgba(var(--color-primary-container),0.34)]',
+      'border border-primary/65 bg-berry-button text-white shadow-[0_20px_54px_rgba(var(--color-primary-container),0.34)] hover:scale-[1.015] hover:brightness-110 hover:shadow-[0_24px_62px_rgba(var(--color-primary-container),0.42)]',
     ghost:
-      'border border-outline-variant/15 bg-surface-card/80 text-primary hover:border-primary/25 hover:bg-surface-high hover:text-on-surface',
-    subtle: 'text-primary hover:bg-surface-high/70',
+      'border border-white/18 bg-white/[0.02] text-white hover:scale-[1.01] hover:border-white/60 hover:bg-white hover:text-surface',
+    subtle: 'text-primary hover:bg-primary/10',
   }
 
   return (

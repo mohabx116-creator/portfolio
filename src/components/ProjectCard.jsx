@@ -105,7 +105,7 @@ function ProjectCard({
             <ButtonLink
               href={githubUrl}
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
               variant="ghost"
               className="w-full sm:flex-[0.88]"
             >

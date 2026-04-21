@@ -10,6 +10,28 @@ const contactData = {
   github: 'https://github.com/mohabx116-creator',
 }
 
+const buildProjectEntry = ({ route, image, item }) => {
+  const shortDescription = item?.shortDescription || item?.description || ''
+  const fullDescription = item?.fullDescription || shortDescription
+  const techStack = Array.isArray(item?.techStack) && item.techStack.length
+    ? item.techStack
+    : Array.isArray(item?.technologies)
+      ? item.technologies
+      : []
+
+  return {
+    route,
+    image,
+    ...item,
+    thumbnail: item?.thumbnail || image,
+    shortDescription,
+    fullDescription,
+    techStack,
+    liveDemo: item?.liveDemo || item?.liveUrl,
+    github: item?.github || item?.githubUrl,
+  }
+}
+
 const makeContent = (copy) => ({
   ...copy,
   services: [
@@ -30,26 +52,11 @@ const makeContent = (copy) => ({
     copy.contactItems.github,
   ],
   projects: [
-    {
-      route: '/projects/dashboard',
-      image: projectAssets.dashboard.cover,
-      ...copy.projectItems.dashboard,
-    },
-    {
-      route: '/experiences/restaurant-gallery',
-      image: projectAssets.restaurantGallery.cover,
-      ...copy.projectItems.restaurantGallery,
-    },
-    {
-      route: '/projects/fashion',
-      image: projectAssets.fashion.cover,
-      ...copy.projectItems.fashion,
-    },
-    {
-      route: '/experiences/fashion-gallery',
-      image: projectAssets.fashionGallery.cover,
-      ...copy.projectItems.fashionGallery,
-    },
+    buildProjectEntry({ route: '/projects/dashboard', image: projectAssets.dashboard.cover, item: copy.projectItems.dashboard }),
+    buildProjectEntry({ route: '/experiences/restaurant-gallery', image: projectAssets.restaurantGallery.cover, item: copy.projectItems.restaurantGallery }),
+    buildProjectEntry({ route: '/projects/siemex', image: projectAssets.siemex.cover, item: copy.projectItems.siemex }),
+    buildProjectEntry({ route: '/projects/fashion', image: projectAssets.fashion.cover, item: copy.projectItems.fashion }),
+    buildProjectEntry({ route: '/experiences/fashion-gallery', image: projectAssets.fashionGallery.cover, item: copy.projectItems.fashionGallery }),
   ],
   projectPages: {
     dashboard: {
@@ -158,10 +165,13 @@ export const portfolioContent = {
         fashionTab: 'معرض الملابس',
         cardHintTitle: 'نتيجة قابلة للتنفيذ',
         cardHintCopy: 'استعرض دراسة الحالة أو افتح الكود لمعرفة أسلوب التنفيذ.',
-        viewDetailsLabel: 'عرض التفاصيل',
+        viewDetailsLabel: 'عرض المشروع',
+        viewCaseStudyLabel: 'عرض دراسة الحالة',
         placeholder: 'معاينة المشروع',
         liveDemo: 'عرض مباشر',
         githubCta: 'GitHub',
+        internalOnlyLabel: 'عرض داخلي منسق',
+        internalOnlyCopy: 'هذا المشروع معروض كدراسة حالة توضح التفكير، بناء الواجهة، وتسلسل التجربة بدون روابط خارجية مضللة.',
         technologies: 'التقنيات',
         impact: 'الأثر',
         problem: 'التحدي',
@@ -224,7 +234,10 @@ export const portfolioContent = {
     projectItems: {
       dashboard: {
         title: 'لوحة تحكم لإدارة المطعم',
+        shortLabel: 'الطلبات والمبيعات والعمليات',
         description: 'لوحة تحكم تساعد فرق المطاعم على متابعة الطلبات والمبيعات بسرعة أكبر من خلال واجهة واضحة، سريعة، وسهلة الاستخدام يوميًا.',
+        projectType: 'frontend-build',
+        projectTypeLabel: 'تنفيذ Frontend',
         category: 'لوحة تحكم',
         stack: 'React',
         technologies: ['React', 'Tailwind CSS', 'Responsive Layout', 'UI Architecture'],
@@ -239,7 +252,10 @@ export const portfolioContent = {
       },
       restaurantGallery: {
         title: 'معرض المطاعم',
+        shortLabel: 'دراسة حالة ضيافة مترابطة',
         description: 'عرض احترافي يقدّم تجربة مطعم كاملة بشكل يساعد العميل على تخيل المنتج النهائي بثقة ووضوح أكبر.',
+        projectType: 'case-study',
+        projectTypeLabel: 'دراسة حالة',
         category: 'معرض أعمال',
         stack: 'Restaurant Gallery',
         technologies: ['React', 'Tailwind CSS', 'Case Study UX', 'Responsive Design'],
@@ -252,7 +268,10 @@ export const portfolioContent = {
       },
       fashion: {
         title: 'متجر أزياء فاخر',
+        shortLabel: 'واجهة ecommerce راقية',
         description: 'واجهة متجر مصممة لعرض المنتجات بشكل راقٍ مع تجربة تصفح سريعة ومريحة تدعم الثقة ووضوح قرار الشراء.',
+        projectType: 'frontend-build',
+        projectTypeLabel: 'تنفيذ Frontend',
         category: 'متجر إلكتروني',
         stack: 'Luxury UI',
         technologies: ['React', 'Tailwind CSS', 'E-commerce UI', 'Responsive UX'],
@@ -266,7 +285,10 @@ export const portfolioContent = {
       },
       fashionGallery: {
         title: 'معرض الملابس',
+        shortLabel: 'تدفق تحريري لواجهة المنتج',
         description: 'Case study يعرض تجربة fashion بشكل منظم ومقنع ليُظهر جودة التنفيذ وقابلية الفكرة للتطبيق في مشروع حقيقي.',
+        projectType: 'ui-showcase',
+        projectTypeLabel: 'عرض واجهات',
         category: 'معرض أعمال',
         stack: 'Fashion Gallery',
         technologies: ['React', 'Tailwind CSS', 'Editorial Layout', 'Case Study Flow'],
@@ -276,6 +298,23 @@ export const portfolioContent = {
         filter: 'react',
         liveUrl: '/experiences/fashion-gallery',
         githubUrl: contactData.github,
+      },
+      siemex: {
+        title: 'Siemex Website',
+        shortLabel: 'منصة توظيف متعددة اللغات',
+        description: 'طورت موقع توظيف متخصص في energy transition مع دعم متعدد اللغات للهولندية والإنجليزية والعربية، دعم RTL كامل للعربية، ووضعين light/dark داخل بنية React + Vite نظيفة.',
+        projectType: 'frontend-build',
+        projectTypeLabel: 'تنفيذ Frontend',
+        category: 'موقع ويب',
+        stack: 'React + Vite',
+        technologies: ['React', 'Vite', 'TypeScript', 'TanStack Router', 'CSS', 'Vercel'],
+        problem: 'الموقع احتاج بنية أوضح تدعم تعدد اللغات، العربية باتجاه RTL كامل، وتبديل الثيم بدون تعارضات في الواجهة أو تكرار غير منظم في الكود.',
+        solution: 'نفّذت تحسينات على الواجهة باستخدام React + Vite وTypeScript، مع TanStack Router، ودعمت Dutch / English / Arabic، ووضع light/dark، وسلوك RTL متكامل للعربية.',
+        impact: 'النتيجة كانت موقع staffing أكثر وضوحًا وقابلية للتوسع، مع تجربة موحّدة عبر اللغات والثيمات، وعرض عربي موثوق وجاهز للاستخدام الفعلي.',
+        filter: 'react',
+        liveLabel: 'Live Demo',
+        liveUrl: 'https://siemex-boost-upgrade2.vercel.app/',
+        githubUrl: 'https://github.com/mohabx116-creator/siemex-boost-upgrade2',
       },
     },
     projectPages: {
@@ -497,10 +536,13 @@ export const portfolioContent = {
         fashionTab: 'Fashion Gallery',
         cardHintTitle: 'Client-ready execution',
         cardHintCopy: 'Open the case study or review the code approach behind the result.',
-        viewDetailsLabel: 'View Details',
+        viewDetailsLabel: 'View Project',
+        viewCaseStudyLabel: 'View Case Study',
         placeholder: 'Project Preview',
         liveDemo: 'Live Demo',
         githubCta: 'GitHub',
+        internalOnlyLabel: 'Curated Internal View',
+        internalOnlyCopy: 'This project is presented as a curated case study to highlight the product thinking, UI structure, and frontend execution without placeholder links.',
         technologies: 'Technologies',
         impact: 'Impact',
         problem: 'Problem',
@@ -563,7 +605,10 @@ export const portfolioContent = {
     projectItems: {
       dashboard: {
         title: 'Restaurant Management Dashboard',
+        shortLabel: 'Orders, sales, and operations',
         description: 'A management dashboard designed to help restaurant teams track orders, sales, and daily activity faster through a clearer, more usable interface.',
+        projectType: 'frontend-build',
+        projectTypeLabel: 'Frontend Build',
         category: 'Dashboard',
         stack: 'React',
         technologies: ['React', 'Tailwind CSS', 'Responsive Layout', 'Dashboard UX'],
@@ -578,7 +623,10 @@ export const portfolioContent = {
       },
       restaurantGallery: {
         title: 'Restaurant Gallery',
+        shortLabel: 'Connected hospitality case study',
         description: 'A restaurant showcase built to present the full product experience in a way that feels polished, credible, and client-ready.',
+        projectType: 'case-study',
+        projectTypeLabel: 'Case Study',
         category: 'Case Study',
         stack: 'Restaurant Gallery',
         technologies: ['React', 'Tailwind CSS', 'Case Study UX', 'Responsive Design'],
@@ -591,7 +639,10 @@ export const portfolioContent = {
       },
       fashion: {
         title: 'Luxury Fashion Store',
+        shortLabel: 'Boutique ecommerce interface',
         description: 'A premium ecommerce storefront focused on presenting products with stronger visual trust, smooth browsing, and a more refined buying experience.',
+        projectType: 'frontend-build',
+        projectTypeLabel: 'Frontend Build',
         category: 'E-Commerce',
         stack: 'Luxury UI',
         technologies: ['React', 'Tailwind CSS', 'E-commerce UI', 'Responsive UX'],
@@ -605,7 +656,10 @@ export const portfolioContent = {
       },
       fashionGallery: {
         title: 'Fashion Gallery',
+        shortLabel: 'Editorial product flow',
         description: 'A connected fashion case study that shows how polished landing and product-detail flows can translate into a real client-facing experience.',
+        projectType: 'ui-showcase',
+        projectTypeLabel: 'UI Showcase',
         category: 'Case Study',
         stack: 'Fashion Gallery',
         technologies: ['React', 'Tailwind CSS', 'Editorial Layout', 'Case Study Flow'],
@@ -615,6 +669,23 @@ export const portfolioContent = {
         filter: 'react',
         liveUrl: '/experiences/fashion-gallery',
         githubUrl: contactData.github,
+      },
+      siemex: {
+        title: 'Siemex Website',
+        shortLabel: 'Multilingual staffing platform',
+        description: 'Enhanced an energy-transition staffing website with multilingual support for Dutch, English, and Arabic, full RTL support for Arabic, light/dark mode, and a clean React + Vite architecture.',
+        projectType: 'frontend-build',
+        projectTypeLabel: 'Frontend Build',
+        category: 'Website',
+        stack: 'React + Vite',
+        technologies: ['React', 'Vite', 'TypeScript', 'TanStack Router', 'CSS', 'Vercel'],
+        problem: 'The staffing website needed a cleaner frontend foundation that could support multilingual content, Arabic RTL behavior, and theme switching without introducing inconsistent UI states.',
+        solution: 'I upgraded the frontend with React + Vite and TypeScript, added Dutch / English / Arabic support, implemented full RTL handling for Arabic, and structured navigation with TanStack Router.',
+        impact: 'The result is a more scalable multilingual website with clearer UX, reliable Arabic presentation, and a maintainable frontend setup ready for future iterations.',
+        filter: 'react',
+        liveLabel: 'Live Demo',
+        liveUrl: 'https://siemex-boost-upgrade2.vercel.app/',
+        githubUrl: 'https://github.com/mohabx116-creator/siemex-boost-upgrade2',
       },
     },
     projectPages: {

@@ -5,6 +5,7 @@ import restaurantOrdersManagement from '../assets/restaurant-orders-management.p
 import fashionHome from '../assets/fashion-home-screen.png'
 import fashionListing from '../assets/fashion-listing-screen.png'
 import fashionProduct from '../assets/fashion-product-screen.png'
+import siemexWebsiteCover from '../assets/siemex-website-cover.jpg'
 
 export const projectAssets = {
   dashboard: {
@@ -25,8 +26,12 @@ export const projectAssets = {
     cover: fashionHome,
     gallery: [fashionHome, fashionListing, fashionProduct],
   },
+  siemex: {
+    cover: siemexWebsiteCover,
+    gallery: [siemexWebsiteCover],
+  },
   fashionGallery: {
-    cover: fashionHome,
+    cover: fashionProduct,
     screens: {
       home: fashionHome,
       listing: fashionListing,
