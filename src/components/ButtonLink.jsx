@@ -3,7 +3,7 @@ function ButtonLink({ href, children, variant = 'primary', target, rel, classNam
     primary:
       'border border-primary/65 bg-berry-button text-white shadow-[0_20px_54px_rgba(var(--color-primary-container),0.34)] hover:scale-[1.015] hover:brightness-110 hover:shadow-[0_24px_62px_rgba(var(--color-primary-container),0.42)]',
     ghost:
-      'border border-white/18 bg-white/[0.02] text-white hover:scale-[1.01] hover:border-white/60 hover:bg-white hover:text-surface',
+      'border border-outline-variant/70 bg-white/95 text-on-surface ring-1 ring-primary/10 shadow-[0_10px_30px_rgba(15,23,42,0.08),0_0_18px_rgba(255,45,45,0.10)] hover:scale-[1.01] hover:border-primary/30 hover:ring-primary/20 hover:bg-white hover:text-on-surface hover:shadow-[0_14px_34px_rgba(15,23,42,0.10),0_0_28px_rgba(255,45,45,0.16)]',
     subtle: 'text-primary hover:bg-primary/10',
   }
 
