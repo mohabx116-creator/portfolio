@@ -124,7 +124,7 @@ const makeContent = (copy) => ({
 export const portfolioContent = {
   ar: makeContent({
     brandName: 'مهاب',
-    brandRole: 'مهاب | مطور React',
+    brandRole: 'مهاب | مطور React + Node.js',
     nav: { home: 'الرئيسية', services: 'الخدمات', projects: 'الأعمال', about: 'نبذة', contact: 'تواصل', contactCta: 'تواصل معي', backHome: 'العودة للرئيسية' },
     controls: { theme: 'تبديل الثيم', language: 'تبديل اللغة', dark: 'داكن', light: 'فاتح', ar: 'AR', en: 'EN', menu: 'فتح القائمة' },
     contactItems: {
@@ -138,20 +138,20 @@ export const portfolioContent = {
     },
     hero: {
       availability: 'متاح للمشاريع الجديدة',
-      title: 'مطور Frontend متخصص في بناء تطبيقات React عالية الأداء',
-      subtitle: 'أبني واجهات سريعة، نظيفة، ومتجاوبة تركز على الأداء، وضوح الـ UI، والحلول العملية المناسبة لمشاريع العملاء الحقيقية.',
+      title: 'مطور Full-Stack يبني تطبيقات ويب قابلة للتوسع',
+      subtitle: 'أبني حلول ويب متكاملة من واجهات نظيفة ومتجاوبة إلى Backends آمنة و APIs وقواعد بيانات، مع تركيز على الأداء، قابلية التوسع، والنتائج العملية.',
       primaryCta: 'وظفني الآن',
       secondaryCta: 'شاهد المشاريع',
-      trustBadges: ['React.js', 'Responsive UI', 'Clean Code', 'API Integration'],
+      trustBadges: ['React.js', 'Node.js', 'PostgreSQL', 'Docker', 'API Development', 'Responsive UI'],
       quickLinks: [
         { label: 'GitHub', href: contactData.github },
         { label: 'Email', href: `mailto:${contactData.email}` },
         { label: 'WhatsApp', href: 'https://wa.me/201027613133' },
       ],
       stats: [
-        { value: '50+', label: 'واجهة وصفحة تم تنفيذها بجودة احترافية' },
-        { value: 'Fast', label: 'تركيز واضح على الأداء وسرعة التصفح' },
-        { value: '24/7', label: 'تواصل سريع لمناقشة فرص العمل الجديدة' },
+        { value: '20+', label: 'مشاريع Frontend تم تنفيذها' },
+        { value: '10+', label: 'Backend APIs تم بناؤها' },
+        { value: 'Live', label: 'تطبيقات Full-stack منشورة' },
       ],
       mock: { file: 'portfolio-dashboard.v1', performance: 'أداء الواجهة', availability: 'جاهزية للتواصل', completedPrefix: 'تم تنفيذ أكثر من', completedValue: '50+ مشروع' },
     },
@@ -209,7 +209,7 @@ export const portfolioContent = {
           { title: 'Attention to Detail', description: 'اهتمام بالتفاصيل الصغيرة التي ترفع جودة التجربة.' },
         ],
       },
-      about: { eyebrow: 'من أنا', title: 'مطور Frontend متخصص في React وبناء واجهات احترافية', description: 'أطوّر واجهات React سريعة ومتجاوبة تركز على جودة التصميم، الأداء، وتجربة المستخدم، بحيث يظهر مشروعك بشكل أكثر احترافية وثقة أمام العميل.', imageAlt: 'واجهة عمل احترافية', highlights: [{ value: 'RTL', label: 'دعم عربي كامل وتجربة منظمة' }, { value: 'UI', label: 'تركيز على الجودة البصرية والانطباع الأول' }, { value: 'Speed', label: 'أداء جيد وهيكل واضح للتطوير' }] },
+      about: { eyebrow: 'من أنا', title: 'مطور Full-Stack متخصص في React و Node.js وتطبيقات الويب المتكاملة', description: 'أطوّر تطبيقات ويب كاملة تجمع بين واجهات React سريعة ومتجاوبة، Backends منظمة، REST APIs، PostgreSQL، و Docker لتقديم حلول قابلة للتوسع وجاهزة للاستخدام الحقيقي.', imageAlt: 'واجهة عمل احترافية', highlights: [{ value: 'React', label: 'واجهات حديثة ومتجاوبة' }, { value: 'Node.js', label: 'Backend و REST APIs آمنة' }, { value: 'PostgreSQL', label: 'قواعد بيانات وتطبيقات قابلة للتوسع' }] },
       testimonials: {
         eyebrow: 'آراء عملاء',
         title: 'انطباعات تعكس أسلوب العمل',
@@ -531,7 +531,7 @@ export const portfolioContent = {
   }),
   en: makeContent({
     brandName: 'Mohab',
-    brandRole: 'Mohab | React Developer',
+    brandRole: 'Mohab | React + Node.js Developer',
     nav: { home: 'Home', services: 'Services', projects: 'Work', about: 'About', contact: 'Contact', contactCta: 'Contact Me', backHome: 'Back Home' },
     controls: { theme: 'Toggle theme', language: 'Toggle language', dark: 'Dark', light: 'Light', ar: 'AR', en: 'EN', menu: 'Open menu' },
     contactItems: {
@@ -545,20 +545,20 @@ export const portfolioContent = {
     },
     hero: {
       availability: 'Available for new projects',
-      title: 'Frontend Developer specialized in building high-performance React applications',
-      subtitle: 'I build clean, responsive interfaces focused on performance, polished UI, and real-world solutions that help products feel more professional and conversion-ready.',
+      title: 'Full-Stack Developer building scalable web applications',
+      subtitle: 'I build end-to-end web solutions — from clean, responsive frontends to secure backends, APIs, and databases. Focused on performance, scalability, and real-world results.',
       primaryCta: 'Hire Me',
       secondaryCta: 'View Projects',
-      trustBadges: ['React.js', 'Performance', 'Responsive UI', 'API Integration'],
+      trustBadges: ['React.js', 'Node.js', 'PostgreSQL', 'Docker', 'API Development', 'Responsive UI'],
       quickLinks: [
         { label: 'GitHub', href: contactData.github },
         { label: 'Email', href: `mailto:${contactData.email}` },
         { label: 'WhatsApp', href: 'https://wa.me/201027613133' },
       ],
       stats: [
-        { value: '50+', label: 'Landing pages, dashboards, and product screens delivered' },
-        { value: 'Fast', label: 'Performance-first frontend implementation' },
-        { value: '24/7', label: 'Responsive communication for freelance projects' },
+        { value: '20+', label: 'Frontend projects delivered' },
+        { value: '10+', label: 'Backend APIs built' },
+        { value: 'Live', label: 'Full-stack apps deployed' },
       ],
       mock: { file: 'portfolio-dashboard.v1', performance: 'Interface performance', availability: 'Ready to communicate', completedPrefix: 'Delivered more than', completedValue: '50+ projects' },
     },
@@ -616,7 +616,7 @@ export const portfolioContent = {
           { title: 'Attention to Detail', description: 'Spacing, hierarchy, and micro-polish that elevate the final result.' },
         ],
       },
-      about: { eyebrow: 'About', title: 'Frontend developer specialized in React and polished interfaces', description: 'I build fast, responsive React interfaces with a strong focus on UI quality, performance, and user experience so your product feels more professional and trustworthy.', imageAlt: 'Professional interface preview', highlights: [{ value: 'RTL', label: 'Full Arabic support and structured UX' }, { value: 'UI', label: 'Strong visual quality and first impression' }, { value: 'Speed', label: 'Clean performance and maintainable structure' }] },
+      about: { eyebrow: 'About', title: 'Full-Stack developer specialized in React, Node.js, and end-to-end web applications', description: 'I build complete web applications that combine fast React frontends, secure Node.js backends, REST APIs, PostgreSQL databases, and Docker-ready deployment workflows for scalable real-world products.', imageAlt: 'Professional full-stack application preview', highlights: [{ value: 'React', label: 'Modern responsive frontends' }, { value: 'Node.js', label: 'Secure backends and REST APIs' }, { value: 'PostgreSQL', label: 'Scalable data-driven applications' }] },
       testimonials: {
         eyebrow: 'Testimonials',
         title: 'What working together feels like',
