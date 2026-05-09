@@ -209,7 +209,7 @@ export const portfolioContent = {
           { title: 'Attention to Detail', description: 'اهتمام بالتفاصيل الصغيرة التي ترفع جودة التجربة.' },
         ],
       },
-      about: { eyebrow: 'من أنا', title: 'مطور Full-Stack متخصص في React و Node.js وتطبيقات الويب المتكاملة', description: 'أطوّر تطبيقات ويب كاملة تجمع بين واجهات React سريعة ومتجاوبة، Backends منظمة، REST APIs، PostgreSQL، و Docker لتقديم حلول قابلة للتوسع وجاهزة للاستخدام الحقيقي.', imageAlt: 'واجهة عمل احترافية', highlights: [{ value: 'React', label: 'واجهات حديثة ومتجاوبة' }, { value: 'Node.js', label: 'Backend و REST APIs آمنة' }, { value: 'PostgreSQL', label: 'قواعد بيانات وتطبيقات قابلة للتوسع' }] },
+      about: { eyebrow: 'من أنا', title: 'مطور Full-Stack متخصص في React و Node.js وتطبيقات الويب المتكاملة', description: 'أطوّر تطبيقات ويب كاملة تجمع بين واجهات React سريعة ومتجاوبة، Backends منظمة، REST APIs، PostgreSQL، و Docker لتقديم حلول قابلة للتوسع وجاهزة للاستخدام الحقيقي.', imageAlt: 'واجهة عمل احترافية', highlights: [{ value: 'React', label: 'واجهات حديثة ومتجاوبة' }, { value: 'Node.js', label: 'Backend و REST APIs آمنة' }, { value: 'PostgreSQL', label: 'قواعد بيانات وتطبيقات قابلة للتوسع' }], techStackLabel: 'تقنيات Full-Stack', techStack: ['React.js', 'Node.js', 'Express.js', 'PostgreSQL', 'Docker', 'REST APIs', 'Backend Development', 'Responsive UI'] },
       testimonials: {
         eyebrow: 'آراء عملاء',
         title: 'انطباعات تعكس أسلوب العمل',
@@ -616,7 +616,7 @@ export const portfolioContent = {
           { title: 'Attention to Detail', description: 'Spacing, hierarchy, and micro-polish that elevate the final result.' },
         ],
       },
-      about: { eyebrow: 'About', title: 'Full-Stack developer specialized in React, Node.js, and end-to-end web applications', description: 'I build complete web applications that combine fast React frontends, secure Node.js backends, REST APIs, PostgreSQL databases, and Docker-ready deployment workflows for scalable real-world products.', imageAlt: 'Professional full-stack application preview', highlights: [{ value: 'React', label: 'Modern responsive frontends' }, { value: 'Node.js', label: 'Secure backends and REST APIs' }, { value: 'PostgreSQL', label: 'Scalable data-driven applications' }] },
+      about: { eyebrow: 'About', title: 'Full-Stack developer specialized in React, Node.js, and end-to-end web applications', description: 'I build complete web applications that combine fast React frontends, secure Node.js backends, REST APIs, PostgreSQL databases, and Docker-ready deployment workflows for scalable real-world products.', imageAlt: 'Professional full-stack application preview', highlights: [{ value: 'React', label: 'Modern responsive frontends' }, { value: 'Node.js', label: 'Secure backends and REST APIs' }, { value: 'PostgreSQL', label: 'Scalable data-driven applications' }], techStackLabel: 'Full-Stack Toolkit', techStack: ['React.js', 'Node.js', 'Express.js', 'PostgreSQL', 'Docker', 'REST APIs', 'Backend Development', 'Responsive UI'] },
       testimonials: {
         eyebrow: 'Testimonials',
         title: 'What working together feels like',
