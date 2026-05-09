@@ -124,6 +124,18 @@ function ProjectPreviewCard({ project, onOpen }) {
         <p className="text-sm leading-7 text-on-muted">
           {shortDescription}
         </p>
+        <div className="mt-4 grid gap-3">
+          {[
+            [projectsSection.problem, project.problem],
+            [projectsSection.solution, project.solution],
+            [projectsSection.impact, project.impact],
+          ].filter(([, value]) => value).map(([label, value]) => (
+            <div key={label} className="rounded-2xl border border-outline-variant/12 bg-surface-high/55 p-3">
+              <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-primary">{label}</p>
+              <p className="mt-1.5 line-clamp-2 text-xs leading-5 text-on-muted">{value}</p>
+            </div>
+          ))}
+        </div>
         <div className="mt-4 flex flex-wrap gap-2">
           {technologies.map((tech) => (
             <span

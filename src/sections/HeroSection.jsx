@@ -58,7 +58,12 @@ function HeroSection() {
             </p>
 
             <div className={`mt-8 flex flex-col gap-3 sm:mt-10 sm:flex-row sm:flex-wrap sm:gap-4 ${buttonAlign}`}>
-              <ButtonLink href="#contact" className="soft-glow w-full px-6 py-4 text-base sm:w-auto sm:min-w-[220px] sm:px-10 sm:text-lg">
+              <ButtonLink
+                href={hero.primaryHref || '#contact'}
+                target={hero.primaryHref?.startsWith('http') ? '_blank' : undefined}
+                rel={hero.primaryHref?.startsWith('http') ? 'noopener noreferrer' : undefined}
+                className="soft-glow w-full px-6 py-4 text-base sm:w-auto sm:min-w-[220px] sm:px-10 sm:text-lg"
+              >
                 {hero.primaryCta}
               </ButtonLink>
               <ButtonLink

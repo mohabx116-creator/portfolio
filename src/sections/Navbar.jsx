@@ -13,6 +13,7 @@ function Navbar() {
   const nav = content?.nav || {}
   const controlsContent = content?.controls || {}
   const ctaSection = content?.sections?.cta || {}
+  const upworkUrl = content?.contactData?.upwork
 
   useEffect(() => {
     if (!isOpen) {
@@ -123,7 +124,9 @@ function Navbar() {
                 </ButtonLink>
               ) : (
                 <ButtonLink
-                  href="#contact"
+                  href={upworkUrl || '#contact'}
+                  target={upworkUrl ? '_blank' : undefined}
+                  rel={upworkUrl ? 'noopener noreferrer' : undefined}
                   variant="primary"
                   className="cta-attention whitespace-nowrap rounded-full px-5 py-3 text-sm lg:px-6"
                 >
@@ -179,7 +182,13 @@ function Navbar() {
                   {ctaSection.action || 'Contact'}
                 </ButtonLink>
               ) : (
-                <ButtonLink href="#contact" className="mt-4 w-full" onClick={() => setIsOpen(false)}>
+                <ButtonLink
+                  href={upworkUrl || '#contact'}
+                  target={upworkUrl ? '_blank' : undefined}
+                  rel={upworkUrl ? 'noopener noreferrer' : undefined}
+                  className="mt-4 w-full"
+                  onClick={() => setIsOpen(false)}
+                >
                   {nav.contactCta || 'Contact Me'}
                 </ButtonLink>
               )}

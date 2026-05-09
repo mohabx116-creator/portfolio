@@ -12,6 +12,7 @@ import ScrollToTop from './components/ScrollToTop'
 const ServicesSection = lazy(() => import('./sections/ServicesSection'))
 const ProjectsSection = lazy(() => import('./sections/ProjectsSection'))
 const WhyChooseSection = lazy(() => import('./sections/WhyChooseSection'))
+const BackendProofSection = lazy(() => import('./sections/BackendProofSection'))
 const AboutSection = lazy(() => import('./sections/AboutSection'))
 const TestimonialsSection = lazy(() => import('./sections/TestimonialsSection'))
 const CtaSection = lazy(() => import('./sections/CtaSection'))
@@ -30,6 +31,7 @@ function HomePage() {
         <Suspense fallback={<SectionFallback />}>
           <ServicesSection />
           <ProjectsSection />
+          <BackendProofSection />
           <WhyChooseSection />
           <AboutSection />
           <TestimonialsSection />

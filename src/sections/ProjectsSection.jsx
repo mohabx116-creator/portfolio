@@ -13,6 +13,7 @@ function ProjectsSection() {
   const [activeFilter, setActiveFilter] = useState('all')
   const [selectedProject, setSelectedProject] = useState(null)
   const projectsSection = content?.sections?.projects || {}
+  const upworkUrl = content?.contactData?.upwork
   const projects = Array.isArray(content?.projects) ? content.projects : []
   const visibleProjects = activeFilter === 'all'
     ? projects
@@ -20,9 +21,9 @@ function ProjectsSection() {
 
   const filters = [
     { id: 'all', label: projectsSection.filters?.all || 'All' },
-    { id: 'react', label: projectsSection.filters?.react || 'React Apps' },
-    { id: 'landing', label: projectsSection.filters?.landing || 'Landing Pages' },
-    { id: 'dashboard', label: projectsSection.filters?.dashboard || 'Dashboards' },
+    { id: 'frontend', label: projectsSection.filters?.frontend || 'Frontend' },
+    { id: 'fullstack', label: projectsSection.filters?.fullstack || 'Full-Stack' },
+    { id: 'tools', label: projectsSection.filters?.tools || 'Tools' },
   ]
 
   return (
@@ -87,7 +88,12 @@ function ProjectsSection() {
               {projectsSection.ctaCopy}
             </p>
             <div className="mt-6 flex justify-center">
-              <ButtonLink href="#contact" className="w-full sm:w-auto sm:min-w-[220px]">
+              <ButtonLink
+                href={upworkUrl || '#contact'}
+                target={upworkUrl ? '_blank' : undefined}
+                rel={upworkUrl ? 'noopener noreferrer' : undefined}
+                className="w-full sm:w-auto sm:min-w-[220px]"
+              >
                 {projectsSection.ctaAction}
               </ButtonLink>
             </div>
