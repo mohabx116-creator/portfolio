@@ -21,8 +21,8 @@ export default {
         'outline-variant': 'rgb(var(--color-outline-variant) / <alpha-value>)',
       },
       fontFamily: {
-        sans: ['IBM Plex Sans Arabic', 'Inter', 'sans-serif'],
-        headline: ['Plus Jakarta Sans', 'IBM Plex Sans Arabic', 'sans-serif'],
+        sans: ['Inter', 'IBM Plex Sans Arabic', 'sans-serif'],
+        headline: ['Inter', 'Plus Jakarta Sans', 'IBM Plex Sans Arabic', 'sans-serif'],
         label: ['Inter', 'IBM Plex Sans Arabic', 'sans-serif'],
       },
       boxShadow: {

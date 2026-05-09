@@ -15,10 +15,6 @@ function Navbar() {
   const ctaSection = content?.sections?.cta || {}
 
   useEffect(() => {
-    setIsOpen(false)
-  }, [location.pathname, language])
-
-  useEffect(() => {
     if (!isOpen) {
       return undefined
     }

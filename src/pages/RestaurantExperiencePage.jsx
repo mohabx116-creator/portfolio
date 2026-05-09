@@ -1,5 +1,5 @@
 import { Link, useLocation } from 'react-router-dom'
-import { useEffect, useMemo, useState } from 'react'
+import { useMemo, useState } from 'react'
 import Container from '../components/Container'
 import ButtonLink from '../components/ButtonLink'
 import Navbar from '../sections/Navbar'
@@ -10,20 +10,22 @@ function RestaurantExperiencePage() {
   const { content } = useAppSettings()
   const location = useLocation()
   const restaurantGallery = content?.restaurantGallery || {}
-  const screens = Array.isArray(restaurantGallery.screens) ? restaurantGallery.screens : []
-  const [activeScreenId, setActiveScreenId] = useState(screens[0]?.id || 'restaurant-home')
+  const screens = useMemo(
+    () => (Array.isArray(restaurantGallery.screens) ? restaurantGallery.screens : []),
+    [restaurantGallery.screens],
+  )
+  const [activeScreenId, setActiveScreenId] = useState(() => {
+    const hashId = window.location.hash.replace('#', '')
+    return hashId || screens[0]?.id || 'restaurant-home'
+  })
   const [dayPart, setDayPart] = useState('today')
 
-  useEffect(() => {
-    const hashId = location.hash.replace('#', '')
-    if (hashId && screens.some((screen) => screen.id === hashId)) {
-      setActiveScreenId(hashId)
-    }
-  }, [location.hash, screens])
-
   const activeScreen = useMemo(
-    () => screens.find((screen) => screen.id === activeScreenId) || screens[0],
-    [activeScreenId, screens],
+    () => {
+      const hashId = location.hash.replace('#', '')
+      return screens.find((screen) => screen.id === (hashId || activeScreenId)) || screens[0]
+    },
+    [activeScreenId, location.hash, screens],
   )
 
   const switchScreen = (id) => {

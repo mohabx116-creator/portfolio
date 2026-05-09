@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react'
+import { useState } from 'react'
 import ButtonLink from '../components/ButtonLink'
 import Container from '../components/Container'
 import ProjectModal from '../components/ProjectModal'
@@ -14,14 +14,9 @@ function ProjectsSection() {
   const [selectedProject, setSelectedProject] = useState(null)
   const projectsSection = content?.sections?.projects || {}
   const projects = Array.isArray(content?.projects) ? content.projects : []
-  const visibleProjects = useMemo(
-    () => (
-      activeFilter === 'all'
-        ? projects
-        : projects.filter((project) => project.filter === activeFilter)
-    ),
-    [activeFilter, projects],
-  )
+  const visibleProjects = activeFilter === 'all'
+    ? projects
+    : projects.filter((project) => project.filter === activeFilter)
 
   const filters = [
     { id: 'all', label: projectsSection.filters?.all || 'All' },

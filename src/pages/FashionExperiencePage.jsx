@@ -1,5 +1,5 @@
 import { Link, useLocation } from 'react-router-dom'
-import { useEffect, useMemo, useState } from 'react'
+import { useMemo, useState } from 'react'
 import Container from '../components/Container'
 import ButtonLink from '../components/ButtonLink'
 import Navbar from '../sections/Navbar'
@@ -10,21 +10,23 @@ function FashionExperiencePage() {
   const { content } = useAppSettings()
   const location = useLocation()
   const fashionGallery = content?.fashionGallery || {}
-  const screens = Array.isArray(fashionGallery.screens) ? fashionGallery.screens : []
-  const [activeScreenId, setActiveScreenId] = useState(screens[0]?.id || 'home-page')
+  const screens = useMemo(
+    () => (Array.isArray(fashionGallery.screens) ? fashionGallery.screens : []),
+    [fashionGallery.screens],
+  )
+  const [activeScreenId, setActiveScreenId] = useState(() => {
+    const hashId = window.location.hash.replace('#', '')
+    return hashId || screens[0]?.id || 'home-page'
+  })
   const [selectedSize, setSelectedSize] = useState('M')
   const [selectedColor, setSelectedColor] = useState('Indigo')
 
-  useEffect(() => {
-    const hashId = location.hash.replace('#', '')
-    if (hashId && screens.some((screen) => screen.id === hashId)) {
-      setActiveScreenId(hashId)
-    }
-  }, [location.hash, screens])
-
   const activeScreen = useMemo(
-    () => screens.find((screen) => screen.id === activeScreenId) || screens[0],
-    [activeScreenId, screens],
+    () => {
+      const hashId = location.hash.replace('#', '')
+      return screens.find((screen) => screen.id === (hashId || activeScreenId)) || screens[0]
+    },
+    [activeScreenId, location.hash, screens],
   )
 
   const switchScreen = (id) => {
