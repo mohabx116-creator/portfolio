@@ -6,6 +6,7 @@ import fashionHome from '../assets/fashion-home-screen.png'
 import fashionListing from '../assets/fashion-listing-screen.png'
 import fashionProduct from '../assets/fashion-product-screen.png'
 import siemexWebsiteCover from '../assets/siemex-website-cover.jpg'
+import restodashLiteLoginCover from '../assets/restodash-lite-login-cover.png'
 import salmaHaniPortfolioCover from '../assets/salma-hani-portfolio-cover.png'
 
 export const projectAssets = {
@@ -32,8 +33,8 @@ export const projectAssets = {
     gallery: [siemexWebsiteCover],
   },
   dockerRestaurantDashboard: {
-    cover: dashboardOverview,
-    gallery: [dashboardOverview, restaurantMenuManagement, restaurantOrdersManagement],
+    cover: restodashLiteLoginCover,
+    gallery: [restodashLiteLoginCover, dashboardOverview, restaurantMenuManagement, restaurantOrdersManagement],
   },
   salmaHaniPortfolio: {
     cover: salmaHaniPortfolioCover,
