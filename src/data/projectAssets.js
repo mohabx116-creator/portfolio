@@ -6,6 +6,7 @@ import fashionHome from '../assets/fashion-home-screen.png'
 import fashionListing from '../assets/fashion-listing-screen.png'
 import fashionProduct from '../assets/fashion-product-screen.png'
 import siemexWebsiteCover from '../assets/siemex-website-cover.jpg'
+import salmaHaniPortfolioCover from '../assets/salma-hani-portfolio-cover.png'
 
 export const projectAssets = {
   dashboard: {
@@ -29,6 +30,14 @@ export const projectAssets = {
   siemex: {
     cover: siemexWebsiteCover,
     gallery: [siemexWebsiteCover],
+  },
+  dockerRestaurantDashboard: {
+    cover: dashboardOverview,
+    gallery: [dashboardOverview, restaurantMenuManagement, restaurantOrdersManagement],
+  },
+  salmaHaniPortfolio: {
+    cover: salmaHaniPortfolioCover,
+    gallery: [salmaHaniPortfolioCover],
   },
   fashionGallery: {
     cover: fashionProduct,
