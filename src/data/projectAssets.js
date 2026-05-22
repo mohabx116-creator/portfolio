@@ -8,8 +8,18 @@ import fashionProduct from '../assets/fashion-product-screen.png'
 import siemexWebsiteCover from '../assets/siemex-website-cover.jpg'
 import restodashLiteLoginCover from '../assets/restodash-lite-login-cover.png'
 import salmaHaniPortfolioCover from '../assets/salma-hani-portfolio-cover.png'
+import megawattCover from '../assets/megawatt-cover.png'
+import flowstoneCover from '../assets/flowstone-cover.png'
 
 export const projectAssets = {
+  megawatt: {
+    cover: megawattCover,
+    gallery: [megawattCover],
+  },
+  flowstone: {
+    cover: flowstoneCover,
+    gallery: [flowstoneCover],
+  },
   dashboard: {
     cover: dashboardOverview,
     gallery: [dashboardOverview, restaurantHome],
