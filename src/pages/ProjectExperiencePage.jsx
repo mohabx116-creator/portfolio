@@ -1,4 +1,5 @@
 import { Link, useParams } from 'react-router-dom'
+import { ExternalLink } from 'lucide-react'
 import ButtonLink from '../components/ButtonLink'
 import Container from '../components/Container'
 import FashionCaseStudyPage from '../components/FashionCaseStudyPage'
@@ -86,9 +87,18 @@ function ProjectExperiencePage() {
                 </div>
 
                 <div className="mt-8 flex flex-col gap-3 sm:mt-10 sm:flex-row sm:flex-wrap sm:gap-4">
-                  <ButtonLink href="https://wa.me/201027613133" target="_blank" rel="noreferrer" className="w-full sm:w-auto">
-                    {projectPageLabels.contactCta || 'Start on WhatsApp'}
-                  </ButtonLink>
+                  {project.demoUrl ? (
+                    <ButtonLink href={project.demoUrl} target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
+                      <span className="flex items-center gap-2">
+                        {content?.sections?.projects?.liveDemo || 'Live Demo'}
+                        <ExternalLink className="h-4 w-4" />
+                      </span>
+                    </ButtonLink>
+                  ) : (
+                    <ButtonLink href="https://wa.me/201027613133" target="_blank" rel="noreferrer" className="w-full sm:w-auto">
+                      {projectPageLabels.contactCta || 'Start on WhatsApp'}
+                    </ButtonLink>
+                  )}
                   <ButtonLink href="/" variant="ghost" className="w-full sm:w-auto">
                     {content?.nav?.backHome || 'Back Home'}
                   </ButtonLink>

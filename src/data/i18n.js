@@ -54,6 +54,7 @@ const makeContent = (copy) => ({
     copy.contactItems.github,
   ],
   projects: [
+    buildProjectEntry({ route: '/projects/dalil-subhi-real-estate', image: projectAssets.dalilSubhi.cover, item: copy.projectItems.dalilSubhi }),
     buildProjectEntry({ route: 'https://megawatt-one.vercel.app/', image: projectAssets.megawatt.cover, item: copy.projectItems.megawatt }),
     buildProjectEntry({ route: 'https://flowstone-asset-registry.vercel.app/', image: projectAssets.flowstone.cover, item: copy.projectItems.flowstone }),
     buildProjectEntry({ route: '/projects/dashboard', image: projectAssets.dashboard.cover, item: copy.projectItems.dashboard }),
@@ -65,6 +66,11 @@ const makeContent = (copy) => ({
     buildProjectEntry({ route: '/experiences/fashion-gallery', image: projectAssets.fashionGallery.cover, item: copy.projectItems.fashionGallery }),
   ],
   projectPages: {
+    dalilSubhi: {
+      route: '/projects/dalil-subhi-real-estate',
+      images: projectAssets.dalilSubhi.gallery,
+      ...copy.projectPages.dalilSubhi,
+    },
     dashboard: {
       route: '/projects/dashboard',
       images: projectAssets.dashboard.gallery,
@@ -278,6 +284,25 @@ export const portfolioContent = {
       uiEnhancement: { title: 'Fix Bugs & Improve Performance', description: 'تحسينات عملية ترفع الاستقرار والسرعة والانطباع العام.', icon: 'spark' },
     },
     projectItems: {
+      dalilSubhi: {
+        title: 'دليل السبحي العقاري',
+        shortLabel: 'منصة عقارية متكاملة',
+        description: 'منصة عقارية شاملة تهدف لتسهيل استكشاف العقارات والأراضي عبر تجربة تصفح حديثة، متجاوبة وغنية بالمحتوى.',
+        projectType: 'frontend-build',
+        projectTypeLabel: 'تنفيذ Full-Stack',
+        category: 'منصة عقارية',
+        stack: 'React + TS',
+        technologies: ['React', 'TypeScript', 'Tailwind CSS', 'React Query', 'React Hook Form'],
+        problem: 'المستخدمون يواجهون صعوبة في تصفح العقارات والأراضي بطريقة واضحة ومنظمة مع تجربة استخدام تدعم اللغة العربية (RTL).',
+        solution: 'بنيت واجهة منظمة تعتمد على المكونات القابلة لإعادة الاستخدام، مع نظام بحث وتصفية قوي، وعرض تفصيلي للعقارات.',
+        impact: 'تجربة مستخدم أسرع وأكثر مرونة لاستكشاف العقارات وتقديم طلبات البيع بأسلوب نظيف واحترافي.',
+        filter: 'fullstack',
+        featured: true,
+        liveLabel: 'عرض دراسة الحالة',
+        liveUrl: '/projects/dalil-subhi-real-estate',
+        liveDemo: 'https://dalilsubhi.com/',
+        githubUrl: contactData.github,
+      },
       megawatt: {
         title: 'ميجاواط - نظام إدارة المخازن والمبيعات',
         shortLabel: 'لوحة تحكم ERP لشركات الكهرباء',
@@ -436,6 +461,18 @@ export const portfolioContent = {
       },
     },
     projectPages: {
+      dalilSubhi: {
+        slug: 'dalil-subhi-real-estate',
+        demoUrl: 'https://dalilsubhi.com/',
+        eyebrow: 'مشروع مطبق',
+        title: 'دليل السبحي العقاري',
+        subtitle: 'تجربة منصة عقارية شاملة تبرز قوة الواجهات المتجاوبة والمكونات المعيارية.',
+        category: 'منصة عقارية',
+        stack: 'React + TS',
+        summary: 'المشروع يقدم تجربة شاملة للبحث عن العقارات والأراضي واستعراض تفاصيلها بواجهة مستخدم حديثة وتدعم الاتجاهين (RTL/LTR).',
+        features: ['نظام بحث وتصفية متقدم', 'عرض تفصيلي للعقارات والأراضي', 'دعم كامل للغة العربية (RTL)', 'معمارية Frontend قابلة للتوسع'],
+        tech: ['React', 'TypeScript', 'Tailwind CSS', 'React Query', 'Vite'],
+      },
       dashboard: {
         slug: 'dashboard',
         eyebrow: 'مشروع مطبق',
@@ -761,6 +798,25 @@ export const portfolioContent = {
       uiEnhancement: { title: 'Fix Bugs & Improve Performance', description: 'Targeted improvements that make existing products feel faster and more polished.', icon: 'spark' },
     },
     projectItems: {
+      dalilSubhi: {
+        title: 'Dalil Al-Sebahi Real Estate',
+        shortLabel: 'Full-Stack Real Estate Platform',
+        description: 'An end-to-end real estate platform designed to make discovering properties and land easier through a modern, responsive and content-rich browsing experience.',
+        projectType: 'frontend-build',
+        projectTypeLabel: 'Full-Stack Build',
+        category: 'Real Estate Platform',
+        stack: 'React + TS',
+        technologies: ['React', 'TypeScript', 'Tailwind CSS', 'React Query', 'React Hook Form'],
+        problem: 'Users struggled with browsing real estate and land properties in a clear, organized way with proper RTL support.',
+        solution: 'Built a modular frontend architecture featuring reusable components, robust search/filtering, and detailed property showcases.',
+        impact: 'Delivered a faster, more flexible user experience for property discovery and submissions with a clean, professional aesthetic.',
+        filter: 'fullstack',
+        featured: true,
+        liveLabel: 'View Case Study',
+        liveUrl: '/projects/dalil-subhi-real-estate',
+        liveDemo: 'https://dalilsubhi.com/',
+        githubUrl: contactData.github,
+      },
       megawatt: {
         title: 'Megawatt - Inventory & ERP Platform',
         shortLabel: 'Enterprise ERP for electrical supplies',
@@ -919,6 +975,18 @@ export const portfolioContent = {
       },
     },
     projectPages: {
+      dalilSubhi: {
+        slug: 'dalil-subhi-real-estate',
+        demoUrl: 'https://dalilsubhi.com/',
+        eyebrow: 'Applied Project',
+        title: 'Dalil Al-Sebahi Real Estate',
+        subtitle: 'A comprehensive real estate platform showcasing responsive UI and modular components.',
+        category: 'Real Estate Platform',
+        stack: 'React + TS',
+        summary: 'This project provides a robust experience for discovering properties and lands, featuring modern user interfaces and bidirectional layout support (RTL/LTR).',
+        features: ['Advanced search and filtering system', 'Detailed property and land showcases', 'Full Arabic language (RTL) support', 'Scalable frontend architecture'],
+        tech: ['React', 'TypeScript', 'Tailwind CSS', 'React Query', 'Vite'],
+      },
       dashboard: {
         slug: 'dashboard',
         eyebrow: 'Built project',

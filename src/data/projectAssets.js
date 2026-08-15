@@ -10,8 +10,17 @@ import restodashLiteLoginCover from '../assets/restodash-lite-login-cover.png'
 import salmaHaniPortfolioCover from '../assets/salma-hani-portfolio-cover.png'
 import megawattCover from '../assets/megawatt-cover.png'
 import flowstoneCover from '../assets/flowstone-cover.png'
+import dalilsubhiHero from '../assets/dalilsubhi-hero.png'
+import dalilsubhiHome from '../assets/dalilsubhi-home.webp'
+import dalilsubhiProperties from '../assets/dalilsubhi-properties.webp'
+import dalilsubhiLands from '../assets/dalilsubhi-lands.webp'
+import dalilsubhiMobile from '../assets/dalilsubhi-mobile.webp'
 
 export const projectAssets = {
+  dalilSubhi: {
+    cover: dalilsubhiHero,
+    gallery: [dalilsubhiHero, dalilsubhiHome, dalilsubhiProperties, dalilsubhiLands, dalilsubhiMobile],
+  },
   megawatt: {
     cover: megawattCover,
     gallery: [megawattCover],
