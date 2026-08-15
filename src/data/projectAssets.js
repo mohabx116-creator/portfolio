@@ -15,11 +15,20 @@ import dalilsubhiHome from '../assets/dalilsubhi-home.webp'
 import dalilsubhiProperties from '../assets/dalilsubhi-properties.webp'
 import dalilsubhiLands from '../assets/dalilsubhi-lands.webp'
 import dalilsubhiMobile from '../assets/dalilsubhi-mobile.webp'
+import orderatHero from '../assets/orderat-hero.webp'
+import orderatRoutes from '../assets/orderat-routes.webp'
+import orderatPricing from '../assets/orderat-pricing.webp'
+import orderatCta from '../assets/orderat-cta.webp'
+import orderatMobile from '../assets/orderat-mobile.webp'
 
 export const projectAssets = {
   dalilSubhi: {
     cover: dalilsubhiHero,
     gallery: [dalilsubhiHero, dalilsubhiHome, dalilsubhiProperties, dalilsubhiLands, dalilsubhiMobile],
+  },
+  orderat: {
+    cover: orderatHero,
+    gallery: [orderatHero, orderatRoutes, orderatPricing, orderatCta, orderatMobile],
   },
   megawatt: {
     cover: megawattCover,
